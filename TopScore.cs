@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-
-namespace BalloonsPops
+﻿namespace BalloonsPops
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.IO;
+
     class TopScore
     {
         public const int MAX_TOP_SCORE_COUNT = 5;

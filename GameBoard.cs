@@ -242,9 +242,10 @@ namespace BalloonsPops
             coordinates = new Coordinates();
             command = new Command();
 
-            if (Command.TryParse(consoleInput, ref command))
+            if (Command.IsValidCommand(consoleInput))
             {
                 IsCoordinates = false;
+                command.Name = consoleInput;
                 return true;
             }
             else if (Coordinates.TryParse(consoleInput, ref coordinates))

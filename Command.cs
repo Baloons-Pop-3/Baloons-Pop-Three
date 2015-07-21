@@ -1,48 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BalloonsPops
+﻿namespace BalloonsPops
 {
-    class Command
+    using System;
+
+    internal class Command
     {
+        private string name;
 
-        string c;
+        public Command()
+        {
+        }
 
-        public string Value
+        // TODO: Check if the property is better to be of type CommandType
+        public string Name
         {
             get
             {
-                return this.c;
+                return this.name;
             }
+
             set
             {
-                this.c = value;
+                // TODO: static class Validator
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException("command name", "cannot be null or empty");
+                }
+
+                this.name = value;
             }
         }
 
-        public static bool TryParse(string input, ref Command result)
+        internal static bool IsValidCommand(string input)
         {
-            if (input == "top")
+            CommandType command;
+            bool isValidCommand = Enum.TryParse(input, true, out command);
+
+            if (!isValidCommand)
             {
-                result.Value = input;
-                return true;
+                return false;
             }
 
-            if (input == "restart")
-            {
-                result.Value = input;
-                return true;
-            }
-
-            if (input == "exit")
-            {
-                result.Value = input;
-                return true;
-            }
-
-            return false;
+            return true;
         }
     }
 }

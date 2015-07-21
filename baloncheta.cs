@@ -31,7 +31,7 @@ namespace BalloonsPops
                     }
                     else
                     {
-                        switch (command.Value)
+                        switch (command.Name)
                         {
                             case "top":
                                 {

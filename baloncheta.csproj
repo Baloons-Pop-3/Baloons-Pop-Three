@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="CommandType.cs" />
     <Compile Include="Coordinates.cs" />
     <Content Include="TopScore.txt" />
     <Compile Include="GameBoard.cs" />

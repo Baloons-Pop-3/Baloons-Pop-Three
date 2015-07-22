@@ -6,11 +6,12 @@ High Quality Code at Telerik Academy teamwork project repository .
 * Сашо (Obelixx):
 	- TopScore.cs
 * Антоан (antoanelenkov):
-	- baloncheta.cs
 	- Coordinates.cs
-* Християн (Hristyan_Andre):
+* Християн (Hristyan_Andreev):
 	- Person.cs
 * Антония (antonina.qnkova):
 	- Command.cs
 	- PersonScoreComparer.cs
+* Everyone is held responsible for the main class:
+        - baloncheta.cs
 	

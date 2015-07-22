@@ -3,9 +3,9 @@
     using System;
     using System.Collections.Generic;
 
-    internal class PersonScoreComparer : IComparer<Person>
+    internal class PersonScoreComparer : IComparer<Player>
     {
-        public int Compare(Person x, Person y)
+        public int Compare(Player x, Player y)
         {
             return x.Score.CompareTo(y.Score);
         }

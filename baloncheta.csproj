@@ -46,6 +46,7 @@
     <Compile Include="Command.cs" />
     <Compile Include="CommandType.cs" />
     <Compile Include="Coordinates.cs" />
+    <Compile Include="Validations\Validator.cs" />
     <Content Include="TopScore.txt" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="Person.cs" />

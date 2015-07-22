@@ -8,9 +8,9 @@
     class TopScore
     {
         public const int MAX_TOP_SCORE_COUNT = 5;
-        List<Person> topScoreList = new List<Person>();
+        List<Player> topScoreList = new List<Player>();
 
-        public bool IsTopScore(Person person)
+        public bool IsTopScore(Player person)
         {
             if (topScoreList.Count >= MAX_TOP_SCORE_COUNT)
             {
@@ -28,7 +28,7 @@
             return true;
         }
 
-        public void AddToTopScoreList(Person person)
+        public void AddToTopScoreList(Player person)
         {
             topScoreList.Add(person);
             PersonScoreComparer comparer = new PersonScoreComparer();
@@ -51,7 +51,7 @@
                     int substringsCount = substrings.Count<string>();
                     if (substringsCount > 0)
                     {
-                        Person player = new Person();
+                        Player player = new Player();
                         player.Name = substrings[1];
                         player.Score = int.Parse(substrings[substringsCount - 2]);
                         topScoreList.Add(player);

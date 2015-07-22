@@ -1,16 +1,19 @@
 # Baloons-Pop-Three
 High Quality Code at Telerik Academy teamwork project repository . 
 
+## Everyone is held responsible for the main class:
+    **   - baloncheta.cs **
+### The sub-classes diviation:
+
 * Павлина (DragnevaPavlina):
 	- GameBoard.cs
 * Сашо (Obelixx):
 	- TopScore.cs
 * Антоан (antoanelenkov):
-	- baloncheta.cs
 	- Coordinates.cs
-* Християн (Hristyan_Andre):
+* Християн (Hristyan_Andreev):
 	- Person.cs
 * Антония (antonina.qnkova):
 	- Command.cs
 	- PersonScoreComparer.cs
-	
+

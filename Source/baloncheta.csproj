@@ -50,7 +50,6 @@
     <Content Include="TopScore.txt" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PersonScoreComparer.cs" />
     <Compile Include="baloncheta.cs" />
     <Compile Include="TopScore.cs" />
   </ItemGroup>

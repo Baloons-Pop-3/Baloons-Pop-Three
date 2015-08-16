@@ -1,14 +1,11 @@
 ﻿namespace BalloonsPops
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     /// <summary>
     /// A class representing the game user.
     /// </summary>
-    public class Player
+    public class Player : IComparable<Player>
     {
         /// <summary>
         /// The name of the user.
@@ -61,6 +58,16 @@
         public static bool operator >(Player x, Player y)
         {
             return x.Score > y.Score;
+        }
+
+        /// <summary>
+        /// A method that compares the scores of two players.
+        /// </summary>
+        /// <param name="otherPlayer">The other player with whose scores player's scores will be compared.</param>
+        /// <returns>Less than zero if the current player instance scores are higher than the other player, zero - if they are equal and greater than zero - otherwise.</returns>
+        public int CompareTo(Player otherPlayer)
+        {
+            return this.Score.CompareTo(otherPlayer.Score);
         }
     }
 }

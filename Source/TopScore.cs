@@ -14,8 +14,7 @@
         {
             if (topScoreList.Count >= MAX_TOP_SCORE_COUNT)
             {
-                PersonScoreComparer comparer = new PersonScoreComparer();
-                topScoreList.Sort(comparer);
+                topScoreList.Sort((p1, p2) => p1.CompareTo(p2));
                 if (topScoreList[MAX_TOP_SCORE_COUNT - 1] > person)
                 {
                     return true;
@@ -31,8 +30,7 @@
         public void AddToTopScoreList(Player person)
         {
             topScoreList.Add(person);
-            PersonScoreComparer comparer = new PersonScoreComparer();
-            topScoreList.Sort(comparer);
+            topScoreList.Sort((p1, p2) => p1.CompareTo(p2));
             while (topScoreList.Count > 5)
             {
                 topScoreList.RemoveAt(5);

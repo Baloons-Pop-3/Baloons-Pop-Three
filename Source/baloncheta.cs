@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BalloonsPops
 {
-	// veche pisha na c#, uraaaaaaaaaaaaaaa, mnogo e yako tova be!
+    // veche pisha na c#, uraaaaaaaaaaaaaaa, mnogo e yako tova be!
     class baloncheta
     {
         static void Main(string[] args)
@@ -16,7 +16,7 @@ namespace BalloonsPops
             TopScore ts = new TopScore();
 
             ts.OpenTopScoreList();
-            
+
             bool isCoordinates;
             Coordinates coordinates = new Coordinates();
             Command command = new Command();
@@ -31,20 +31,20 @@ namespace BalloonsPops
                     }
                     else
                     {
-                        switch (command.Name)
+                        switch (command.Type)
                         {
-                            case "top":
+                            case CommandType.Top:
                                 {
                                     ts.PrintScoreList();
                                 }
                                 break;
-                            case "restart":
+                            case CommandType.Restart:
                                 {
                                     gb.GenerateNewGame();
                                     gb.PrintGameBoard();
                                 }
                                 break;
-                            case "exit":
+                            case CommandType.Exit:
                                 {
                                     return;
                                 }

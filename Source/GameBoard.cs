@@ -148,7 +148,7 @@ namespace BalloonsPops
 
             if (currentBaloon < '1' || currentBaloon > '4')
             {
-                Console.WriteLine("Illegal move: cannot pop missing ballon!");return;
+                Console.WriteLine("Illegal move: cannot pop missing ballon!"); return;
             }
 
 
@@ -202,8 +202,6 @@ namespace BalloonsPops
             char tmp = get(c);
             AddNewBaloonToGameBoard(c, get(c1));
             AddNewBaloonToGameBoard(c1, tmp);
-
-
         }
 
         private void LandFlyingBaloons()
@@ -229,8 +227,6 @@ namespace BalloonsPops
                         }
                     }
                 }
-
-
             }
         }
 
@@ -245,7 +241,7 @@ namespace BalloonsPops
             if (Command.IsValidCommand(consoleInput))
             {
                 IsCoordinates = false;
-                command.Name = consoleInput;
+                command.Type = Command.GetType(consoleInput);
                 return true;
             }
             else if (Coordinates.TryParse(consoleInput, ref coordinates))
@@ -254,7 +250,6 @@ namespace BalloonsPops
                 return true;
             }
 
-
             else
             {
                 IsCoordinates = false;
@@ -262,7 +257,4 @@ namespace BalloonsPops
             }
         }
     }
-
-
-
 }

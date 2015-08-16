@@ -4,29 +4,22 @@
 
     internal class Command
     {
-        private string name;
+        private CommandType type;
 
         public Command()
         {
         }
 
-        // TODO: Check if the property is better to be of type CommandType
-        public string Name
+        public CommandType Type
         {
             get
             {
-                return this.name;
+                return this.type;
             }
 
             set
             {
-                // TODO: static class Validator
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentNullException("command name", "cannot be null or empty");
-                }
-
-                this.name = value;
+                this.type = value;
             }
         }
 
@@ -41,6 +34,13 @@
             }
 
             return true;
+        }
+
+        internal static CommandType GetType(string input)
+        {
+            CommandType type = (CommandType)Enum.Parse(typeof(CommandType), input, true);
+
+            return type;
         }
     }
 }

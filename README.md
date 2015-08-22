@@ -2,7 +2,7 @@
 High Quality Code at Telerik Academy teamwork project repository . 
 
 ## Everyone is held responsible for the main class:
-    **   - baloncheta.cs **
+    **   - baloncheta.cs ** -> renamed to Baloons.cs
 ### The sub-classes diviation:
 
 * Павлина (DragnevaPavlina):

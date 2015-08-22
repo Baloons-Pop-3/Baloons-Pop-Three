@@ -1,4 +1,4 @@
-﻿namespace BalloonsPops.Validations
+﻿namespace BalloonsPop.Validations
 {
     using System;
 
@@ -7,8 +7,8 @@
     /// </summary>
     public static class Validator
     {
-        // TODO: Add more validations if neccessary.
-        // TODO: Improve validations logic if neccessary.
+        // TODO: Add more validations if necessary.
+        // TODO: Improve validations logic if necessary.
 
         /// <summary>
         /// Validates string inputs.

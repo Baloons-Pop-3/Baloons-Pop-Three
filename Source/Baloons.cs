@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BalloonsPops
+namespace BalloonsPop
 {
     // veche pisha na c#, uraaaaaaaaaaaaaaa, mnogo e yako tova be!
-    class baloncheta
+    class Baloons
     {
         static void Main(string[] args)
         {

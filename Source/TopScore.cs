@@ -5,7 +5,7 @@
     using System.Linq;
     using System.IO;
 
-    class TopScore
+    public class TopScore
     {
         public const int MAX_TOP_SCORE_COUNT = 5;
         List<Player> topScoreList = new List<Player>();

@@ -50,7 +50,7 @@
     <Content Include="TopScore.txt" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Baloons.cs" />
+    <Compile Include="Balloons.cs" />
     <Compile Include="TopScore.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -48,7 +48,9 @@
     <Compile Include="Coordinates.cs" />
     <Compile Include="Validations\Validator.cs" />
     <Content Include="TopScore.txt" />
-    <Compile Include="GameBoard.cs" />
+    <Compile Include="GameBoard.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Balloons.cs" />
     <Compile Include="TopScore.cs" />

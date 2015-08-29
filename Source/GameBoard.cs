@@ -1,83 +1,80 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BalloonsPop
+﻿namespace BalloonsPop
 {
+    using System;
+
     class GameBoard
     {
-        char[,] gb = new char[25, 8];
-        int count = 0;
-        int broya4 = 50;
+        const int initialBaloonsNumber = 50;
+
+        char[,] gameBoard = new char[25, 8];
+        private int shootCount = 0;
+        private int remainingBaloonsCounter = initialBaloonsNumber;
+
         public int ShootCounter
         {
             get
             {
-                return count;
-
-
+                return this.shootCount;
             }
         }
+
         public int RemainingBaloons
         {
             get
             {
-                return broya4;
+                return this.remainingBaloonsCounter;
             }
         }
+
         public void GenerateNewGame()
         {
             Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            broya4 = 50;
+            remainingBaloonsCounter = initialBaloonsNumber;
             FillBlankGameBoard();
             Random random = new Random();
-            Coordinates c = new Coordinates();
-            for (int i = 0; i < 10; i++)
+            Coordinates currentPosition = new Coordinates();
+            for (int row = 0; row < 10; row++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int column = 0; column < 5; column++)
                 {
-                    c.X = i;
-                    c.Y = j;
+                    currentPosition.X = row;
+                    currentPosition.Y = column;
 
-
-                    AddNewBaloonToGameBoard(c, (char)(random.Next(1, 5) + (int)'0'));
+                    AddNewBaloonToGameBoard(currentPosition, (char)(random.Next(1, 5) + (int)'0'));
                 }
             }
         }
-        private void AddNewBaloonToGameBoard(Coordinates c, char value)
-        {
-            int xPosition, yPosition;
-            xPosition = 4 + c.X * 2;
-            yPosition = 2 + c.Y;
-            gb[xPosition, yPosition] = value;
-        }
-        private char get(Coordinates c)
-        {
-            int xPosition, yPosition;
-            if (c.X < 0 || c.Y < 0 || c.X > 9 || c.Y > 4) return 'e';
-            xPosition = 4 + c.X * 2;
 
-
-            yPosition = 2 + c.Y;
-            return gb[xPosition, yPosition];
+        private void AddNewBaloonToGameBoard(Coordinates currentPosition, char baloonValue)
+        {
+            int xPosition = 4 + currentPosition.X * 2;
+            int yPosition = 2 + currentPosition.Y;
+            gameBoard[xPosition, yPosition] = baloonValue;
         }
+
+        private char get(Coordinates currentPosition)
+        {
+            if (currentPosition.X < 0 || currentPosition.Y < 0 || currentPosition.X > 9 || currentPosition.Y > 4) return 'e';
+            int xPosition = 4 + currentPosition.X * 2;
+            int yPosition = 2 + currentPosition.Y;
+            return gameBoard[xPosition, yPosition];
+        }
+
         private void FillBlankGameBoard()
         {
             //printing blank spaces
-            for (int i = 0; i < 8; i++)
+            for (int row = 0; row < 8; row++)
             {
-                for (int j = 0; j < 25; j++)
+                for (int column = 0; column < 25; column++)
                 {
-
-                    gb[j, i] = ' ';
+                    gameBoard[column, row] = ' ';
                 }
             }
 
             //printing firs row
-            for (int i = 0; i < 4; i++)
+            for (int column = 0; column < 4; column++)
             {
-                gb[i, 0] = ' ';
+                gameBoard[column, 0] = ' ';
             }
 
             char counter = '0';
@@ -85,14 +82,20 @@ namespace BalloonsPop
 
             for (int i = 4; i < 25; i++)
             {
-                if ((i % 2 == 0) && counter <= '9') gb[i, 0] = (char)counter++;
-                else gb[i, 0] = ' ';
+                if ((i % 2 == 0) && counter <= '9')
+                {
+                    gameBoard[i, 0] = (char)counter++;
+                }
+                else
+                {
+                    gameBoard[i, 0] = ' ';
+                }
             }
 
             //printing second row
-            for (int i = 3; i < 24; i++)
+            for (int column = 3; column < 24; column++)
             {
-                gb[i, 1] = '-';
+                gameBoard[column, 1] = '-';
             }
 
 
@@ -103,25 +106,25 @@ namespace BalloonsPop
             {
                 if (counter <= '4')
                 {
-                    gb[0, i] = counter++;
-                    gb[1, i] = ' ';
+                    gameBoard[0, i] = counter++;
+                    gameBoard[1, i] = ' ';
 
 
-                    gb[2, i] = '|';
-                    gb[3, i] = ' ';
+                    gameBoard[2, i] = '|';
+                    gameBoard[3, i] = ' ';
                 }
             }
 
             //printing down game board wall
             for (int i = 3; i < 24; i++)
             {
-                gb[i, 7] = '-';
+                gameBoard[i, 7] = '-';
             }
 
             //printing right game board wall
             for (int i = 2; i < 7; i++)
             {
-                gb[24, i] = '|';
+                gameBoard[24, i] = '|';
             }
         }
 
@@ -131,19 +134,17 @@ namespace BalloonsPop
             {
                 for (int j = 0; j < 25; j++)
                 {
-
-
-                    Console.Write(gb[j, i]);
+                    Console.Write(gameBoard[j, i]);
                 }
                 Console.WriteLine();
             }
             Console.WriteLine();
         }
 
-        public void Shoot(Coordinates c)
+        public void Shoot(Coordinates currentPosition)
         {
             char currentBaloon;
-            currentBaloon = get(c);
+            currentBaloon = get(currentPosition);
             Coordinates tempCoordinates = new Coordinates();
 
             if (currentBaloon < '1' || currentBaloon > '4')
@@ -153,67 +154,65 @@ namespace BalloonsPop
 
 
 
-            AddNewBaloonToGameBoard(c, '.');
-            broya4--;
+            AddNewBaloonToGameBoard(currentPosition, '.');
+            remainingBaloonsCounter--;
 
-            tempCoordinates.X = c.X - 1;
-            tempCoordinates.Y = c.Y;
+            tempCoordinates.X = currentPosition.X - 1;
+            tempCoordinates.Y = currentPosition.Y;
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                broya4--;
+                remainingBaloonsCounter--;
                 tempCoordinates.X--;
             }
 
-            tempCoordinates.X = c.X + 1; tempCoordinates.Y = c.Y;
+            tempCoordinates.X = currentPosition.X + 1; tempCoordinates.Y = currentPosition.Y;
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                broya4--;
+                remainingBaloonsCounter--;
                 tempCoordinates.X++;
             }
 
-            tempCoordinates.X = c.X;
-            tempCoordinates.Y = c.Y - 1;
+            tempCoordinates.X = currentPosition.X;
+            tempCoordinates.Y = currentPosition.Y - 1;
             while (currentBaloon == get(tempCoordinates))
             {
-
-
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                broya4--;
+                remainingBaloonsCounter--;
                 tempCoordinates.Y--;
             }
 
-            tempCoordinates.X = c.X;
-            tempCoordinates.Y = c.Y + 1;
+            tempCoordinates.X = currentPosition.X;
+            tempCoordinates.Y = currentPosition.Y + 1;
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                broya4--;
+                remainingBaloonsCounter--;
                 tempCoordinates.Y++;
             }
 
-            count++;
+            shootCount++;
             LandFlyingBaloons();
         }
 
-        private void Swap(Coordinates c, Coordinates c1)
+        private void Swap(Coordinates currentPosition, Coordinates c1)
         {
-            char tmp = get(c);
-            AddNewBaloonToGameBoard(c, get(c1));
+            char tmp = get(currentPosition);
+            AddNewBaloonToGameBoard(currentPosition, get(c1));
             AddNewBaloonToGameBoard(c1, tmp);
         }
 
         private void LandFlyingBaloons()
         {
-            Coordinates c = new Coordinates();
+            Coordinates currentPosition = new Coordinates();
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j <= 4; j++)
                 {
-                    c.X = i;
-                    c.Y = j;
-                    if (get(c) == '.')
+                    currentPosition.X = i;
+                    currentPosition.Y = j;
+                    if (get(currentPosition) == '.')
                     {
                         for (int k = j; k > 0; k--)
                         {
@@ -249,7 +248,6 @@ namespace BalloonsPop
                 IsCoordinates = true;
                 return true;
             }
-
             else
             {
                 IsCoordinates = false;

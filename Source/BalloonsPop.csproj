@@ -45,8 +45,9 @@
   <ItemGroup>
     <Compile Include="Command.cs" />
     <Compile Include="CommandType.cs" />
+    <Compile Include="Common\GlobalConstants.cs" />
     <Compile Include="Coordinates.cs" />
-    <Compile Include="Validations\Validator.cs" />
+    <Compile Include="Common\Validator.cs" />
     <Content Include="TopScore.txt" />
     <Compile Include="GameBoard.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>

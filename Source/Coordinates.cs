@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BalloonsPop
+﻿namespace BalloonsPop
 {
+    using System;
+    using System.Linq;
+
+    using Common;
+
     internal class Coordinates
     {
+        private int gameBoardRows = GlobalConstants.BALLOONS_BOARD_ROWS;
+        private int gameBoardCols = GlobalConstants.BALLOONS_BOARD_COLS;
+
         private int x;
         private int y;
 
@@ -14,11 +17,19 @@ namespace BalloonsPop
         {
             get
             {
-                return x;
+                return this.x;
             }
+
             set
             {
-                if (value >= 0 && value <= 9) x = value;
+                if (value >= 0 && value <= gameBoardCols - 1)
+                {
+                    this.x = value;
+                }
+                else
+                {
+                    //throw new ArgumentOutOfRangeException("X coordinates");
+                }
             }
         }
 
@@ -26,31 +37,39 @@ namespace BalloonsPop
         {
             get
             {
-                return y;
+                return this.y;
             }
+
             set
             {
-                if (value >= 0 && value <= 4) y = value;
+                if (value >= 0 && value <= gameBoardRows - 1)
+                {
+                    this.y = value;
+                }
+                else
+                {
+                    //throw new ArgumentOutOfRangeException("Y coordinates");
+                }
             }
         }
 
-        public static bool TryParse(string input, ref Coordinates result)
+        public bool TryParse(string input, ref Coordinates result)
         {
             char[] separators = { ' ', ',' };
 
-            string[] substrings = input.Split(separators);
+            string[] subStrings = input.Split(separators);
 
-            if (substrings.Count<string>() != 2)
+            if (subStrings.Count<string>() != 2)
             {
                 Console.WriteLine("Invalid move or command!");
                 return false;
             }
 
-            string coordinate = substrings[1].Trim();
+            string coordinateX = subStrings[1].Trim();
             int x;
-            if (int.TryParse(coordinate, out x))
+            if (int.TryParse(coordinateX, out x))
             {
-                if (x >= 0 && x <= 9)
+                if (x >= 0 && x <= gameBoardCols - 1)
                 {
                     result.X = x;
                 }
@@ -66,11 +85,11 @@ namespace BalloonsPop
                 return false;
             }
 
-            coordinate = substrings[0].Trim();
+            coordinateX = subStrings[0].Trim();
             int y;
-            if (int.TryParse(coordinate, out y))
+            if (int.TryParse(coordinateX, out y))
             {
-                if (y >= 0 && y <= 4)
+                if (y >= 0 && y <= gameBoardRows - 1)
                 {
                     result.Y = y;
                 }

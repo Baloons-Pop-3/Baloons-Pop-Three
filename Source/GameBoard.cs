@@ -129,7 +129,7 @@
                 command.Type = Command.GetType(consoleInput);
                 return true;
             }
-            else if (Coordinates.TryParse(consoleInput, ref coordinates))
+            else if (coordinates.TryParse(consoleInput, ref coordinates))
             {
                 isCoordinates = true;
                 return true;

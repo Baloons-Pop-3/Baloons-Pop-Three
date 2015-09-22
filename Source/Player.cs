@@ -2,6 +2,8 @@
 {
     using System;
 
+    using Common;
+
     /// <summary>
     /// A class representing the game user.
     /// </summary>
@@ -29,7 +31,7 @@
 
             set
             {
-                Validations.Validator.ValidateString(value, "Name");
+                Validator.ValidateString(value, "Name");
                 this.name = value;
             }
         }

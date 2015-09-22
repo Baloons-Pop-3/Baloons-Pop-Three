@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.Validations
+﻿namespace BalloonsPop.Common
 {
     using System;
 

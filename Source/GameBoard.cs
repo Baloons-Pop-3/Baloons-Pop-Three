@@ -2,36 +2,31 @@
 {
     using System;
 
+    using Common;
+
     internal class GameBoard
     {
-        private const int InitialBaloonsNumber = 50;
-        private const int GameBoardRows = 5;
-        private const int GameBoardColumns = 10;
+        char[,] gameBoard = new char[GlobalConstants.GAME_BOARD_ROWS, GlobalConstants.GAME_BOARD_COLS];
 
-        private char[,] gameBoard = new char[25, 8];
-        private int shootCount = 0;
-        private int remainingBaloonsCounter = InitialBaloonsNumber;
+        public GameBoard()
+        {
+            this.RemainingBaloons = GlobalConstants.BALLOONS_BOARD_ROWS * GlobalConstants.BALLOONS_BOARD_COLS;
+            this.ShootCounter = 0;
+        }
+
 
         public int ShootCounter
         {
-            get
-            {
-                return this.shootCount;
-            }
+            private set; get;
         }
-
         public int RemainingBaloons
         {
-            get
-            {
-                return this.remainingBaloonsCounter;
-            }
+            private set; get;
         }
 
         public void GenerateNewGame()
         {
             Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            this.remainingBaloonsCounter = InitialBaloonsNumber;
             FillBlankGameBoard();
             Random random = new Random();
             Coordinates currentPosition = new Coordinates();
@@ -74,14 +69,14 @@
             }
 
             AddNewBaloonToGameBoard(currentPosition, '.');
-            remainingBaloonsCounter--;
+            this.RemainingBaloons--;
 
             tempCoordinates.X = currentPosition.X - 1;
             tempCoordinates.Y = currentPosition.Y;
             while (currentBaloon == GetBaloon(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                remainingBaloonsCounter--;
+                this.RemainingBaloons--;
                 tempCoordinates.X--;
             }
 
@@ -89,7 +84,7 @@
             while (currentBaloon == GetBaloon(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                remainingBaloonsCounter--;
+                this.RemainingBaloons--;
                 tempCoordinates.X++;
             }
 
@@ -98,7 +93,7 @@
             while (currentBaloon == GetBaloon(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                remainingBaloonsCounter--;
+                this.RemainingBaloons--;
                 tempCoordinates.Y--;
             }
 
@@ -107,11 +102,11 @@
             while (currentBaloon == GetBaloon(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                remainingBaloonsCounter--;
+                this.RemainingBaloons--;
                 tempCoordinates.Y++;
             }
 
-            shootCount++;
+            this.ShootCounter++;
             LandFlyingBaloons();
         }
 
@@ -145,8 +140,8 @@
         {
             bool isOutOfBoard = currentPosition.X < 0
                 || currentPosition.Y < 0
-                || currentPosition.X > GameBoardColumns - 1
-                || currentPosition.Y > GameBoardRows - 1;
+                || currentPosition.X > GlobalConstants.BALLOONS_BOARD_COLS - 1
+                || currentPosition.Y > GlobalConstants.BALLOONS_BOARD_ROWS - 1;
 
             if (isOutOfBoard)
             {
@@ -232,9 +227,9 @@
         private void LandFlyingBaloons()
         {
             Coordinates currentPosition = new Coordinates();
-            for (int column = 0; column < GameBoardColumns; column++)
+            for (int column = 0; column < GlobalConstants.BALLOONS_BOARD_COLS; column++)
             {
-                for (int row = 0; row < GameBoardRows; row++)
+                for (int row = 0; row < GlobalConstants.BALLOONS_BOARD_ROWS; row++)
                 {
                     currentPosition.X = column;
                     currentPosition.Y = row;

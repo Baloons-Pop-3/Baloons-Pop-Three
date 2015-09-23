@@ -1,10 +1,5 @@
 ﻿namespace BalloonsPop
 {
-    using System;
-    using System.Linq;
-
-    using Common;
-
     internal class Coordinates
     {
         public int X { get; set; }

@@ -1,6 +1,5 @@
 ﻿namespace BalloonsPop.Tests
 {
-    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using BalloonsPop.TopScoreBoard;
 

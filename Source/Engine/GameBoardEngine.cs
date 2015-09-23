@@ -8,14 +8,14 @@ namespace BalloonsPop.Engine
 {
     class GameBoardEngine : IGameBoardEngine
     {
-        public GameBoardEngine(GameModel gameBoard, IPrinter printer,IReader reader)
+        public GameBoardEngine(GameModel gameModel, IPrinter printer,IReader reader)
         {
-            this.GameBoard = gameBoard;
+            this.GameModel = gameModel;
             this.Printer = printer;
             this.Reader = reader;
         }
 
-        public GameModel GameBoard{ get; set; }
+        public GameModel GameModel{ get; set; }
 
         public IPrinter Printer { get; set; }
 
@@ -24,7 +24,7 @@ namespace BalloonsPop.Engine
         public void Init()
         {
             this.Printer.PrintMessage("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            this.Printer.PrintGameBoard(this.GameBoard.Field.GetField());
+            this.Printer.PrintGameBoard(this.GameModel.Field.GetField());
 
             this.StartGame();
         }
@@ -37,7 +37,7 @@ namespace BalloonsPop.Engine
 
             ts.OpenTopScoreList();
 
-            while (this.GameBoard.RemainingBaloons > 0)
+            while (this.GameModel.RemainingBaloons > 0)
             {
                 Printer.PrintMessage("Enter a row and column: ");
                 var input = Reader.ReadInput();
@@ -56,7 +56,7 @@ namespace BalloonsPop.Engine
                         case CommandType.Restart:
                             {
                                 this.Init();
-                                this.Printer.PrintGameBoard(this.GameBoard.Field.GetField());
+                                this.Printer.PrintGameBoard(this.GameModel.Field.GetField());
                             }
                             break;
                         case CommandType.Exit:
@@ -69,14 +69,14 @@ namespace BalloonsPop.Engine
                 {
                     try
                     {
-                        this.GameBoard.ShootBalloonAtPosition(coordinates);
+                        this.GameModel.ShootBalloonAtPosition(coordinates);
                     }
                     catch (ArgumentException ex)
                     {
                         Printer.PrintMessage(ex.Message);
                     }
 
-                    this.Printer.PrintGameBoard(this.GameBoard.Field.GetField());
+                    this.Printer.PrintGameBoard(this.GameModel.Field.GetField());
                 }
                 else
                 {
@@ -86,16 +86,15 @@ namespace BalloonsPop.Engine
 
             // TODO: Refactor the logic about topScore
             Player player = new Player();
-            player.Score = this.GameBoard.ShootCounter;
+            player.Score = this.GameModel.ShootCounter;
 
             if (ts.IsTopScore(player))
             {
-                Console.WriteLine("Please enter your name for the top scoreboard: ");
-                player.Name = Console.ReadLine();
+                Printer.PrintMessage("Please enter your name for the top scoreboard: ");
+                player.Name = Reader.ReadInput();
                 ts.AddToTopScoreList(player);
             }
             ts.SaveTopScoreList();
-
         }
     }
 }

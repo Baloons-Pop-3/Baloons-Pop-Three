@@ -108,9 +108,9 @@
         private void LandFlyingBaloons()
         {
             Coordinates currentPosition = new Coordinates();
-            for (int column = 0; column < GlobalConstants.BALLOONS_BOARD_COLS; column++)
+            for (int column = 0; column < this.Field.BalloonsCols; column++)
             {
-                for (int row = 0; row < GlobalConstants.BALLOONS_BOARD_ROWS; row++)
+                for (int row = 0; row < this.Field.BalloonsRows; row++)
                 {
                     currentPosition.X = column;
                     currentPosition.Y = row;

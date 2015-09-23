@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BalloonsPop
+﻿namespace BalloonsPop
 {
     using Common;
     using Reader;
     using Printer;
     using Engine;
+
     public class GameFacade
     {
         GameField field = new GameField(

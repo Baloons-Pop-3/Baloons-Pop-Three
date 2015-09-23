@@ -10,7 +10,7 @@ namespace BalloonsPop
     using Drawer;
     using Reader;
     // veche pisha na c#, uraaaaaaaaaaaaaaa, mnogo e yako tova be!
-    class Balloons
+    class EntryPoint
     {
 
         static void Main(string[] args)

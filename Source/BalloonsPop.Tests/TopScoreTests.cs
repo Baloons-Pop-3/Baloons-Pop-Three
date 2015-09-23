@@ -2,7 +2,7 @@
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using BalloonsPop;
+    using BalloonsPop.TopScoreBoard;
 
     [TestClass]
     public class TopScoreTests

@@ -1,12 +1,11 @@
 ﻿namespace BalloonsPop
 {
     using System;
-
     using Common;
 
     internal class GameBoard
     {
-        char[,] gameBoard = new char[GlobalConstants.GAME_BOARD_ROWS, GlobalConstants.GAME_BOARD_COLS];
+        private char[,] field = new char[GlobalConstants.GAME_BOARD_ROWS, GlobalConstants.GAME_BOARD_COLS];
 
         public GameBoard()
         {
@@ -14,6 +13,13 @@
             this.ShootCounter = 0;
         }
 
+        public char[,] Field
+        {
+            get
+            {
+                return this.field;
+            }
+        }
 
         public int ShootCounter
         {
@@ -24,10 +30,8 @@
             private set; get;
         }
 
-        public void GenerateNewGame()
+        public void GenerateBalloons()
         {
-            Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            FillBlankGameBoard();
             Random random = new Random();
             Coordinates currentPosition = new Coordinates();
             for (int column = 0; column < 10; column++)
@@ -40,21 +44,6 @@
                     AddNewBaloonToGameBoard(currentPosition, (char)(random.Next(1, 5) + (int)'0'));
                 }
             }
-        }       
-
-        public void PrintGameBoard()
-        {
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 25; j++)
-                {
-                    Console.Write(gameBoard[j, i]);
-                }
-
-                Console.WriteLine();
-            }
-
-            Console.WriteLine();
         }
 
         public void Shoot(Coordinates currentPosition)
@@ -65,11 +54,14 @@
 
             if (currentBaloon < '1' || currentBaloon > '4')
             {
-                Console.WriteLine("Illegal move: cannot pop missing ballon!"); return;
+                // TODO: Find a way to return concrete exception. Code need some refactoring or coupling with Printer
+                throw new ArgumentException("Invalid coordinates or already pop balloon");
             }
 
             AddNewBaloonToGameBoard(currentPosition, '.');
             this.RemainingBaloons--;
+
+            // TODO: if possible extract method of the repeated logic
 
             tempCoordinates.X = currentPosition.X - 1;
             tempCoordinates.Y = currentPosition.Y;
@@ -110,34 +102,9 @@
             LandFlyingBaloons();
         }
 
-        public bool ReadInput(out bool isCoordinates, ref Coordinates coordinates, ref Command command)
-        {
-            Console.Write("Enter a row and column: ");
-            string consoleInput = Console.ReadLine();
-
-            coordinates = new Coordinates();
-            command = new Command();
-
-            if (Command.IsValidCommand(consoleInput))
-            {
-                isCoordinates = false;
-                command.Type = Command.GetType(consoleInput);
-                return true;
-            }
-            else if (coordinates.TryParse(consoleInput, ref coordinates))
-            {
-                isCoordinates = true;
-                return true;
-            }
-            else
-            {
-                isCoordinates = false;
-                return false;
-            }
-        }
-
         private char GetBaloon(Coordinates currentPosition)
         {
+            // TODO: extract validator
             bool isOutOfBoard = currentPosition.X < 0
                 || currentPosition.Y < 0
                 || currentPosition.X > GlobalConstants.BALLOONS_BOARD_COLS - 1
@@ -150,71 +117,7 @@
 
             int xPosition = 4 + (currentPosition.X * 2);
             int yPosition = 2 + currentPosition.Y;
-            return gameBoard[xPosition, yPosition];
-        }
-
-        private void FillBlankGameBoard()
-        {
-            //printing blank spaces
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 25; j++)
-                {
-                    gameBoard[j, i] = ' ';
-                }
-            }
-
-            //printing numbers of the columns
-            for (int i = 0; i < 4; i++)
-            {
-                gameBoard[i, 0] = ' ';
-            }
-
-            char counter = '0';
-
-            for (int i = 4; i < 25; i++)
-            {
-                if ((i % 2 == 0) && counter <= '9')
-                {
-                    gameBoard[i, 0] = counter++;
-                }
-                else
-                {
-                    gameBoard[i, 0] = ' ';
-                }
-            }
-
-            //printing up game board wall
-            for (int i = 3; i < 24; i++)
-            {
-                gameBoard[i, 1] = '-';
-            }
-
-            //printing left game board wall
-            counter = '0';
-
-            for (int i = 2; i < 8; i++)
-            {
-                if (counter <= '4')
-                {
-                    gameBoard[0, i] = counter++;
-                    gameBoard[1, i] = ' ';
-                    gameBoard[2, i] = '|';
-                    gameBoard[3, i] = ' ';
-                }
-            }
-
-            //printing down game board wall
-            for (int i = 3; i < 24; i++)
-            {
-                gameBoard[i, 7] = '-';
-            }
-
-            //printing right game board wall
-            for (int i = 2; i < 7; i++)
-            {
-                gameBoard[24, i] = '|';
-            }
+            return field[xPosition, yPosition];
         }
 
         private void Swap(Coordinates currentPosition, Coordinates newPosition)
@@ -254,7 +157,9 @@
         {
             int xPosition = 4 + (currentPosition.X * 2);
             int yPosition = 2 + currentPosition.Y;
-            gameBoard[xPosition, yPosition] = baloonValue;
+            this.field[xPosition, yPosition] = baloonValue;
         }
+
+        // TODO: get rid of all magic numbers
     }
 }

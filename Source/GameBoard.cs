@@ -22,7 +22,7 @@
                 return this.field;
             }
         }
-   
+
 
         public int ShootCounter
         {
@@ -49,9 +49,9 @@
                     AddNewBaloonToGameBoard(currentPosition, (char)(random.Next(1, 5) + (int)'0'));
                 }
             }
-        }       
+        }
 
-        public bool TryShoot(Coordinates currentPosition)
+        public void Shoot(Coordinates currentPosition)
         {
             char currentBaloon;
             currentBaloon = GetBaloon(currentPosition);
@@ -59,7 +59,7 @@
 
             if (currentBaloon < '1' || currentBaloon > '4')
             {
-                return false;
+                throw new ArgumentException("Illegal move: cannot pop missing ballon!");
             }
 
             AddNewBaloonToGameBoard(currentPosition, '.');
@@ -102,8 +102,6 @@
 
             this.ShootCounter++;
             LandFlyingBaloons();
-
-            return true;
         }
 
         private char GetBaloon(Coordinates currentPosition)
@@ -115,7 +113,7 @@
 
             if (isOutOfBoard)
             {
-                return 'e';
+                throw new ArgumentException("Coordinates are out of range!");
             }
 
             int xPosition = 4 + (currentPosition.X * 2);

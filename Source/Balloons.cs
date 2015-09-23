@@ -22,7 +22,7 @@ namespace BalloonsPop
 
             IGameBoardEngine engine = new GameBoardEngine(gameBoard, drawer, printer, reader);
 
-            engine.Run();       
+            engine.Init();       
         }
     }
 }

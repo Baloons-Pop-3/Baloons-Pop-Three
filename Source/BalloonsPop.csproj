@@ -62,7 +62,8 @@
     <Compile Include="Drawers\IGameBoardDrawer.cs" />
     <Compile Include="Reader\ConsoleReader.cs" />
     <Compile Include="Reader\IReader.cs" />
-    <Compile Include="TopScore.cs" />
+    <Compile Include="TopScoreBoard\ITopScore.cs" />
+    <Compile Include="TopScoreBoard\TopScore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

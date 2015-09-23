@@ -14,6 +14,6 @@
 
         IReader Reader { get; set; }
 
-        void Run();
+        void Init();
     }
 }

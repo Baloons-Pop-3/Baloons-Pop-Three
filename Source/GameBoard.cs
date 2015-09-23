@@ -51,7 +51,7 @@
             }
         }       
 
-        public void Shoot(Coordinates currentPosition)
+        public bool TryShoot(Coordinates currentPosition)
         {
             char currentBaloon;
             currentBaloon = GetBaloon(currentPosition);
@@ -59,7 +59,7 @@
 
             if (currentBaloon < '1' || currentBaloon > '4')
             {
-                Console.WriteLine("Illegal move: cannot pop missing ballon!"); return;
+                return false;
             }
 
             AddNewBaloonToGameBoard(currentPosition, '.');
@@ -102,32 +102,8 @@
 
             this.ShootCounter++;
             LandFlyingBaloons();
-        }
 
-        public bool ReadInput(out bool isCoordinates, ref Coordinates coordinates, ref Command command)
-        {
-            Console.Write("Enter a row and column: ");
-            string consoleInput = Console.ReadLine();
-
-            coordinates = new Coordinates();
-            command = new Command();
-
-            if (Command.IsValidCommand(consoleInput))
-            {
-                isCoordinates = false;
-                command.Type = Command.GetType(consoleInput);
-                return true;
-            }
-            else if (coordinates.TryParse(consoleInput, ref coordinates))
-            {
-                isCoordinates = true;
-                return true;
-            }
-            else
-            {
-                isCoordinates = false;
-                return false;
-            }
+            return true;
         }
 
         private char GetBaloon(Coordinates currentPosition)
@@ -186,6 +162,33 @@
             int yPosition = 2 + currentPosition.Y;
             this.field[xPosition, yPosition] = baloonValue;
         }
+
+
+        //public bool ReadInput(out bool isCoordinates, ref Coordinates coordinates, ref Command command)
+        //{
+        //    Console.Write("Enter a row and column: ");
+        //    string consoleInput = Console.ReadLine();
+
+        //    coordinates = new Coordinates();
+        //    command = new Command();
+
+        //    if (Command.IsValidCommand(consoleInput))
+        //    {
+        //        isCoordinates = false;
+        //        command.Type = Command.GetType(consoleInput);
+        //        return true;
+        //    }
+        //    else if (coordinates.TryParse(consoleInput, ref coordinates))
+        //    {
+        //        isCoordinates = true;
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        isCoordinates = false;
+        //        return false;
+        //    }
+        //}
 
         //private void DrawGameBoard()
         //{

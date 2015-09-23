@@ -28,7 +28,7 @@ namespace BalloonsPop.Engine
 
         public void Run()
         {
-            Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
+            Printer.PrintMessage("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
             this.StartGame();
         }
 
@@ -47,14 +47,45 @@ namespace BalloonsPop.Engine
 
             while (this.GameBoard.RemainingBaloons > 0)
             {
+                Printer.PrintMessage("Enter a row and column: ");
                 var input = Reader.ReadInput();
 
                 isCoordinates = coordinates.TryParse(input,ref coordinates);
 
-                if (isCoordinates)
+                if (Command.IsValidCommand(input))
                 {
-                    this.GameBoard.Shoot(coordinates);
+                    command.Type = Command.GetType(input);
+
+                    switch (command.Type)
+                    {
+                        case CommandType.Top:
+                            {
+                                ts.PrintScoreList();
+                            }
+                            break;
+                        case CommandType.Restart:
+                            {
+                                this.GameBoard.GenerateBalloons();
+                                this.Printer.PrintGameBoard(this.GameBoard.Field);
+                            }
+                            break;
+                        case CommandType.Exit:
+                            {
+                                return;
+                            }
+                    }
+                }
+                else if (isCoordinates)
+                {
+                    if (!this.GameBoard.TryShoot(coordinates))
+                    {
+                        Printer.PrintMessage("Illegal move: cannot pop missing ballon!");
+                    }
                     this.Printer.PrintGameBoard(this.GameBoard.Field);
+                }
+                else
+                {
+                   Printer.PrintMessage("Invalid move or command!");
                 }
 
                 //}

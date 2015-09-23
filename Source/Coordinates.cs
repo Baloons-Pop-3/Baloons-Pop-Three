@@ -61,7 +61,6 @@
 
             if (subStrings.Count<string>() != 2)
             {
-                Console.WriteLine("Invalid move or command!");
                 return false;
             }
 

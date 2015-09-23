@@ -1,2 +1,0 @@
-0. a --> 21 moves
-1. a_ya --> 26 moves

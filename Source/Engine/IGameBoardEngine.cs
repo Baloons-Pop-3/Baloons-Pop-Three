@@ -1,14 +1,11 @@
 ﻿namespace BalloonsPop.Engine
 {
-    using Drawer;
     using Printer;
     using Reader;
 
     interface IGameBoardEngine
     {
-        GameBoard GameBoard { get; set; }
-
-        IGameBoardDrawer Drawer { get; set; }
+        GameModel GameBoard { get; set; }
 
         IPrinter Printer { get; set; }
 

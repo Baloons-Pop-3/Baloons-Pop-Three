@@ -7,22 +7,17 @@ namespace BalloonsPop
 {
     using Engine;
     using Printer;
-    using Drawer;
     using Reader;
+    using Common;
     // veche pisha na c#, uraaaaaaaaaaaaaaa, mnogo e yako tova be!
     class EntryPoint
     {
 
         static void Main(string[] args)
         {
-            GameBoard gameBoard = new GameBoard();
-            IReader reader = new ConsoleReader();
-            IPrinter printer = new ConsolePrinter();
-            IGameBoardDrawer drawer = new ConsoleGameBoardDrawer();
+            GameFacade game = new GameFacade();
 
-            IGameBoardEngine engine = new GameBoardEngine(gameBoard, drawer, printer, reader);
-
-            engine.Init();       
+            game.Start();
         }
     }
 }

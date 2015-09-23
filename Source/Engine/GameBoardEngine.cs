@@ -1,6 +1,5 @@
 ﻿using System;
 
-using BalloonsPop.Drawer;
 using BalloonsPop.Printer;
 using BalloonsPop.Reader;
 using BalloonsPop.TopScoreBoard;
@@ -9,17 +8,14 @@ namespace BalloonsPop.Engine
 {
     class GameBoardEngine : IGameBoardEngine
     {
-        public GameBoardEngine(GameBoard gameBoard, IGameBoardDrawer drawer, IPrinter printer,IReader reader)
+        public GameBoardEngine(GameModel gameBoard, IPrinter printer,IReader reader)
         {
             this.GameBoard = gameBoard;
-            this.Drawer = drawer;
             this.Printer = printer;
             this.Reader = reader;
         }
 
-        public GameBoard GameBoard{ get; set; }
-
-        public IGameBoardDrawer Drawer { get; set; }
+        public GameModel GameBoard{ get; set; }
 
         public IPrinter Printer { get; set; }
 
@@ -27,10 +23,8 @@ namespace BalloonsPop.Engine
 
         public void Init()
         {
-            char[,] drawedGameBoard = Drawer.DrawGameBoard(this.GameBoard);
-
             this.Printer.PrintMessage("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            this.Printer.PrintGameBoard(drawedGameBoard);
+            this.Printer.PrintGameBoard(this.GameBoard.Field.GetField());
 
             this.StartGame();
         }
@@ -62,7 +56,7 @@ namespace BalloonsPop.Engine
                         case CommandType.Restart:
                             {
                                 this.Init();
-                                this.Printer.PrintGameBoard(this.GameBoard.Field);
+                                this.Printer.PrintGameBoard(this.GameBoard.Field.GetField());
                             }
                             break;
                         case CommandType.Exit:
@@ -75,14 +69,14 @@ namespace BalloonsPop.Engine
                 {
                     try
                     {
-                        this.GameBoard.Shoot(coordinates);
+                        this.GameBoard.ShootBalloonAtPosition(coordinates);
                     }
                     catch (ArgumentException ex)
                     {
                         Printer.PrintMessage(ex.Message);
                     }
 
-                    this.Printer.PrintGameBoard(this.GameBoard.Field);
+                    this.Printer.PrintGameBoard(this.GameBoard.Field.GetField());
                 }
                 else
                 {

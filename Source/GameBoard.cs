@@ -6,7 +6,8 @@
 
     internal class GameBoard
     {
-        char[,] gameBoard = new char[GlobalConstants.GAME_BOARD_ROWS, GlobalConstants.GAME_BOARD_COLS];
+
+        private char[,] field = new char[GlobalConstants.GAME_BOARD_ROWS, GlobalConstants.GAME_BOARD_COLS];
 
         public GameBoard()
         {
@@ -14,6 +15,14 @@
             this.ShootCounter = 0;
         }
 
+        public char[,] Field
+        {
+            get
+            {
+                return this.field;
+            }
+        }
+   
 
         public int ShootCounter
         {
@@ -24,10 +33,10 @@
             private set; get;
         }
 
-        public void GenerateNewGame()
+        public void GenerateBalloons()
         {
-            Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            FillBlankGameBoard();
+            //Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
+            //DrawGameBoard();
             Random random = new Random();
             Coordinates currentPosition = new Coordinates();
             for (int column = 0; column < 10; column++)
@@ -41,21 +50,6 @@
                 }
             }
         }       
-
-        public void PrintGameBoard()
-        {
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 25; j++)
-                {
-                    Console.Write(gameBoard[j, i]);
-                }
-
-                Console.WriteLine();
-            }
-
-            Console.WriteLine();
-        }
 
         public void Shoot(Coordinates currentPosition)
         {
@@ -150,71 +144,7 @@
 
             int xPosition = 4 + (currentPosition.X * 2);
             int yPosition = 2 + currentPosition.Y;
-            return gameBoard[xPosition, yPosition];
-        }
-
-        private void FillBlankGameBoard()
-        {
-            //printing blank spaces
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 25; j++)
-                {
-                    gameBoard[j, i] = ' ';
-                }
-            }
-
-            //printing numbers of the columns
-            for (int i = 0; i < 4; i++)
-            {
-                gameBoard[i, 0] = ' ';
-            }
-
-            char counter = '0';
-
-            for (int i = 4; i < 25; i++)
-            {
-                if ((i % 2 == 0) && counter <= '9')
-                {
-                    gameBoard[i, 0] = counter++;
-                }
-                else
-                {
-                    gameBoard[i, 0] = ' ';
-                }
-            }
-
-            //printing up game board wall
-            for (int i = 3; i < 24; i++)
-            {
-                gameBoard[i, 1] = '-';
-            }
-
-            //printing left game board wall
-            counter = '0';
-
-            for (int i = 2; i < 8; i++)
-            {
-                if (counter <= '4')
-                {
-                    gameBoard[0, i] = counter++;
-                    gameBoard[1, i] = ' ';
-                    gameBoard[2, i] = '|';
-                    gameBoard[3, i] = ' ';
-                }
-            }
-
-            //printing down game board wall
-            for (int i = 3; i < 24; i++)
-            {
-                gameBoard[i, 7] = '-';
-            }
-
-            //printing right game board wall
-            for (int i = 2; i < 7; i++)
-            {
-                gameBoard[24, i] = '|';
-            }
+            return field[xPosition, yPosition];
         }
 
         private void Swap(Coordinates currentPosition, Coordinates newPosition)
@@ -254,7 +184,86 @@
         {
             int xPosition = 4 + (currentPosition.X * 2);
             int yPosition = 2 + currentPosition.Y;
-            gameBoard[xPosition, yPosition] = baloonValue;
+            this.field[xPosition, yPosition] = baloonValue;
         }
+
+        //private void DrawGameBoard()
+        //{
+        //    //printing blank spaces
+        //    for (int i = 0; i < 8; i++)
+        //    {
+        //        for (int j = 0; j < 25; j++)
+        //        {
+        //            field[j, i] = ' ';
+        //        }
+        //    }
+
+        //    //printing numbers of the columns
+        //    for (int i = 0; i < 4; i++)
+        //    {
+        //        field[i, 0] = ' ';
+        //    }
+
+        //    char counter = '0';
+
+        //    for (int i = 4; i < 25; i++)
+        //    {
+        //        if ((i % 2 == 0) && counter <= '9')
+        //        {
+        //            field[i, 0] = counter++;
+        //        }
+        //        else
+        //        {
+        //            field[i, 0] = ' ';
+        //        }
+        //    }
+
+        //    //printing up game board wall
+        //    for (int i = 3; i < 24; i++)
+        //    {
+        //        field[i, 1] = '-';
+        //    }
+
+        //    //printing left game board wall
+        //    counter = '0';
+
+        //    for (int i = 2; i < 8; i++)
+        //    {
+        //        if (counter <= '4')
+        //        {
+        //            field[0, i] = counter++;
+        //            field[1, i] = ' ';
+        //            field[2, i] = '|';
+        //            field[3, i] = ' ';
+        //        }
+        //    }
+
+        //    //printing down game board wall
+        //    for (int i = 3; i < 24; i++)
+        //    {
+        //        field[i, 7] = '-';
+        //    }
+
+        //    //printing right game board wall
+        //    for (int i = 2; i < 7; i++)
+        //    {
+        //        field[24, i] = '|';
+        //    }
+        //}
+
+        //public void PrintGameBoard()
+        //{
+        //    for (int i = 0; i < 8; i++)
+        //    {
+        //        for (int j = 0; j < 25; j++)
+        //        {
+        //            Console.Write(field[j, i]);
+        //        }
+
+        //        Console.WriteLine();
+        //    }
+
+        //    Console.WriteLine();
+        //}
     }
 }

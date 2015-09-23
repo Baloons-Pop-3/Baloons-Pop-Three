@@ -49,11 +49,19 @@
     <Compile Include="Coordinates.cs" />
     <Compile Include="Common\Validator.cs" />
     <Content Include="TopScore.txt" />
+    <Compile Include="Drawers\ConsoleGameBoardDrawer.cs" />
+    <Compile Include="Engine\GameBoardEngine.cs" />
+    <Compile Include="Engine\IGameBoardEngine.cs" />
     <Compile Include="GameBoard.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Balloons.cs" />
+    <Compile Include="Printer\ConsolePrinter.cs" />
+    <Compile Include="Printer\IPrinter.cs" />
+    <Compile Include="Drawers\IGameBoardDrawer.cs" />
+    <Compile Include="Reader\ConsoleReader.cs" />
+    <Compile Include="Reader\IReader.cs" />
     <Compile Include="TopScore.cs" />
   </ItemGroup>
   <ItemGroup>

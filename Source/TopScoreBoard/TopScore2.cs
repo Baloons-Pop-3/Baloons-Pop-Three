@@ -17,7 +17,6 @@ namespace BalloonsPop.TopScoreBoard
 
         public void AddPlayer(Player player)
         {
-            // TODO: Implement logic for adding 
             this.HighScores.Add(player);
         }
 

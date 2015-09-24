@@ -48,6 +48,7 @@
     <Compile Include="Common\GlobalConstants.cs" />
     <Compile Include="Coordinates.cs" />
     <Compile Include="Common\Validator.cs" />
+    <Compile Include="Data\TestRepository.cs" />
     <Compile Include="TopScoreBoard\TopScore2.cs" />
     <Content Include="Content\TopScore.txt" />
     <Compile Include="Data\IGenericRepository.cs" />

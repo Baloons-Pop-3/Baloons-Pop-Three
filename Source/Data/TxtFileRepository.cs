@@ -5,8 +5,14 @@ using System.Text;
 
 namespace BalloonsPop.Data
 {
-    class TxtRepository<T> : IGenericRepository<T> where T :class
+    class TxtFileRepository<T> : IGenericRepository<T> where T :class
     {
+        private readonly string pathOfTxtFile;
+
+        public TxtFileRepository(string path)
+        {
+            this.pathOfTxtFile = path;
+        }
         // Get the logic from TopScore.cs
         public void Add(T entity)
         {

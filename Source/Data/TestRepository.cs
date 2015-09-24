@@ -8,9 +8,9 @@ namespace BalloonsPop.Data
     {
         private readonly IList<T> testingDataBase;
 
-        public TestRepository()
+        public TestRepository(IList<T> testingDataBase)
         {
-            this.testingDataBase = new List<T>();
+            this.testingDataBase = testingDataBase;
         }
         public void Add(T entity)
         {

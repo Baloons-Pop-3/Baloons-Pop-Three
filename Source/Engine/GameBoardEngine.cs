@@ -1,5 +1,5 @@
 ﻿using System;
-
+using BalloonsPop.Data;
 using BalloonsPop.Printer;
 using BalloonsPop.Reader;
 using BalloonsPop.TopScoreBoard;
@@ -8,18 +8,21 @@ namespace BalloonsPop.Engine
 {
     class GameBoardEngine : IGameBoardEngine
     {
-        public GameBoardEngine(GameModel gameModel, IPrinter printer,IReader reader)
+        public GameBoardEngine(GameModel gameModel, IPrinter printer,IReader reader,IBalloonsData db)
         {
             this.GameModel = gameModel;
             this.Printer = printer;
             this.Reader = reader;
+            this.DataBase = db;
         }
 
-        public GameModel GameModel{ get; set; }
+        public IBalloonsData DataBase { get; private set; }
 
-        public IPrinter Printer { get; set; }
+        public GameModel GameModel{ get; private set; }
 
-        public IReader Reader { get; set; }
+        public IPrinter Printer { get; private set; }
+
+        public IReader Reader { get; private set; }
 
         public void Init()
         {

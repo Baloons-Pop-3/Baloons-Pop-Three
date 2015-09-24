@@ -1,15 +1,18 @@
 ﻿namespace BalloonsPop.Engine
 {
+    using Data;
     using Printer;
     using Reader;
 
     interface IGameBoardEngine
     {
-        GameModel GameModel { get; set; }
+        GameModel GameModel { get; }
 
-        IPrinter Printer { get; set; }
+        IPrinter Printer { get; }
 
-        IReader Reader { get; set; }
+        IReader Reader { get; }
+
+        IBalloonsData DataBase { get; }
 
         void Init();
     }

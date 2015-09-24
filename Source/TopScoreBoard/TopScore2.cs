@@ -8,9 +8,9 @@ namespace BalloonsPop.TopScoreBoard
 {
     class TopScore2 : ITopScore
     {
-        TopScore2(IGenericRepository<Player> highScoreProvider)
+        public TopScore2(IBalloonsData db)
         {
-            this.HighScores = highScoreProvider;
+            this.HighScores = db.Players;
         }
 
         public IGenericRepository<Player> HighScores{ get; set; }

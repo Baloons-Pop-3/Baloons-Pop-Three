@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BalloonsPop</RootNamespace>
     <AssemblyName>BalloonsPop</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -23,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -32,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,11 +51,13 @@
     <Compile Include="Common\GlobalConstants.cs" />
     <Compile Include="Coordinates.cs" />
     <Compile Include="Common\Validator.cs" />
-    <Compile Include="Data\TestRepository.cs" />
+    <Compile Include="Data\BalloonsData.cs" />
+    <Compile Include="Data\Contracts\IBalloonsData.cs" />
+    <Compile Include="Data\Repositories\TestRepository.cs" />
+    <Compile Include="Data\Repositories\TxtFileRepository.cs" />
     <Compile Include="TopScoreBoard\TopScore2.cs" />
     <Content Include="Content\TopScore.txt" />
-    <Compile Include="Data\IGenericRepository.cs" />
-    <Compile Include="Data\TxtRepository.cs" />
+    <Compile Include="Data\Contracts\IGenericRepository.cs" />
     <Compile Include="Engine\GameBoardEngine.cs" />
     <Compile Include="Engine\IGameBoardEngine.cs" />
     <Compile Include="GameFacade.cs" />
@@ -71,6 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

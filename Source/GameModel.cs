@@ -1,7 +1,6 @@
 ﻿namespace BalloonsPop
 {
     using System;
-    using Common;
 
     internal class GameModel
     {

@@ -3,6 +3,7 @@
     using System;
 
     using Common;
+    using TopScoreBoard;
 
     class ConsolePrinter : IPrinter
     {
@@ -26,7 +27,7 @@
             Console.WriteLine(msg);
         }
 
-        public void PrintTopScore()
+        public void PrintTopScore(ITopScore ts)
         {
             throw new NotImplementedException();
         }

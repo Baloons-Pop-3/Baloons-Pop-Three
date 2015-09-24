@@ -9,7 +9,7 @@
     // TODO: Implement ITopScore
     public class TopScore
     {
-        private const string scorePath = "..\\..\\Data\\TopScore.txt";
+        private const string scorePath = "..\\..\\Content\\TopScore.txt";
         public const int MAX_TOP_SCORE_COUNT = 5;
         List<Player> topScoreList = new List<Player>();
 

@@ -48,7 +48,10 @@
     <Compile Include="Common\GlobalConstants.cs" />
     <Compile Include="Coordinates.cs" />
     <Compile Include="Common\Validator.cs" />
-    <Content Include="Data\TopScore.txt" />
+    <Compile Include="TopScoreBoard\TopScore2.cs" />
+    <Content Include="Content\TopScore.txt" />
+    <Compile Include="Data\IGenericRepository.cs" />
+    <Compile Include="Data\TxtRepository.cs" />
     <Compile Include="Engine\GameBoardEngine.cs" />
     <Compile Include="Engine\IGameBoardEngine.cs" />
     <Compile Include="GameFacade.cs" />

@@ -49,23 +49,24 @@
     <Compile Include="Command.cs" />
     <Compile Include="CommandType.cs" />
     <Compile Include="Common\GlobalConstants.cs" />
-    <Compile Include="Coordinates.cs" />
+    <Compile Include="Model\Coordinates.cs" />
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Data\BalloonsData.cs" />
     <Compile Include="Data\Contracts\IBalloonsData.cs" />
     <Compile Include="Data\Repositories\TestRepository.cs" />
     <Compile Include="Data\Repositories\TxtFileRepository.cs" />
+    <Compile Include="GameLogic.cs" />
     <Compile Include="TopScoreBoard\TopScore2.cs" />
     <Content Include="Content\TopScore.txt" />
     <Compile Include="Data\Contracts\IGenericRepository.cs" />
     <Compile Include="Engine\GameBoardEngine.cs" />
     <Compile Include="Engine\IGameBoardEngine.cs" />
     <Compile Include="GameFacade.cs" />
-    <Compile Include="GameField.cs" />
-    <Compile Include="GameModel.cs">
+    <Compile Include="Model\GameField.cs" />
+    <Compile Include="Model\Game.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="Player.cs" />
+    <Compile Include="Model\Player.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Printer\ConsolePrinter.cs" />
     <Compile Include="Printer\IPrinter.cs" />

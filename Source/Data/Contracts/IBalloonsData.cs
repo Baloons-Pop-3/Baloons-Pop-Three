@@ -7,6 +7,6 @@ namespace BalloonsPop.Data
         IGenericRepository<Player> Players { get;  }
         
         //for saving and loading games
-        IGenericRepository<GameModel> Games { get;  }
+        IGenericRepository<Game> Games { get;  }
     }
 }

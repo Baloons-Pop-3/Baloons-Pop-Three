@@ -7,13 +7,13 @@
 
     class BalloonsData : IBalloonsData
     {
-        public BalloonsData(IGenericRepository<Player> players, IGenericRepository<GameModel> games)
+        public BalloonsData(IGenericRepository<Player> players, IGenericRepository<Game> games)
         {
             this.Players = players;
             this.Games = games;
         }
 
-        public IGenericRepository<GameModel> Games { private set; get; }
+        public IGenericRepository<Game> Games { private set; get; }
 
         public IGenericRepository<Player> Players { private set;  get; }
     }

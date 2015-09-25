@@ -1,26 +1,19 @@
-﻿namespace BalloonsPop
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BalloonsPop
 {
-    using System;
-
-    internal class GameModel
+    class GameLogic
     {
-        public GameModel(GameField field)
+        public GameLogic(Game game)
         {
-            this.RemainingBaloons = field.BalloonsCols*field.BalloonsRows;
-            this.ShootCounter = 0;
-            this.Field = field;
+            this.Game = game;
         }
 
-        public GameField Field { get; set; }
-
-        public int ShootCounter
-        {
-            private set; get;
-        }
-        public int RemainingBaloons
-        {
-            private set; get;
-        }
+        public Game Game { get; set; }
 
         public void ShootBalloonAtPosition(Coordinates currentPosition)
         {
@@ -34,8 +27,8 @@
                 throw new ArgumentException("Invalid coordinates or already pop balloon");
             }
 
-            this.Field.UpdateField(currentPosition, '.');
-            this.RemainingBaloons--;
+            this.Game.Field.UpdateField(currentPosition, '.');
+            this.Game.RemainingBaloons--;
 
             // TODO: if possible extract method of the repeated logic
 
@@ -43,16 +36,16 @@
             tempCoordinates.Y = currentPosition.Y;
             while (currentBaloon == GetBaloonFromPosition(tempCoordinates))
             {
-                this.Field.UpdateField(tempCoordinates, '.');
-                this.RemainingBaloons--;
+                this.Game.Field.UpdateField(tempCoordinates, '.');
+                this.Game.RemainingBaloons--;
                 tempCoordinates.X--;
             }
 
             tempCoordinates.X = currentPosition.X + 1; tempCoordinates.Y = currentPosition.Y;
             while (currentBaloon == GetBaloonFromPosition(tempCoordinates))
             {
-                this.Field.UpdateField(tempCoordinates, '.');
-                this.RemainingBaloons--;
+                this.Game.Field.UpdateField(tempCoordinates, '.');
+                this.Game.RemainingBaloons--;
                 tempCoordinates.X++;
             }
 
@@ -60,8 +53,8 @@
             tempCoordinates.Y = currentPosition.Y - 1;
             while (currentBaloon == GetBaloonFromPosition(tempCoordinates))
             {
-                this.Field.UpdateField(tempCoordinates, '.');
-                this.RemainingBaloons--;
+                this.Game.Field.UpdateField(tempCoordinates, '.');
+                this.Game.RemainingBaloons--;
                 tempCoordinates.Y--;
             }
 
@@ -69,12 +62,12 @@
             tempCoordinates.Y = currentPosition.Y + 1;
             while (currentBaloon == GetBaloonFromPosition(tempCoordinates))
             {
-                this.Field.UpdateField(tempCoordinates, '.');
-                this.RemainingBaloons--;
+                this.Game.Field.UpdateField(tempCoordinates, '.');
+                this.Game.RemainingBaloons--;
                 tempCoordinates.Y++;
             }
 
-            this.ShootCounter++;
+            this.Game.ShootCounter++;
             LandFlyingBaloons();
         }
 
@@ -83,8 +76,8 @@
             // TODO: extract validator
             bool isOutOfBoard = currentPosition.X < 0
                 || currentPosition.Y < 0
-                || currentPosition.X > this.Field.BalloonsCols - 1
-                || currentPosition.Y > this.Field.BalloonsRows - 1;
+                || currentPosition.X > this.Game.Field.BalloonsCols - 1
+                || currentPosition.Y > this.Game.Field.BalloonsRows - 1;
 
             if (isOutOfBoard)
             {
@@ -94,22 +87,22 @@
             int xPosition = 4 + (currentPosition.X * 2);
             int yPosition = 2 + currentPosition.Y;
 
-            return this.Field[xPosition, yPosition];
+            return this.Game.Field[xPosition, yPosition];
         }
 
         private void ChnageBalloonPosition(Coordinates currentPosition, Coordinates newPosition)
         {
             char tmp = GetBaloonFromPosition(currentPosition);
-            this.Field.UpdateField(currentPosition, GetBaloonFromPosition(newPosition));
-            this.Field.UpdateField(newPosition, tmp);
+            this.Game.Field.UpdateField(currentPosition, GetBaloonFromPosition(newPosition));
+            this.Game.Field.UpdateField(newPosition, tmp);
         }
 
         private void LandFlyingBaloons()
         {
             Coordinates currentPosition = new Coordinates();
-            for (int column = 0; column < this.Field.BalloonsCols; column++)
+            for (int column = 0; column < this.Game.Field.BalloonsCols; column++)
             {
-                for (int row = 0; row < this.Field.BalloonsRows; row++)
+                for (int row = 0; row < this.Game.Field.BalloonsRows; row++)
                 {
                     currentPosition.X = column;
                     currentPosition.Y = row;
@@ -129,5 +122,6 @@
                 }
             }
         }
+
     }
 }

@@ -6,7 +6,7 @@
 
     interface IGameBoardEngine
     {
-        GameModel GameModel { get; }
+        GameLogic GameLogic { get; }
 
         IPrinter Printer { get; }
 

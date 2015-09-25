@@ -4,6 +4,7 @@
 
     using Common;
     using TopScoreBoard;
+    using System.Collections;
 
     class ConsolePrinter : IPrinter
     {
@@ -27,9 +28,15 @@
             Console.WriteLine(msg);
         }
 
-        public void PrintTopScore(ITopScore ts)
+        public void PrintTopScore(IEnumerable topScorePlayers)
         {
-            throw new NotImplementedException();
+            var playerPosition = 1;
+            foreach (var item in topScorePlayers)
+            {
+                var player = item as Player;
+                Console.WriteLine("{0}. {1} - {2} {3}", playerPosition, player.Name, player.Score, player.Score == 1 ? "shoot" : "shoots");
+                playerPosition++;         
+            }
         }
     }
 }

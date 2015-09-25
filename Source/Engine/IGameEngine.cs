@@ -1,10 +1,11 @@
 ﻿namespace BalloonsPop.Engine
 {
+    using TopScoreBoard;
     using Data;
     using Printer;
     using Reader;
 
-    interface IGameBoardEngine
+    interface IGameEngine
     {
         GameLogic GameLogic { get; }
 
@@ -13,6 +14,8 @@
         IReader Reader { get; }
 
         IBalloonsData DataBase { get; }
+
+        ITopScore TopScore { get; }
 
         void Init();
     }

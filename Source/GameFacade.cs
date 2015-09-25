@@ -5,6 +5,7 @@
     using Printer;
     using Engine;
     using Data;
+    using TopScoreBoard;
 
     public class GameFacade
     {
@@ -20,10 +21,11 @@
             GlobalConstants.BALLOONS_BOARD_ROWS);
         IReader reader = new ConsoleReader();
         IPrinter printer = new ConsolePrinter();
+        ITopScore topScore;
         Game balloonsGame;
         GameLogic gameLogic;
         IBalloonsData db;
-        IGameBoardEngine engine;
+        IGameEngine engine;
 
 
         public void Start()
@@ -31,7 +33,8 @@
             this.balloonsGame = new Game(this.field);
             this.gameLogic = new GameLogic(this.balloonsGame);
             this.db = new BalloonsData(this.players, this.games);
-            this.engine = new GameBoardEngine(this.gameLogic, this.printer, this.reader, this.db);
+            this.topScore = new TopScore(this.db);
+            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.db,this.topScore);
 
             this.engine.Init();
         }

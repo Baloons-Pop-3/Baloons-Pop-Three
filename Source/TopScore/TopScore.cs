@@ -6,9 +6,9 @@ using BalloonsPop.Data;
 
 namespace BalloonsPop.TopScoreBoard
 {
-    class TopScore2 : ITopScore
+    class TopScore : ITopScore
     {
-        public TopScore2(IBalloonsData db)
+        public TopScore(IBalloonsData db)
         {
             this.HighScores = db.Players;
         }

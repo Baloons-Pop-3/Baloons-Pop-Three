@@ -6,23 +6,26 @@ using BalloonsPop.TopScoreBoard;
 
 namespace BalloonsPop.Engine
 {
-    class GameBoardEngine : IGameBoardEngine
+    class GameEngine : IGameEngine
     {
-        public GameBoardEngine(GameLogic gameLogic, IPrinter printer,IReader reader,IBalloonsData db)
+        public GameEngine(GameLogic gameLogic, IPrinter printer, IReader reader, IBalloonsData db, ITopScore topScore)
         {
             this.GameLogic = gameLogic;
             this.Printer = printer;
             this.Reader = reader;
             this.DataBase = db;
+            this.TopScore = topScore;
         }
 
         public IBalloonsData DataBase { get; private set; }
 
-        public GameLogic GameLogic{ get; private set; }
+        public GameLogic GameLogic { get; private set; }
 
         public IPrinter Printer { get; private set; }
 
         public IReader Reader { get; private set; }
+
+        public ITopScore TopScore { get; private set; }
 
         public void Init()
         {
@@ -34,11 +37,8 @@ namespace BalloonsPop.Engine
 
         private void StartGame()
         {
-            TopScore ts = new TopScore();
             Coordinates coordinates = new Coordinates();
             Command command = new Command();
-
-            ts.OpenTopScoreList();
 
             while (this.GameLogic.Game.RemainingBaloons > 0)
             {
@@ -53,7 +53,7 @@ namespace BalloonsPop.Engine
                     {
                         case CommandType.Top:
                             {
-                                ts.PrintScoreList();
+                                this.Printer.PrintTopScore(TopScore.GetTop(4));
                             }
                             break;
                         case CommandType.Restart:
@@ -66,6 +66,12 @@ namespace BalloonsPop.Engine
                             {
                                 return;
                             }
+                        //testing case to check if saving in txt file is working
+                        case CommandType.Finish:
+                            {
+                                this.GameLogic.Game.RemainingBaloons = 0;
+                            }
+                            break;
                     }
                 }
                 else if (coordinates.TryParse(input))
@@ -83,21 +89,18 @@ namespace BalloonsPop.Engine
                 }
                 else
                 {
-                   Printer.PrintMessage("Invalid move or command!");
+                    Printer.PrintMessage("Invalid move or command!");
                 }
+
             }
 
-            // TODO: Refactor the logic about topScore
             Player player = new Player();
             player.Score = this.GameLogic.Game.ShootCounter;
 
-            if (ts.IsTopScore(player))
-            {
-                Printer.PrintMessage("Please enter your name for the top scoreboard: ");
-                player.Name = Reader.ReadInput();
-                ts.AddToTopScoreList(player);
-            }
-            ts.SaveTopScoreList();
+            Printer.PrintMessage("Please enter your name for the top scoreboard: ");
+            player.Name = Reader.ReadInput();
+
+            TopScore.AddPlayer(player);
         }
 
     }

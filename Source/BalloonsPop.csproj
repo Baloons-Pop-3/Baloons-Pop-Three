@@ -39,6 +39,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,31 +50,30 @@
     <Compile Include="Command.cs" />
     <Compile Include="CommandType.cs" />
     <Compile Include="Common\GlobalConstants.cs" />
-    <Compile Include="Model\Coordinates.cs" />
+    <Compile Include="Models\Coordinates.cs" />
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Data\BalloonsData.cs" />
     <Compile Include="Data\Contracts\IBalloonsData.cs" />
     <Compile Include="Data\Repositories\TestRepository.cs" />
     <Compile Include="Data\Repositories\TxtFileRepository.cs" />
     <Compile Include="GameLogic.cs" />
-    <Compile Include="TopScoreBoard\TopScore2.cs" />
+    <Compile Include="TopScore\TopScore.cs" />
     <Content Include="Content\TopScore.txt" />
     <Compile Include="Data\Contracts\IGenericRepository.cs" />
-    <Compile Include="Engine\GameBoardEngine.cs" />
-    <Compile Include="Engine\IGameBoardEngine.cs" />
+    <Compile Include="Engine\GameEngine.cs" />
+    <Compile Include="Engine\IGameEngine.cs" />
     <Compile Include="GameFacade.cs" />
-    <Compile Include="Model\GameField.cs" />
-    <Compile Include="Model\Game.cs">
+    <Compile Include="Models\GameField.cs" />
+    <Compile Include="Models\Game.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="Model\Player.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Printer\ConsolePrinter.cs" />
     <Compile Include="Printer\IPrinter.cs" />
     <Compile Include="Reader\ConsoleReader.cs" />
     <Compile Include="Reader\IReader.cs" />
-    <Compile Include="TopScoreBoard\ITopScore.cs" />
-    <Compile Include="TopScoreBoard\TopScore.cs" />
+    <Compile Include="TopScore\ITopScore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

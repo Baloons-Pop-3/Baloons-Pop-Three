@@ -6,12 +6,12 @@
     [TestClass]
     public class TopScoreTests
     {
-        [TestMethod]
-        public void IsTopScoreToReturnTrueWhenTopScoreListIsEmpty()
-        {
-            var topScore = new TopScore();
-            var player = new Player();
-            Assert.IsTrue(topScore.IsTopScore(player));            
-        }
+        //[TestMethod]
+        //public void IsTopScoreToReturnTrueWhenTopScoreListIsEmpty()
+        //{
+        //    var topScore = new TopScore();
+        //    var player = new Player();
+        //    Assert.IsTrue(topScore.IsTopScore(player));            
+        //}
     }
 }

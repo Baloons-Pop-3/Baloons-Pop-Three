@@ -3,7 +3,7 @@
     using System.Collections;
 
     using TopScoreBoard;
-    interface IPrinter
+    interface IGamePrinter
     {
         void PrintMessage(string msg);
 

@@ -8,7 +8,7 @@ namespace BalloonsPop.Engine
 {
     class GameEngine : IGameEngine
     {
-        public GameEngine(GameLogic gameLogic, IPrinter printer, IReader reader, IBalloonsData db, ITopScore topScore)
+        public GameEngine(GameLogic gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScore topScore)
         {
             this.GameLogic = gameLogic;
             this.Printer = printer;
@@ -21,7 +21,7 @@ namespace BalloonsPop.Engine
 
         public GameLogic GameLogic { get; private set; }
 
-        public IPrinter Printer { get; private set; }
+        public IGamePrinter Printer { get; private set; }
 
         public IReader Reader { get; private set; }
 

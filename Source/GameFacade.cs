@@ -20,7 +20,7 @@
             GlobalConstants.BALLOONS_BOARD_COLS,
             GlobalConstants.BALLOONS_BOARD_ROWS);
         IReader reader = new ConsoleReader();
-        IPrinter printer = new ConsolePrinter();
+        IGamePrinter printer = new ConsoleGamePrinter();
         ITopScore topScore;
         Game balloonsGame;
         GameLogic gameLogic;

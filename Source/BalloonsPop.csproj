@@ -52,7 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
-    <Compile Include="Common\CommandType.cs" />
+    <Compile Include="Common\Enums\CommandType.cs" />
+    <Compile Include="Common\Enums\ShootingDirection.cs" />
     <Compile Include="Common\GlobalConstants.cs" />
     <Compile Include="Common\Serializer\ISerializer.cs" />
     <Compile Include="Common\Serializer\JsonSerializer.cs" />
@@ -61,7 +62,7 @@
     <Compile Include="Data\BalloonsData.cs" />
     <Compile Include="Data\Contracts\IBalloonsData.cs" />
     <Compile Include="Data\Repositories\TestRepository.cs" />
-    <Compile Include="Data\Repositories\TxtFileRepository.cs" />
+    <Compile Include="Data\Repositories\FileRepository.cs" />
     <Compile Include="GameLogic.cs" />
     <Compile Include="TopScore\TopScore.cs" />
     <None Include="Content\TopScore.json" />
@@ -75,8 +76,8 @@
     </Compile>
     <Compile Include="Models\Player.cs" />
     <Compile Include="EntryPoint.cs" />
-    <Compile Include="Printer\ConsolePrinter.cs" />
-    <Compile Include="Printer\IPrinter.cs" />
+    <Compile Include="Printer\ConsoleGamePrinter.cs" />
+    <Compile Include="Printer\IGamePrinter.cs" />
     <Compile Include="Reader\ConsoleReader.cs" />
     <Compile Include="Reader\IReader.cs" />
     <Compile Include="TopScore\ITopScore.cs" />

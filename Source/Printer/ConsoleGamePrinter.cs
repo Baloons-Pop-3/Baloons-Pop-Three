@@ -6,7 +6,7 @@
     using TopScoreBoard;
     using System.Collections;
 
-    class ConsolePrinter : IPrinter
+    class ConsoleGamePrinter : IGamePrinter
     {
         public void PrintGameBoard(char[,] gameBoard)
         {

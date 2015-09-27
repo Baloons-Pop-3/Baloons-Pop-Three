@@ -9,7 +9,7 @@
     {
         GameLogic GameLogic { get; }
 
-        IPrinter Printer { get; }
+        IGamePrinter Printer { get; }
 
         IReader Reader { get; }
 

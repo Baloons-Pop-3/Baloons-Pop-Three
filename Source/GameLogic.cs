@@ -15,60 +15,56 @@ namespace BalloonsPop
 
         public Game Game { get; set; }
 
-        public void ShootBalloonAtPosition(Coordinates currentPosition)
+        public void ShootBalloonAtPosition(Coordinates positionToShoot)
         {
-            char currentBaloon;
-            currentBaloon = GetBaloonFromPosition(currentPosition);
-            Coordinates tempCoordinates = new Coordinates();
+            char balloonToShoot;
+            balloonToShoot = GetBaloonFromPosition(positionToShoot);
 
-            if (currentBaloon < '1' || currentBaloon > '4')
+            if (balloonToShoot < '1' || balloonToShoot > '4')
             {
                 // TODO: Find a way to return concrete exception. Code need some refactoring or coupling with Printer
                 throw new ArgumentException("Invalid coordinates or already pop balloon");
             }
 
-            this.Game.Field.UpdateField(currentPosition, '.');
+            this.Game.Field.UpdateField(positionToShoot, '.');
             this.Game.RemainingBaloons--;
 
-            // TODO: if possible extract method of the repeated logic
-
-            tempCoordinates.X = currentPosition.X - 1;
-            tempCoordinates.Y = currentPosition.Y;
-            while (currentBaloon == GetBaloonFromPosition(tempCoordinates))
-            {
-                this.Game.Field.UpdateField(tempCoordinates, '.');
-                this.Game.RemainingBaloons--;
-                tempCoordinates.X--;
-            }
-
-            tempCoordinates.X = currentPosition.X + 1; tempCoordinates.Y = currentPosition.Y;
-            while (currentBaloon == GetBaloonFromPosition(tempCoordinates))
-            {
-                this.Game.Field.UpdateField(tempCoordinates, '.');
-                this.Game.RemainingBaloons--;
-                tempCoordinates.X++;
-            }
-
-            tempCoordinates.X = currentPosition.X;
-            tempCoordinates.Y = currentPosition.Y - 1;
-            while (currentBaloon == GetBaloonFromPosition(tempCoordinates))
-            {
-                this.Game.Field.UpdateField(tempCoordinates, '.');
-                this.Game.RemainingBaloons--;
-                tempCoordinates.Y--;
-            }
-
-            tempCoordinates.X = currentPosition.X;
-            tempCoordinates.Y = currentPosition.Y + 1;
-            while (currentBaloon == GetBaloonFromPosition(tempCoordinates))
-            {
-                this.Game.Field.UpdateField(tempCoordinates, '.');
-                this.Game.RemainingBaloons--;
-                tempCoordinates.Y++;
-            }
+            ShootSameBalloonInDirection(ShootingDirection.Up, positionToShoot, balloonToShoot);
+            ShootSameBalloonInDirection(ShootingDirection.Down, positionToShoot, balloonToShoot);
+            ShootSameBalloonInDirection(ShootingDirection.Left, positionToShoot, balloonToShoot);
+            ShootSameBalloonInDirection(ShootingDirection.Right, positionToShoot, balloonToShoot);
 
             this.Game.ShootCounter++;
             LandFlyingBaloons();
+        }
+
+        private void ShootSameBalloonInDirection(ShootingDirection direction, Coordinates startingPoint,char balloonToShoot)
+        {
+            Coordinates tempCoordinates = new Coordinates();
+            tempCoordinates.X = startingPoint.X;
+            tempCoordinates.Y = startingPoint.Y;
+
+            switch (direction)
+            {
+                case ShootingDirection.Left: tempCoordinates.X--; break;
+                case ShootingDirection.Right: tempCoordinates.X++; break;
+                case ShootingDirection.Up: tempCoordinates.Y--; break;
+                case ShootingDirection.Down: tempCoordinates.Y++; break;
+            }
+
+            while (balloonToShoot == GetBaloonFromPosition(tempCoordinates))
+            {
+                this.Game.Field.UpdateField(tempCoordinates, '.');
+                this.Game.RemainingBaloons--;
+
+                switch (direction)
+                {
+                    case ShootingDirection.Left: tempCoordinates.X--; break;
+                    case ShootingDirection.Right: tempCoordinates.X++; break;
+                    case ShootingDirection.Up: tempCoordinates.Y--; break;
+                    case ShootingDirection.Down: tempCoordinates.Y++; break;
+                }
+            }
         }
 
         private char GetBaloonFromPosition(Coordinates currentPosition)

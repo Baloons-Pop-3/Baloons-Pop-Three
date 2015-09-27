@@ -18,7 +18,7 @@ namespace BalloonsPop
         public void ShootBalloonAtPosition(Coordinates positionToShoot)
         {
             char balloonToShoot;
-            balloonToShoot = GetBaloonFromPosition(positionToShoot);
+            balloonToShoot = GetBaloonTypeFromPosition(positionToShoot);
 
             if (balloonToShoot < '1' || balloonToShoot > '4')
             {
@@ -40,34 +40,34 @@ namespace BalloonsPop
 
         private void ShootSameBalloonInDirection(ShootingDirection direction, Coordinates startingPoint,char balloonToShoot)
         {
-            Coordinates tempCoordinates = new Coordinates();
-            tempCoordinates.X = startingPoint.X;
-            tempCoordinates.Y = startingPoint.Y;
+            Coordinates nextCoordinates = new Coordinates();
+            nextCoordinates.X = startingPoint.X;
+            nextCoordinates.Y = startingPoint.Y;
 
             switch (direction)
             {
-                case ShootingDirection.Left: tempCoordinates.X--; break;
-                case ShootingDirection.Right: tempCoordinates.X++; break;
-                case ShootingDirection.Up: tempCoordinates.Y--; break;
-                case ShootingDirection.Down: tempCoordinates.Y++; break;
+                case ShootingDirection.Left: nextCoordinates.X--; break;
+                case ShootingDirection.Right: nextCoordinates.X++; break;
+                case ShootingDirection.Up: nextCoordinates.Y--; break;
+                case ShootingDirection.Down: nextCoordinates.Y++; break;
             }
 
-            while (balloonToShoot == GetBaloonFromPosition(tempCoordinates))
+            while (balloonToShoot == GetBaloonTypeFromPosition(nextCoordinates))
             {
-                this.Game.Field.UpdateField(tempCoordinates, '.');
+                this.Game.Field.UpdateField(nextCoordinates, '.');
                 this.Game.RemainingBaloons--;
 
                 switch (direction)
                 {
-                    case ShootingDirection.Left: tempCoordinates.X--; break;
-                    case ShootingDirection.Right: tempCoordinates.X++; break;
-                    case ShootingDirection.Up: tempCoordinates.Y--; break;
-                    case ShootingDirection.Down: tempCoordinates.Y++; break;
+                    case ShootingDirection.Left: nextCoordinates.X--; break;
+                    case ShootingDirection.Right: nextCoordinates.X++; break;
+                    case ShootingDirection.Up: nextCoordinates.Y--; break;
+                    case ShootingDirection.Down: nextCoordinates.Y++; break;
                 }
             }
         }
 
-        private char GetBaloonFromPosition(Coordinates currentPosition)
+        private char GetBaloonTypeFromPosition(Coordinates currentPosition)
         {
             // TODO: extract validator
             bool isOutOfBoard = currentPosition.X < 0
@@ -86,33 +86,31 @@ namespace BalloonsPop
             return this.Game.Field[xPosition, yPosition];
         }
 
-        private void ChnageBalloonPosition(Coordinates currentPosition, Coordinates newPosition)
+        private void SwapBalloons(Coordinates currentPosition, Coordinates newPosition)
         {
-            char tmp = GetBaloonFromPosition(currentPosition);
-            this.Game.Field.UpdateField(currentPosition, GetBaloonFromPosition(newPosition));
-            this.Game.Field.UpdateField(newPosition, tmp);
+            char balloonToSwap = GetBaloonTypeFromPosition(currentPosition);
+            char balloonToBeSwapped = GetBaloonTypeFromPosition(newPosition);
+
+            this.Game.Field.UpdateField(currentPosition, balloonToBeSwapped);
+            this.Game.Field.UpdateField(newPosition, balloonToSwap);
         }
 
         private void LandFlyingBaloons()
         {
-            Coordinates currentPosition = new Coordinates();
             for (int column = 0; column < this.Game.Field.BalloonsCols; column++)
             {
                 for (int row = 0; row < this.Game.Field.BalloonsRows; row++)
                 {
-                    currentPosition.X = column;
-                    currentPosition.Y = row;
-                    if (GetBaloonFromPosition(currentPosition) == '.')
+                    Coordinates positionToCheck = new Coordinates(column,row);
+
+                    if (GetBaloonTypeFromPosition(positionToCheck) == '.')
                     {
                         for (int k = row; k > 0; k--)
                         {
-                            Coordinates tempCoordinates = new Coordinates();
-                            Coordinates tempCoordinates1 = new Coordinates();
-                            tempCoordinates.X = column;
-                            tempCoordinates.Y = k;
-                            tempCoordinates1.X = column;
-                            tempCoordinates1.Y = k - 1;
-                            ChnageBalloonPosition(tempCoordinates, tempCoordinates1);
+                            Coordinates oldCoordinates = new Coordinates(column,k);
+                            Coordinates newCoordinates = new Coordinates(column, k - 1);
+
+                            SwapBalloons(oldCoordinates, newCoordinates);
                         }
                     }
                 }

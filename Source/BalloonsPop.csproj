@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
-    <Compile Include="CommandType.cs" />
+    <Compile Include="Common\CommandType.cs" />
     <Compile Include="Common\GlobalConstants.cs" />
+    <Compile Include="Common\Serializer\ISerializer.cs" />
+    <Compile Include="Common\Serializer\JsonSerializer.cs" />
     <Compile Include="Models\Coordinates.cs" />
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Data\BalloonsData.cs" />
@@ -58,7 +60,7 @@
     <Compile Include="Data\Repositories\TxtFileRepository.cs" />
     <Compile Include="GameLogic.cs" />
     <Compile Include="TopScore\TopScore.cs" />
-    <Content Include="Content\TopScore.txt" />
+    <None Include="Content\TopScore.json" />
     <Compile Include="Data\Contracts\IGenericRepository.cs" />
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Engine\IGameEngine.cs" />

@@ -1,9 +1,8 @@
 ﻿namespace BalloonsPop.Data
 {
-    using System;
+    using Common.Serializer;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
     using System.Web.Script.Serialization;
 
     /// <summary>
@@ -13,12 +12,12 @@
     class TxtFileRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly string pathOfTxtFile;
-        private readonly JavaScriptSerializer jsonSerializer;
+        private readonly ISerializer serializer;
 
         public TxtFileRepository(string path)
         {
             this.pathOfTxtFile = path;
-            this.jsonSerializer = new JavaScriptSerializer();
+            this.serializer = new JsonSerializer();
         }
 
         /// <summary>
@@ -27,7 +26,7 @@
         /// <param name="entity">Type of object to save in the repository</param>
         public void Add(T entity)
         {
-            var jsonEntity = jsonSerializer.Serialize(entity);
+            var jsonEntity = serializer.Serialize<T>(entity);
 
             using (StreamWriter TopScoreStreamWriter = new StreamWriter(this.pathOfTxtFile,true))
             {
@@ -48,7 +47,7 @@
                 string line = TopScoreStreamReader.ReadLine();
                 while (line != null)
                 {
-                    T item = jsonSerializer.Deserialize<T>(line);
+                    T item = serializer.Deserialize<T>(line);
                     fetchedCollection.Add(item);
 
                     line = TopScoreStreamReader.ReadLine();

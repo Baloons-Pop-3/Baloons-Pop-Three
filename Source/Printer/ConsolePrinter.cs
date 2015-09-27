@@ -34,7 +34,9 @@
             foreach (var item in topScorePlayers)
             {
                 var player = item as Player;
+
                 Console.WriteLine("{0}. {1} - {2} {3}", playerPosition, player.Name, player.Score, player.Score == 1 ? "shoot" : "shoots");
+
                 playerPosition++;         
             }
         }

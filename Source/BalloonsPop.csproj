@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="Common\Enums\BalloonType.cs" />
     <Compile Include="Common\Enums\CommandType.cs" />
     <Compile Include="Common\Enums\ShootingDirection.cs" />
     <Compile Include="Common\GlobalConstants.cs" />

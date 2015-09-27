@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BalloonsPop.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,28 +18,30 @@ namespace BalloonsPop
 
         public void ShootBalloonAtPosition(Coordinates positionToShoot)
         {
-            char balloonToShoot;
-            balloonToShoot = GetBaloonTypeFromPosition(positionToShoot);
+            char balloonToShoot = GetBaloonTypeFromPosition(positionToShoot);
 
-            if (balloonToShoot < '1' || balloonToShoot > '4')
+            if (balloonToShoot == (char)BallonType.Popped)
             {
-                // TODO: Find a way to return concrete exception. Code need some refactoring or coupling with Printer
-                throw new ArgumentException("Invalid coordinates or already pop balloon");
+                throw new ArgumentException(GlobalMessages.ALREADY_POPPED_BALLOON_MSG);
+            }
+            else if (balloonToShoot == (char)BallonType.Invalid)
+            {
+                throw new ArgumentException(GlobalMessages.INVALID_COORDINATES_MSG);
             }
 
             this.Game.Field.UpdateField(positionToShoot, '.');
             this.Game.RemainingBaloons--;
 
-            ShootSameBalloonInDirection(ShootingDirection.Up, positionToShoot, balloonToShoot);
-            ShootSameBalloonInDirection(ShootingDirection.Down, positionToShoot, balloonToShoot);
-            ShootSameBalloonInDirection(ShootingDirection.Left, positionToShoot, balloonToShoot);
-            ShootSameBalloonInDirection(ShootingDirection.Right, positionToShoot, balloonToShoot);
+            ShootSameBalloonsInDirection(ShootingDirection.Up, positionToShoot, balloonToShoot);
+            ShootSameBalloonsInDirection(ShootingDirection.Down, positionToShoot, balloonToShoot);
+            ShootSameBalloonsInDirection(ShootingDirection.Left, positionToShoot, balloonToShoot);
+            ShootSameBalloonsInDirection(ShootingDirection.Right, positionToShoot, balloonToShoot);
 
             this.Game.ShootCounter++;
             LandFlyingBaloons();
         }
 
-        private void ShootSameBalloonInDirection(ShootingDirection direction, Coordinates startingPoint,char balloonToShoot)
+        private void ShootSameBalloonsInDirection(ShootingDirection direction, Coordinates startingPoint,char balloonToShoot)
         {
             Coordinates nextCoordinates = new Coordinates();
             nextCoordinates.X = startingPoint.X;
@@ -69,7 +72,6 @@ namespace BalloonsPop
 
         private char GetBaloonTypeFromPosition(Coordinates currentPosition)
         {
-            // TODO: extract validator
             bool isOutOfBoard = currentPosition.X < 0
                 || currentPosition.Y < 0
                 || currentPosition.X > this.Game.Field.BalloonsCols - 1
@@ -77,7 +79,7 @@ namespace BalloonsPop
 
             if (isOutOfBoard)
             {
-                return 'e';
+                return (char)BallonType.Invalid;
             }
 
             int xPosition = 4 + (currentPosition.X * 2);

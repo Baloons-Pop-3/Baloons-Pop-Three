@@ -7,6 +7,7 @@ using BalloonsPop.Common;
 using BalloonsPop.Contexts;
 using BalloonsPop.Commands;
 using BalloonsPop.Factories;
+using BalloonsPop.Mementos;
 
 namespace BalloonsPop.Engine
 {
@@ -42,18 +43,24 @@ namespace BalloonsPop.Engine
         {
             this.Printer.PrintMessage(GlobalMessages.GREETING_MSG);
 
-            while (this.GameLogic.Game.RemainingBaloons > 0)
+            while (this.GameLogic.Game.RemainingBalloons > 0)
             {
                 var input = Reader.ReadInput();
 
                 Printer.CleanDisplay();
                 this.Printer.PrintMessage(GlobalMessages.GREETING_MSG);
 
-                this.ProcessInput(input);       
+                this.ProcessInput(input);
             }
 
-            ICommand command=this.Factory.CreateCommand(CommandType.Finish);
+            ICommand command = this.Factory.CreateCommand(CommandType.Finish);
             command.Execute();
+        }
+
+        private void SaveLastStateOfGame()
+        {
+            this.Context.Memory.GameMemento = this.GameLogic.Game.SaveMemento();
+            System.Console.WriteLine(this.Context.Memory.GameMemento.RemainingBalloons);
         }
 
         private void ProcessInput(string input)
@@ -74,6 +81,8 @@ namespace BalloonsPop.Engine
 
                 try
                 {
+                    this.SaveLastStateOfGame();
+
                     this.GameLogic.ShootBalloonAtPosition(coordinates);
                 }
                 catch (ArgumentException ex)

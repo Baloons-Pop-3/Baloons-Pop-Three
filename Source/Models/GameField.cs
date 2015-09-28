@@ -74,5 +74,21 @@
                 }
             }
         }
+
+        public GameField Clone()
+        {
+            var clone= new GameField(this.FieldRows, this.FieldCols);
+
+            for (int i = 0; i < clone.FieldRows; i++)
+            {
+                for (int j = 0; j < clone.FieldCols; j++)
+                {
+                    clone[i, j] = this.field[i, j];
+                }
+            }
+
+            return clone;
+        }
+
     }
 }

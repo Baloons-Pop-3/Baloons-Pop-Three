@@ -6,6 +6,7 @@
         Restart,
         Top,
         Start,
-        Finish
+        Finish,
+        Undo
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BalloonsPop.Data;
+using BalloonsPop.Mementos;
 using BalloonsPop.Printer;
 using BalloonsPop.Reader;
 using BalloonsPop.TopScoreBoard;
@@ -21,5 +22,7 @@ namespace BalloonsPop.Contexts
         IBalloonsData DataBase { get; }
 
         ITopScore TopScore { get; }
+
+        GameStateMemory Memory { get; set; }
     }
 }

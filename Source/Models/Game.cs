@@ -1,14 +1,13 @@
 ﻿namespace BalloonsPop
 {
-    using Models;
-    using System;
+    using Mementos;
 
     internal class Game
     {
         public Game(GameField field)
         {
             this.Field = field;
-            this.RemainingBaloons = field.FieldRows*field.FieldCols;
+            this.RemainingBalloons = field.FieldRows*field.FieldCols;
             this.ShootCounter = 0;
         }
 
@@ -18,9 +17,21 @@
         {
             internal set; get;
         }
-        public int RemainingBaloons
+        public int RemainingBalloons
         {
             internal set; get;
+        }
+
+        public GameMemento SaveMemento()
+        {
+            return new GameMemento(this.Field, this.ShootCounter, this.RemainingBalloons);
+        }
+
+        public void RestoreMemento(GameMemento memento)
+        {
+            this.Field = memento.Field;
+            this.ShootCounter = memento.ShootCounter;
+            this.RemainingBalloons = memento.RemainingBalloons;
         }
     }
 }

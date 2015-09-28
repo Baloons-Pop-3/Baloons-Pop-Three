@@ -7,6 +7,7 @@ using BalloonsPop.Data;
 using BalloonsPop.Printer;
 using BalloonsPop.Reader;
 using BalloonsPop.TopScoreBoard;
+using BalloonsPop.Mementos;
 
 namespace BalloonsPop.Contexts
 {
@@ -19,6 +20,8 @@ namespace BalloonsPop.Contexts
             this.Printer = printer;
             this.Reader = reader;
             this.TopScore = topScore;
+
+            this.Memory = new GameStateMemory();
         }
 
         public IBalloonsData DataBase { private set; get; }
@@ -30,5 +33,7 @@ namespace BalloonsPop.Contexts
         public IReader Reader { private set; get; }
 
         public ITopScore TopScore { private set; get; }
+
+        public GameStateMemory Memory { set; get; }
     }
 }

@@ -27,7 +27,7 @@
             }
 
             this.Game.Field.UpdateField(positionToShoot, '.');
-            this.Game.RemainingBaloons--;
+            this.Game.RemainingBalloons--;
 
             ShootSameBalloonsInDirection(ShootingDirection.Up, positionToShoot, balloonToShoot);
             ShootSameBalloonsInDirection(ShootingDirection.Down, positionToShoot, balloonToShoot);
@@ -55,7 +55,7 @@
             while (balloonToShoot == GetBaloonTypeFromPosition(nextCoordinates))
             {
                 this.Game.Field.UpdateField(nextCoordinates, '.');
-                this.Game.RemainingBaloons--;
+                this.Game.RemainingBalloons--;
 
                 switch (direction)
                 {

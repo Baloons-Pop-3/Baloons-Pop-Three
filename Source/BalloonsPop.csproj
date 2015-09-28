@@ -75,6 +75,7 @@
     <Compile Include="Factories\Contracts\ICommandFactory.cs" />
     <Compile Include="Mementos\GameStateMemory.cs" />
     <Compile Include="Mementos\GameMemento.cs" />
+    <Compile Include="Models\Contracts\IPrototype.cs" />
     <Compile Include="Models\Coordinates.cs" />
     <Compile Include="Common\Validators\Validator.cs" />
     <Compile Include="Data\BalloonsData.cs" />

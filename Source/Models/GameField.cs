@@ -1,9 +1,10 @@
 ﻿namespace BalloonsPop
 {
+    using Models.Contracts;
     using Common;
     using System;
 
-    class GameField
+    class GameField:IPrototype<GameField>
     {
         private char[,] field;
 

@@ -32,7 +32,7 @@
             this.topScore = new TopScore(this.db);
             this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.db,this.topScore);
 
-            this.engine.Init();
+            this.engine.StartGame();
         }
     }
 }

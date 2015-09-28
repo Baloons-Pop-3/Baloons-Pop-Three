@@ -23,6 +23,6 @@
 
         ICommandFactory Factory { get; }
 
-        void Init();
+        void StartGame();
     }
 }

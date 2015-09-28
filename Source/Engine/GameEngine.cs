@@ -38,24 +38,20 @@ namespace BalloonsPop.Engine
 
         public ICommandFactory Factory { get; private set; }
 
-        public void Init()
-        {
-            this.Printer.PrintMessage(GlobalMessages.GREETING_MESSAGE);
-            this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
-
-            this.StartGame();
-        }
-
-        private void StartGame()
+        public void StartGame()
         {
             Coordinates coordinates = new Coordinates();
             CommandValidator validator = new CommandValidator();
 
+            this.Printer.PrintMessage(GlobalMessages.GREETING_MSG);
+            this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
+
             while (this.GameLogic.Game.RemainingBaloons > 0)
             {
-                Printer.PrintMessage("Enter a row and column: ");
+                Printer.PrintMessage(GlobalMessages.ROW_COW_MSG);
                 var input = Reader.ReadInput();
-                //Printer.CleanDisplay();
+                Printer.CleanDisplay();
+                this.Printer.PrintMessage(GlobalMessages.GREETING_MSG);
 
                 if (CommandValidator.IsValidCommand(input))
                 {
@@ -79,7 +75,7 @@ namespace BalloonsPop.Engine
                 }
                 else
                 {
-                    Printer.PrintMessage("Invalid move or command!");
+                    Printer.PrintMessage(GlobalMessages.INVALID_COMMAND_MSG);
                 }
 
             }
@@ -87,7 +83,7 @@ namespace BalloonsPop.Engine
             Player player = new Player();
             player.Score = this.GameLogic.Game.ShootCounter;
 
-            Printer.PrintMessage("Please enter your name for the top scoreboard: ");
+            Printer.PrintMessage(GlobalMessages.ADD_TO_TOPSCORE_MSG);
             player.Name = Reader.ReadInput();
 
             TopScore.AddPlayer(player);

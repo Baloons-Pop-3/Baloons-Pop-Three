@@ -6,16 +6,21 @@
     using TopScoreBoard;
     using System.Collections;
     using Models;
+    using Drawer;
 
     class ConsoleGamePrinter : IGamePrinter
     {
+        public IGameBoardDrawingLogic drawingLogic { private set; get; }
+
         public void PrintGameBoard(GameField field)
         {
-          GameBoard board = new GameBoard(field);
+            this.drawingLogic = new GameBoardDrawingLogic(field);
 
-            for (int i = 0; i < board.BoardRows; i++)
+            var board = drawingLogic.Board;
+
+            for (int i = 0; i < board.GetLength(0); i++)
             {
-                for (int j = 0; j < board.BoardCols; j++)
+                for (int j = 0; j < board.GetLength(1); j++)
                 {
                     Console.Write(board[i, j]);
                 }

@@ -59,6 +59,7 @@
     <Compile Include="Common\GlobalMessages.cs" />
     <Compile Include="Common\Serializer\ISerializer.cs" />
     <Compile Include="Common\Serializer\JsonSerializer.cs" />
+    <Compile Include="Drawer\IGameBoardDrawingLogic.cs" />
     <Compile Include="Models\Coordinates.cs" />
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Data\BalloonsData.cs" />
@@ -66,7 +67,7 @@
     <Compile Include="Data\Repositories\TestRepository.cs" />
     <Compile Include="Data\Repositories\FileRepository.cs" />
     <Compile Include="GameLogic.cs" />
-    <Compile Include="Models\GameBoard.cs" />
+    <Compile Include="Drawer\GameBoardDrawingLogic.cs" />
     <Compile Include="TopScore\TopScore.cs" />
     <None Include="Content\TopScore.json" />
     <Compile Include="Data\Contracts\IGenericRepository.cs" />

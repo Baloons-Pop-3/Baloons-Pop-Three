@@ -14,5 +14,7 @@
         void PrintGameBoard(GameField gameBoard);
 
         void PrintTopScore(IEnumerable topScore);
+
+        void CleanDisplay();
     }
 }

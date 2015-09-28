@@ -4,6 +4,8 @@
     using Data;
     using Printer;
     using Reader;
+    using Contexts;
+    using Factories;
 
     interface IGameEngine
     {
@@ -16,6 +18,10 @@
         IBalloonsData DataBase { get; }
 
         ITopScore TopScore { get; }
+
+        ICommandContext Context { get; }
+
+        ICommandFactory Factory { get; }
 
         void Init();
     }

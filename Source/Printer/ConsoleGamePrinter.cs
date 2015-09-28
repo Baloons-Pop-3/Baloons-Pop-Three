@@ -12,6 +12,11 @@
     {
         public IGameBoardDrawingLogic drawingLogic { private set; get; }
 
+        public void CleanDisplay()
+        {
+            Console.Clear();
+        }
+
         public void PrintGameBoard(GameField field)
         {
             this.drawingLogic = new GameBoardDrawingLogic(field);

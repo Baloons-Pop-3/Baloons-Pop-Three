@@ -52,6 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="Commands\ExitCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\InvalidCommand.cs" />
+    <Compile Include="Commands\NullCommand.cs" />
+    <Compile Include="Commands\RestartCommand.cs" />
+    <Compile Include="Commands\TopScoreCommand.cs" />
     <Compile Include="Common\Enums\BalloonType.cs" />
     <Compile Include="Common\Enums\CommandType.cs" />
     <Compile Include="Common\Enums\ShootingDirection.cs" />
@@ -59,7 +65,11 @@
     <Compile Include="Common\GlobalMessages.cs" />
     <Compile Include="Common\Serializer\ISerializer.cs" />
     <Compile Include="Common\Serializer\JsonSerializer.cs" />
+    <Compile Include="Contexts\CommandContext.cs" />
+    <Compile Include="Contexts\ICommandContext.cs" />
     <Compile Include="Drawer\IGameBoardDrawingLogic.cs" />
+    <Compile Include="Factories\CommandFactory.cs" />
+    <Compile Include="Factories\ICommandFactory.cs" />
     <Compile Include="Models\Coordinates.cs" />
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Data\BalloonsData.cs" />

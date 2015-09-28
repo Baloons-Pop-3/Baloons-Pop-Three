@@ -3,6 +3,10 @@ using BalloonsPop.Data;
 using BalloonsPop.Printer;
 using BalloonsPop.Reader;
 using BalloonsPop.TopScoreBoard;
+using BalloonsPop.Common;
+using BalloonsPop.Contexts;
+using BalloonsPop.Commands;
+using BalloonsPop.Factories;
 
 namespace BalloonsPop.Engine
 {
@@ -15,6 +19,9 @@ namespace BalloonsPop.Engine
             this.Reader = reader;
             this.DataBase = db;
             this.TopScore = topScore;
+
+            this.Context = new CommandContext(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScore);
+            this.Factory = new CommandFactory(this.Context);
         }
 
         public IBalloonsData DataBase { get; private set; }
@@ -27,9 +34,13 @@ namespace BalloonsPop.Engine
 
         public ITopScore TopScore { get; private set; }
 
+        public ICommandContext Context { get; private set; }
+
+        public ICommandFactory Factory { get; private set; }
+
         public void Init()
         {
-            this.Printer.PrintMessage("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
+            this.Printer.PrintMessage(GlobalMessages.GREETING_MESSAGE);
             this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
 
             this.StartGame();
@@ -38,41 +49,20 @@ namespace BalloonsPop.Engine
         private void StartGame()
         {
             Coordinates coordinates = new Coordinates();
-            Command command = new Command();
+            CommandValidator validator = new CommandValidator();
 
             while (this.GameLogic.Game.RemainingBaloons > 0)
             {
                 Printer.PrintMessage("Enter a row and column: ");
                 var input = Reader.ReadInput();
+                //Printer.CleanDisplay();
 
-                if (Command.IsValidCommand(input))
+                if (CommandValidator.IsValidCommand(input))
                 {
-                    command.Type = Command.GetType(input);
+                    validator.Type = CommandValidator.GetType(input);
 
-                    switch (command.Type)
-                    {
-                        case CommandType.Top:
-                            {
-                                this.Printer.PrintTopScore(TopScore.GetTop(4));
-                            }
-                            break;
-                        case CommandType.Restart:
-                            {
-                                this.Init();
-                                this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
-                            }
-                            break;
-                        case CommandType.Exit:
-                            {
-                                return;
-                            }
-                        //testing case to check if saving in txt file is working
-                        case CommandType.Finish:
-                            {
-                                this.GameLogic.Game.RemainingBaloons = 0;
-                            }
-                            break;
-                    }
+                    ICommand command = this.Factory.CreateCommand(validator.Type);
+                    command.Execute();
                 }
                 else if (coordinates.TryParse(input))
                 {

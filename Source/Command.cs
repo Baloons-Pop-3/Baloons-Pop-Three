@@ -2,11 +2,11 @@
 {
     using System;
 
-    internal class Command
+    internal class CommandValidator
     {
         private CommandType type;
 
-        public Command()
+        public CommandValidator()
         {
         }
 

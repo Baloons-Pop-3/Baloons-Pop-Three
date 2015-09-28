@@ -24,6 +24,8 @@ namespace BalloonsPop.Factories
                 case CommandType.Exit: return new ExitCommand(this.Context);
                 case CommandType.Restart: return new RestartCommand(this.Context);
                 case CommandType.Top: return new TopScoreCommand(this.Context);
+                case CommandType.Start: return new StartCommand(this.Context);
+                case CommandType.Finish:return new FinishCommand(this.Context);
                 default: return new NullCommand(this.Context);
             }
         }

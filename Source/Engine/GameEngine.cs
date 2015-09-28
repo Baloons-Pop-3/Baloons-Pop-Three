@@ -40,54 +40,55 @@ namespace BalloonsPop.Engine
 
         public void StartGame()
         {
-            Coordinates coordinates = new Coordinates();
-            CommandValidator validator = new CommandValidator();
-
             this.Printer.PrintMessage(GlobalMessages.GREETING_MSG);
-            this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
 
             while (this.GameLogic.Game.RemainingBaloons > 0)
             {
-                Printer.PrintMessage(GlobalMessages.ROW_COW_MSG);
                 var input = Reader.ReadInput();
+
                 Printer.CleanDisplay();
                 this.Printer.PrintMessage(GlobalMessages.GREETING_MSG);
 
-                if (CommandValidator.IsValidCommand(input))
-                {
-                    validator.Type = CommandValidator.GetType(input);
-
-                    ICommand command = this.Factory.CreateCommand(validator.Type);
-                    command.Execute();
-                }
-                else if (coordinates.TryParse(input))
-                {
-                    try
-                    {
-                        this.GameLogic.ShootBalloonAtPosition(coordinates);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        Printer.PrintMessage(ex.Message);
-                    }
-
-                    this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
-                }
-                else
-                {
-                    Printer.PrintMessage(GlobalMessages.INVALID_COMMAND_MSG);
-                }
-
+                this.ProcessInput(input);       
             }
 
-            Player player = new Player();
-            player.Score = this.GameLogic.Game.ShootCounter;
-
-            Printer.PrintMessage(GlobalMessages.ADD_TO_TOPSCORE_MSG);
-            player.Name = Reader.ReadInput();
-
-            TopScore.AddPlayer(player);
+            ICommand command=this.Factory.CreateCommand(CommandType.Finish);
+            command.Execute();
         }
 
+        private void ProcessInput(string input)
+        {
+            CommandValidator validator = new CommandValidator();
+            Coordinates coordinates = new Coordinates();
+
+            if (CommandValidator.IsValidCommand(input))
+            {
+                validator.Type = CommandValidator.GetType(input);
+
+                ICommand command = this.Factory.CreateCommand(validator.Type);
+                command.Execute();
+            }
+            else if (coordinates.TryParse(input))
+            {
+                string msg = GlobalMessages.ROW_COW_MSG;
+
+                try
+                {
+                    this.GameLogic.ShootBalloonAtPosition(coordinates);
+                }
+                catch (ArgumentException ex)
+                {
+                    msg = ex.Message;
+                }
+
+                this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
+                this.Printer.PrintMessage(msg);
+            }
+            else
+            {
+                this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
+                Printer.PrintMessage(GlobalMessages.INVALID_COMMAND_MSG);
+            }
+        }
     }
 }

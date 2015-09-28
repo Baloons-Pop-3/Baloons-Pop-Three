@@ -5,6 +5,7 @@
         Exit,
         Restart,
         Top,
+        Start,
         Finish
     }
 }

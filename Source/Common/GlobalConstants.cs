@@ -5,6 +5,8 @@
         public const int FIELD_BOARD_ROWS = 10;
         public const int FIELD_BOARD_COLS = 10;
 
+        public const int NUMBER_OF_TOP_PLAYERS = 5;
+
         public const string TOP_SCORE_PATH = "..\\..\\Content\\TopScore.json";
         public const string GAMES_PATH = "..\\..\\Content\\Games.json";
     }

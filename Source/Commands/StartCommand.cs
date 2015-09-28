@@ -1,11 +1,12 @@
-﻿using BalloonsPop.Common;
+﻿using System;
+using BalloonsPop.Common;
 using BalloonsPop.Contexts;
 
 namespace BalloonsPop.Commands
 {
-    class TopScoreCommand:ICommand
+    class StartCommand:ICommand
     {
-        public TopScoreCommand(ICommandContext context)
+        public StartCommand(ICommandContext context)
         {
             this.Context = context;
         }
@@ -14,7 +15,7 @@ namespace BalloonsPop.Commands
 
         public void Execute()
         {
-            this.Context.Printer.PrintTopScore(this.Context.TopScore.GetTop(GlobalConstants.NUMBER_OF_TOP_PLAYERS));
+            this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
         }
     }
 }

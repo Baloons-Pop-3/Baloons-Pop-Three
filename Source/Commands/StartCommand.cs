@@ -1,9 +1,7 @@
-﻿using System;
-using BalloonsPop.Common;
-using BalloonsPop.Contexts;
-
-namespace BalloonsPop.Commands
+﻿namespace BalloonsPop.Commands
 {
+    using Contexts;
+
     class StartCommand:ICommand
     {
         public StartCommand(ICommandContext context)
@@ -15,6 +13,7 @@ namespace BalloonsPop.Commands
 
         public void Execute()
         {
+            //TODO: add logic for user input of rows and cols form gamefield
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
         }
     }

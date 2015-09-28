@@ -1,13 +1,8 @@
-﻿using BalloonsPop.Common;
-using BalloonsPop.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BalloonsPop.Commands
+﻿namespace BalloonsPop.Commands
 {
+    using Common;
+    using Contexts;
+
     class FinishCommand:ICommand
     {
        public FinishCommand(ICommandContext context)

@@ -51,10 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
+    <Compile Include="Common\Validators\CommandValidator.cs" />
     <Compile Include="Commands\FinishCommand.cs" />
     <Compile Include="Commands\ExitCommand.cs" />
-    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Commands\InvalidCommand.cs" />
     <Compile Include="Commands\NullCommand.cs" />
     <Compile Include="Commands\RestartCommand.cs" />
@@ -68,12 +68,12 @@
     <Compile Include="Common\Serializer\ISerializer.cs" />
     <Compile Include="Common\Serializer\JsonSerializer.cs" />
     <Compile Include="Contexts\CommandContext.cs" />
-    <Compile Include="Contexts\ICommandContext.cs" />
-    <Compile Include="Drawer\IGameBoardDrawingLogic.cs" />
+    <Compile Include="Contexts\Contracts\ICommandContext.cs" />
+    <Compile Include="Drawer\Contracts\IGameBoardDrawingLogic.cs" />
     <Compile Include="Factories\CommandFactory.cs" />
-    <Compile Include="Factories\ICommandFactory.cs" />
+    <Compile Include="Factories\Contracts\ICommandFactory.cs" />
     <Compile Include="Models\Coordinates.cs" />
-    <Compile Include="Common\Validator.cs" />
+    <Compile Include="Common\Validators\Validator.cs" />
     <Compile Include="Data\BalloonsData.cs" />
     <Compile Include="Data\Contracts\IBalloonsData.cs" />
     <Compile Include="Data\Repositories\TestRepository.cs" />
@@ -84,7 +84,7 @@
     <None Include="Content\TopScore.json" />
     <Compile Include="Data\Contracts\IGenericRepository.cs" />
     <Compile Include="Engine\GameEngine.cs" />
-    <Compile Include="Engine\IGameEngine.cs" />
+    <Compile Include="Engine\Contracts\IGameEngine.cs" />
     <Compile Include="GameFacade.cs" />
     <Compile Include="Models\GameField.cs" />
     <Compile Include="Models\Game.cs">

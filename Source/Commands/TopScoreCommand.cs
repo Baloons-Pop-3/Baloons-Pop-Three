@@ -1,8 +1,8 @@
-﻿using BalloonsPop.Common;
-using BalloonsPop.Contexts;
-
-namespace BalloonsPop.Commands
+﻿namespace BalloonsPop.Commands
 {
+    using Common;
+    using Contexts;
+
     class TopScoreCommand:ICommand
     {
         public TopScoreCommand(ICommandContext context)

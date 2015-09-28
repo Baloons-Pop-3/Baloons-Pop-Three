@@ -13,9 +13,10 @@ namespace BalloonsPop.Commands
 
         public void Execute()
         {
-
-            System.Console.WriteLine(this.Context.Memory.GameMemento.RemainingBalloons);
-            this.Context.GameLogic.Game.RestoreMemento(this.Context.Memory.GameMemento);
+            if (this.Context.Memory.GameMemento != null)
+            {
+                this.Context.GameLogic.Game.RestoreMemento(this.Context.Memory.GameMemento);
+            }           
 
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
         }

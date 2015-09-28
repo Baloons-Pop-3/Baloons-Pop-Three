@@ -60,7 +60,6 @@ namespace BalloonsPop.Engine
         private void SaveLastStateOfGame()
         {
             this.Context.Memory.GameMemento = this.GameLogic.Game.SaveMemento();
-            System.Console.WriteLine(this.Context.Memory.GameMemento.RemainingBalloons);
         }
 
         private void ProcessInput(string input)

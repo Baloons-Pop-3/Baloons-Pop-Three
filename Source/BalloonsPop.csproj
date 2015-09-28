@@ -56,6 +56,7 @@
     <Compile Include="Common\Enums\CommandType.cs" />
     <Compile Include="Common\Enums\ShootingDirection.cs" />
     <Compile Include="Common\GlobalConstants.cs" />
+    <Compile Include="Common\GlobalMessages.cs" />
     <Compile Include="Common\Serializer\ISerializer.cs" />
     <Compile Include="Common\Serializer\JsonSerializer.cs" />
     <Compile Include="Models\Coordinates.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Data\Repositories\TestRepository.cs" />
     <Compile Include="Data\Repositories\FileRepository.cs" />
     <Compile Include="GameLogic.cs" />
+    <Compile Include="Models\GameBoard.cs" />
     <Compile Include="TopScore\TopScore.cs" />
     <None Include="Content\TopScore.json" />
     <Compile Include="Data\Contracts\IGenericRepository.cs" />

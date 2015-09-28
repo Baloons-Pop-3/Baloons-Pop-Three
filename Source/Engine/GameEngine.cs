@@ -30,7 +30,7 @@ namespace BalloonsPop.Engine
         public void Init()
         {
             this.Printer.PrintMessage("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            this.Printer.PrintGameBoard(this.GameLogic.Game.Field.GetField());
+            this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
 
             this.StartGame();
         }
@@ -59,7 +59,7 @@ namespace BalloonsPop.Engine
                         case CommandType.Restart:
                             {
                                 this.Init();
-                                this.Printer.PrintGameBoard(this.GameLogic.Game.Field.GetField());
+                                this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
                             }
                             break;
                         case CommandType.Exit:
@@ -85,7 +85,7 @@ namespace BalloonsPop.Engine
                         Printer.PrintMessage(ex.Message);
                     }
 
-                    this.Printer.PrintGameBoard(this.GameLogic.Game.Field.GetField());
+                    this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
                 }
                 else
                 {

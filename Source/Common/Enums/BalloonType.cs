@@ -6,7 +6,8 @@
         Second = '2',
         Third = '3',
         Forth = '4',
-        Popped='.',
+        Fifth = '5',
+        Popped ='.',
         Invalid = 'e'
     }
 }

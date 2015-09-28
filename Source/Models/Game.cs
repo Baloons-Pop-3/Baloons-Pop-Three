@@ -1,5 +1,6 @@
 ﻿namespace BalloonsPop
 {
+    using Models;
     using System;
 
     internal class Game
@@ -7,7 +8,7 @@
         public Game(GameField field)
         {
             this.Field = field;
-            this.RemainingBaloons = field.BalloonsCols*field.BalloonsRows;
+            this.RemainingBaloons = field.FieldRows*field.FieldCols;
             this.ShootCounter = 0;
         }
 

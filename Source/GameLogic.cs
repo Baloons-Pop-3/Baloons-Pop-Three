@@ -1,12 +1,9 @@
-﻿using BalloonsPop.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BalloonsPop
+﻿namespace BalloonsPop
 {
+    using System;
+
+    using BalloonsPop.Common;
+
     class GameLogic
     {
         public GameLogic(Game game)
@@ -74,18 +71,36 @@ namespace BalloonsPop
         {
             bool isOutOfBoard = currentPosition.X < 0
                 || currentPosition.Y < 0
-                || currentPosition.X > this.Game.Field.BalloonsCols - 1
-                || currentPosition.Y > this.Game.Field.BalloonsRows - 1;
+                || currentPosition.X > this.Game.Field.FieldRows - 1
+                || currentPosition.Y > this.Game.Field.FieldCols - 1;
 
             if (isOutOfBoard)
             {
                 return (char)BallonType.Invalid;
             }
 
-            int xPosition = 4 + (currentPosition.X * 2);
-            int yPosition = 2 + currentPosition.Y;
+            return this.Game.Field[currentPosition.X, currentPosition.Y];
+        }
 
-            return this.Game.Field[xPosition, yPosition];
+        private void LandFlyingBaloons()
+        {
+            for (int column = 0; column < this.Game.Field.FieldCols; column++)
+            {
+                for (int row = 0; row < this.Game.Field.FieldRows; row++)
+                {
+                    Coordinates positionToCheck = new Coordinates(row,column);
+                    if (GetBaloonTypeFromPosition(positionToCheck) == '.')
+                    {
+                        for (int k = row; k > 0; k--)
+                        {
+                            Coordinates oldCoordinates = new Coordinates(k,column);
+                            Coordinates newCoordinates = new Coordinates(k-1, column);
+
+                            SwapBalloons(oldCoordinates, newCoordinates);
+                        }
+                    }
+                }
+            }
         }
 
         private void SwapBalloons(Coordinates currentPosition, Coordinates newPosition)
@@ -96,28 +111,5 @@ namespace BalloonsPop
             this.Game.Field.UpdateField(currentPosition, balloonToBeSwapped);
             this.Game.Field.UpdateField(newPosition, balloonToSwap);
         }
-
-        private void LandFlyingBaloons()
-        {
-            for (int column = 0; column < this.Game.Field.BalloonsCols; column++)
-            {
-                for (int row = 0; row < this.Game.Field.BalloonsRows; row++)
-                {
-                    Coordinates positionToCheck = new Coordinates(column,row);
-
-                    if (GetBaloonTypeFromPosition(positionToCheck) == '.')
-                    {
-                        for (int k = row; k > 0; k--)
-                        {
-                            Coordinates oldCoordinates = new Coordinates(column,k);
-                            Coordinates newCoordinates = new Coordinates(column, k - 1);
-
-                            SwapBalloons(oldCoordinates, newCoordinates);
-                        }
-                    }
-                }
-            }
-        }
-
     }
 }

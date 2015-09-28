@@ -5,21 +5,22 @@
     using Common;
     using TopScoreBoard;
     using System.Collections;
+    using Models;
 
     class ConsoleGamePrinter : IGamePrinter
     {
-        public void PrintGameBoard(char[,] gameBoard)
+        public void PrintGameBoard(GameField field)
         {
-            for (int i = 0; i < GlobalConstants.GAME_BOARD_ROWS; i++)
-            {
-                for (int j = 0; j < GlobalConstants.GAME_BOARD_COLS; j++)
-                {
-                    Console.Write(gameBoard[j, i]);
-                }
+          GameBoard board = new GameBoard(field);
 
+            for (int i = 0; i < board.BoardRows; i++)
+            {
+                for (int j = 0; j < board.BoardCols; j++)
+                {
+                    Console.Write(board[i, j]);
+                }
                 Console.WriteLine();
             }
-
             Console.WriteLine();
         }
 
@@ -37,7 +38,7 @@
 
                 Console.WriteLine("{0}. {1} - {2} {3}", playerPosition, player.Name, player.Score, player.Score == 1 ? "shoot" : "shoots");
 
-                playerPosition++;         
+                playerPosition++;
             }
         }
     }

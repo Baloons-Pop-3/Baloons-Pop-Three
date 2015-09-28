@@ -25,8 +25,8 @@
                 return false;
             }
 
-            string coordinateX = subStrings[1].Trim();
-            string coordinateY = subStrings[0].Trim();
+            string coordinateX = subStrings[0].Trim();
+            string coordinateY = subStrings[1].Trim();
             int x;
             int y;
 

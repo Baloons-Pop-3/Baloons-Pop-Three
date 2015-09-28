@@ -14,11 +14,7 @@
         IGenericRepository<Game> games = new TxtFileRepository<Game>(GlobalConstants.GAMES_PATH);
         // TODO: implement logic for saving games(this is the repository used for)    
 
-        GameField field = new GameField(
-            GlobalConstants.GAME_BOARD_ROWS,
-            GlobalConstants.GAME_BOARD_COLS,
-            GlobalConstants.BALLOONS_BOARD_COLS,
-            GlobalConstants.BALLOONS_BOARD_ROWS);
+        GameField field = new GameField(GlobalConstants.FIELD_BOARD_ROWS,GlobalConstants.FIELD_BOARD_COLS);
         IReader reader = new ConsoleReader();
         IGamePrinter printer = new ConsoleGamePrinter();
         ITopScore topScore;

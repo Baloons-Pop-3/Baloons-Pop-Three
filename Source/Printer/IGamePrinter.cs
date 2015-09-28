@@ -1,5 +1,6 @@
 ﻿namespace BalloonsPop.Printer
 {
+    using Models;
     using System.Collections;
 
     using TopScoreBoard;
@@ -7,7 +8,7 @@
     {
         void PrintMessage(string msg);
 
-        void PrintGameBoard(char[,] gameBoard);
+        void PrintGameBoard(GameField gameBoard);
 
         void PrintTopScore(IEnumerable ts);
     }

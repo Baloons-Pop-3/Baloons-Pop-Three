@@ -19,9 +19,12 @@ namespace BalloonsPop.Commands
 
         public void Execute()
         {
-            Game savedGame = this.Context.GameLogic.Game.Clone();
+            this.Context.Printer.PrintMessage("Write the name of your game: ");
+            var gameId = this.Context.Reader.ReadInput();
 
-            
+            Game savedGame = this.Context.GameLogic.Game.Clone();
+            savedGame.Id = gameId;
+      
             this.Context.DataBase.Games.Add(savedGame);
 
             this.Context.Printer.PrintMessage(GlobalMessages.SAVE_GAME_MSG);

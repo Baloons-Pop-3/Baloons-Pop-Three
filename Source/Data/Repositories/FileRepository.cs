@@ -72,7 +72,7 @@
 
                     id=item.GetType().GetProperty("Id").GetValue(item,null);
 
-                    if (int.Parse(property.ToString())==int.Parse(id.ToString()))
+                    if (property.ToString()==id.ToString())
                     {
                         return item; 
                     }

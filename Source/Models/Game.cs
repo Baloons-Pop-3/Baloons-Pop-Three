@@ -1,8 +1,10 @@
 ﻿namespace BalloonsPop
 {
+    using Models.Contracts;
     using Mementos;
+    using System;
 
-    internal class Game
+    internal class Game:IPrototype<Game>
     {
         public Game(GameField field)
         {
@@ -32,6 +34,15 @@
             this.Field = memento.Field;
             this.ShootCounter = memento.ShootCounter;
             this.RemainingBalloons = memento.RemainingBalloons;
+        }
+
+        public Game Clone()
+        {
+            var game = new Game(this.Field);
+            game.RemainingBalloons = this.RemainingBalloons;
+            game.ShootCounter = this.ShootCounter;
+
+            return game;
         }
     }
 }

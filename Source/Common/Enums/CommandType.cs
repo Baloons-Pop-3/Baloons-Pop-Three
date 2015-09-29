@@ -7,6 +7,7 @@
         Top,
         Start,
         Finish,
-        Undo
+        Undo,
+        Save
     }
 }

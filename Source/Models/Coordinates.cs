@@ -20,11 +20,8 @@
 
             string[] subStrings = input.Split(separators);
 
-            System.Console.WriteLine(subStrings.Length);
-
             if (subStrings.Length != 2)
             {
-                System.Console.WriteLine("false");
                 return false;
             }
 

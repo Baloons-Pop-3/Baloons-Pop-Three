@@ -64,14 +64,12 @@ namespace BalloonsPop.Engine
 
         private void ProcessInput(string input)
         {
-            CommandValidator validator = new CommandValidator();
+            CommandValidator commandsValidator = new CommandValidator();
             Coordinates coordinates = new Coordinates();
 
-            if (CommandValidator.IsValidCommand(input))
+            if (commandsValidator.IsValidCommand(input))
             {
-                validator.Type = CommandValidator.GetType(input);
-
-                ICommand command = this.Factory.CreateCommand(validator.Type);
+                ICommand command = this.Factory.CreateCommand(commandsValidator.GetType(input));
                 command.Execute();
             }
             else if (coordinates.TryParse(input))

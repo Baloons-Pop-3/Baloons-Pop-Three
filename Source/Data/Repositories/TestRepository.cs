@@ -23,11 +23,11 @@ namespace BalloonsPop.Data
             return this.testingDataBase;
         }
 
-        public T Find(object property)
+        public T Find(object id)
         {
             foreach (var item in this.testingDataBase)
             {
-                if (item.Id == property.ToString())
+                if (item.Id == id.ToString())
                 {
                     return item;
                 }

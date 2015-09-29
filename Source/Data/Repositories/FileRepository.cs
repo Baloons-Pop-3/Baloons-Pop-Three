@@ -60,20 +60,20 @@
             return fetchedCollection;
         }
 
-        public T Find(object property)
+        public T Find(object id)
         {
             using (StreamReader reader = new StreamReader(this.pathOfTxtFile))
             {
-                string id = null;
+                string currentId = null;
 
                 string line = reader.ReadLine();
                 while (line != null)
                 {
                     T item = serializer.Deserialize<T>(line);
 
-                    id = item.Id;
+                    currentId = item.Id;
 
-                    if (property.ToString()==id.ToString())
+                    if (currentId.ToString()==id.ToString())
                     {
                         return item; 
                     }

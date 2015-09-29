@@ -10,7 +10,7 @@ namespace BalloonsPop.Data
     {
         IEnumerable<T> All();
 
-        T Find(object property);
+        T Find(object id);
 
         void Add(T entity);
     }

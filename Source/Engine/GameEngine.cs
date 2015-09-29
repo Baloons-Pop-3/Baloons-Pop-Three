@@ -64,7 +64,7 @@ namespace BalloonsPop.Engine
 
         private void ProcessInput(string input)
         {
-            CommandValidator commandsValidator = new CommandValidator();
+            var commandsValidator = new CommandValidator<CommandType>();
             Coordinates coordinates = new Coordinates();
 
             if (commandsValidator.IsValidCommand(input))

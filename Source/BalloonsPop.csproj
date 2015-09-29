@@ -54,6 +54,7 @@
     <Compile Include="Commands\RestoreCommand.cs" />
     <Compile Include="Commands\SaveCommand.cs" />
     <Compile Include="Commands\UndoCommand.cs" />
+    <Compile Include="Common\Enums\GameDifficulty.cs" />
     <Compile Include="Common\Validators\CommandValidator.cs" />
     <Compile Include="Commands\FinishCommand.cs" />
     <Compile Include="Commands\ExitCommand.cs" />

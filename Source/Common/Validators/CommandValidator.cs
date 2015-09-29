@@ -3,14 +3,22 @@
     using System;
     using System.Linq;
 
-    internal class CommandValidator
+    internal class CommandValidator<T> 
     { 
+        public CommandValidator()
+        {
+            if (!typeof(T).IsEnum)
+            {
+                throw new ArgumentException("should pass enumaration");
+            }
+        }
+
         internal bool IsValidCommand(string input)
         {
             // transform the string into string with first uppercase letter.
             input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
 
-            if (!Enum.IsDefined(typeof(CommandType), input))
+            if (!Enum.IsDefined(typeof(T), input))
             {
                 return false;
             }
@@ -18,9 +26,9 @@
             return true;
         }
 
-        internal CommandType GetType(string input)
+        internal T GetType(string input)
         {
-            CommandType type = (CommandType)Enum.Parse(typeof(CommandType), input, true);
+            T type = (T)Enum.Parse(typeof(T), input, true);
             return type;
         }
     }

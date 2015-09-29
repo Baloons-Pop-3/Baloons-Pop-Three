@@ -3,11 +3,12 @@
     using System;
 
     using Common;
+    using Models.Contracts;
 
     /// <summary>
     /// A class representing the game user.
     /// </summary>
-    public class Player : IComparable<Player>
+    public class Player : IComparable<Player>, IModel
     {
         /// <summary>
         /// The name of the user.
@@ -39,18 +40,9 @@
         /// <summary>
         ///  Gets the user score and sets it to the value , used for better data understanding.
         /// </summary>
-        public int Score
-        {
-            get
-            {
-                return this.score;
-            }
+        public int Score { get; set; }
 
-            set
-            {
-                this.score = value;
-            }
-        }
+        public string Id { get; set; }
 
         public static bool operator <(Player x, Player y)
         {

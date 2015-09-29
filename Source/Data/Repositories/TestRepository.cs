@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BalloonsPop.Models.Contracts;
+using System;
 using System.Collections.Generic;
 
 namespace BalloonsPop.Data
 {
     //this repo ha the purpose to be used for testing.
-    class TestRepository<T> : IGenericRepository<T> where T : class
+    class TestRepository<T> : IGenericRepository<T> where T : IModel
     {
         private readonly IList<T> testingDataBase;
 
@@ -24,7 +25,15 @@ namespace BalloonsPop.Data
 
         public T Find(object property)
         {
-            throw new NotImplementedException();
+            foreach (var item in this.testingDataBase)
+            {
+                if (item.Id == property.ToString())
+                {
+                    return item;
+                }
+            }
+
+            return default(T);
         }
     }
 }

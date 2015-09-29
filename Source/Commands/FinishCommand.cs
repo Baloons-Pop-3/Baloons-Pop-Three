@@ -17,6 +17,7 @@
             Player player = new Player();
             player.Score = this.Context.GameLogic.Game.ShootCounter;
 
+            this.Context.Printer.PrintMessage("Congratulations, you popped all ballooons with " + this.Context.GameLogic.Game.ShootCounter);
             this.Context.Printer.PrintMessage(GlobalMessages.ADD_TO_TOPSCORE_MSG);
             player.Name = this.Context.Reader.ReadInput();
 

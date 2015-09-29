@@ -6,12 +6,13 @@
     using System.Web.Script.Serialization;
     using System;
     using System.Linq;
+    using Models.Contracts;
 
     /// <summary>
     /// This is a repository which save the data in a txt file(JSON format)
     /// </summary>
     /// <typeparam name="T">Type of the model object used to </typeparam>
-    class TxtFileRepository<T> : IGenericRepository<T> where T : class
+    class TxtFileRepository<T> : IGenericRepository<T> where T : class, IModel
     {
         private readonly string pathOfTxtFile;
         private readonly ISerializer serializer;
@@ -63,14 +64,14 @@
         {
             using (StreamReader reader = new StreamReader(this.pathOfTxtFile))
             {
-                object id = null;
+                string id = null;
 
                 string line = reader.ReadLine();
                 while (line != null)
                 {
                     T item = serializer.Deserialize<T>(line);
 
-                    id=item.GetType().GetProperty("Id").GetValue(item,null);
+                    id = item.Id;
 
                     if (property.ToString()==id.ToString())
                     {

@@ -4,7 +4,7 @@
     using Mementos;
     using System;
 
-    internal class Game:IPrototype<Game>
+    internal class Game:IPrototype<Game>,IModel
     {
         public Game(GameField field)
         {

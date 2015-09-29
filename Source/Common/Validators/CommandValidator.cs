@@ -1,45 +1,20 @@
 ﻿namespace BalloonsPop
 {
     using System;
+    using System.Linq;
 
     internal class CommandValidator
     {
-        private CommandType type;
-
-        public CommandValidator()
-        {
-        }
-
-        public CommandType Type
-        {
-            get
-            {
-                return this.type;
-            }
-
-            set
-            {
-                this.type = value;
-            }
-        }
+        public CommandType Type { get; set; }
 
         internal static bool IsValidCommand(string input)
         {
-            //CommandType command;
+            input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
 
             if (!Enum.IsDefined(typeof(CommandType), input))
             {
                 return false;
             }
-
-            //bool isValidCommand = Enum.TryParse(input, true, out command);
-
-            //Console.WriteLine(command.ToString());
-
-            //if (!isValidCommand)
-            //{
-            //    return false;
-            //}
 
             return true;
         }

@@ -14,7 +14,6 @@
         public void Execute()
         {
             Context.Printer.PrintMessage("Thank you for playing this stupid game :) Welcome back");
-            return;
         }
     }
 }

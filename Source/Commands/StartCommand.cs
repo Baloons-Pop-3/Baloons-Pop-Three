@@ -38,13 +38,13 @@
                     gamefield = new GameField(10, 10);
                     this.Context.GameLogic.Game = new Game(gamefield);
                 }
-                else
-                {
-                    this.Context.Printer.PrintMessage("Invalid level chosen. Default one is genereted.");
-                }
+            }
+            else
+            {
+                this.Context.Printer.PrintMessage("Invalid level chosen. Default one is genereted.");
             }
 
-                this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
+            this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
             }
         }
     }

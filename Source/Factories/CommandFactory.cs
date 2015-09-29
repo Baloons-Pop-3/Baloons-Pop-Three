@@ -28,6 +28,7 @@ namespace BalloonsPop.Factories
                 case CommandType.Finish:return new FinishCommand(this.Context);
                 case CommandType.Undo: return new UndoCommand(this.Context);
                 case CommandType.Save: return new SaveCommand(this.Context);
+                case CommandType.Restore: return new RestoreCommand(this.Context);
                 default: return new NullCommand(this.Context);
             }
         }

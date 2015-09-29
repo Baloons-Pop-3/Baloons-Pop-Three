@@ -9,6 +9,8 @@ namespace BalloonsPop.Data
     {
         IEnumerable<T> All();
 
+        T Find(object property);
+
         void Add(T entity);
     }
 }

@@ -31,7 +31,7 @@
             {
                 gamefield = new GameField(10, 10);
                 this.Context.GameLogic.Game = new Game(gamefield);
-            }      
+            }
 
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
         }

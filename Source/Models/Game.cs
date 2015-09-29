@@ -13,6 +13,8 @@
             this.ShootCounter = 0;
         }
 
+        public string Id { get; set; }
+
         public GameField Field { get; set; }
 
         public int ShootCounter
@@ -41,6 +43,7 @@
             var game = new Game(this.Field);
             game.RemainingBalloons = this.RemainingBalloons;
             game.ShootCounter = this.ShootCounter;
+            game.Id = this.Id;
 
             return game;
         }

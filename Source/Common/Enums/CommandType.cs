@@ -8,6 +8,7 @@
         Start,
         Finish,
         Undo,
-        Save
+        Save,
+        Restore
     }
 }

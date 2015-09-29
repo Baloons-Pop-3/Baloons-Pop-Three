@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Web.Script.Serialization;
+    using System;
+    using System.Linq;
 
     /// <summary>
     /// This is a repository which save the data in a txt file(JSON format)
@@ -28,9 +30,9 @@
         {
             var jsonEntity = serializer.Serialize<T>(entity);
 
-            using (StreamWriter TopScoreStreamWriter = new StreamWriter(this.pathOfTxtFile,true))
+            using (StreamWriter writer = new StreamWriter(this.pathOfTxtFile,true))
             {
-                TopScoreStreamWriter.WriteLine(jsonEntity);
+                writer.WriteLine(jsonEntity);
             }
         }
 
@@ -42,19 +44,44 @@
         {
             var fetchedCollection = new List<T>();
 
-             using (StreamReader TopScoreStreamReader = new StreamReader(this.pathOfTxtFile))
+             using (StreamReader reader = new StreamReader(this.pathOfTxtFile))
             {
-                string line = TopScoreStreamReader.ReadLine();
+                string line = reader.ReadLine();
                 while (line != null)
                 {
                     T item = serializer.Deserialize<T>(line);
                     fetchedCollection.Add(item);
 
-                    line = TopScoreStreamReader.ReadLine();
+                    line = reader.ReadLine();
                 }
             }
 
             return fetchedCollection;
+        }
+
+        public T Find(object property)
+        {
+            using (StreamReader reader = new StreamReader(this.pathOfTxtFile))
+            {
+                object id = null;
+
+                string line = reader.ReadLine();
+                while (line != null)
+                {
+                    T item = serializer.Deserialize<T>(line);
+
+                    id=item.GetType().GetProperty("Id").GetValue(item,null);
+
+                    if (int.Parse(property.ToString())==int.Parse(id.ToString()))
+                    {
+                        return item; 
+                    }
+
+                    line = reader.ReadLine();
+                }
+            }
+
+            return null;
         }
     }
 }

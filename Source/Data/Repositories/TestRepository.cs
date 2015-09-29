@@ -21,5 +21,10 @@ namespace BalloonsPop.Data
         {
             return this.testingDataBase;
         }
+
+        public T Find(object property)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

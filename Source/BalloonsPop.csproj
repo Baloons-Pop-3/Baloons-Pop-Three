@@ -66,7 +66,7 @@
     <Compile Include="Common\Enums\ShootingDirection.cs" />
     <Compile Include="Common\Constants\GlobalConstants.cs" />
     <Compile Include="Common\Constants\GlobalMessages.cs" />
-    <Compile Include="Common\Serializers\ISerializer.cs" />
+    <Compile Include="Common\Serializers\Contracts\ISerializer.cs" />
     <Compile Include="Common\Serializers\JsonSerializer.cs" />
     <Compile Include="Contexts\CommandContext.cs" />
     <Compile Include="Contexts\Contracts\ICommandContext.cs" />

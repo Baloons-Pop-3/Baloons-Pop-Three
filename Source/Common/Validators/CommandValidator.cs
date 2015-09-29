@@ -25,13 +25,21 @@
 
         internal static bool IsValidCommand(string input)
         {
-            CommandType command;
-            bool isValidCommand = Enum.TryParse(input, true, out command);
+            //CommandType command;
 
-            if (!isValidCommand)
+            if (!Enum.IsDefined(typeof(CommandType), input))
             {
                 return false;
             }
+
+            //bool isValidCommand = Enum.TryParse(input, true, out command);
+
+            //Console.WriteLine(command.ToString());
+
+            //if (!isValidCommand)
+            //{
+            //    return false;
+            //}
 
             return true;
         }

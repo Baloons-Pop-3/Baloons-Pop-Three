@@ -2,6 +2,6 @@
 {
     interface IGameBoardDrawingLogic
     {
-        char[,] Board { get; }
+        string[,] Board { get; }
     }
 }

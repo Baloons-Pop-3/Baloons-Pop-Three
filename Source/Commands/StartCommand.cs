@@ -14,7 +14,7 @@
 
         public void Execute()
         {
-            this.Context.Printer.PrintMessage("How dificult do you want it: Your options are:\neasy\nmedium\nhard");
+            this.Context.Printer.PrintMessage("How dificult do you want it: Your options are:\neasy\nmedium\nhard\ntorture");
             var input = this.Context.Reader.ReadInput();
             GameField gamefield;
 
@@ -35,6 +35,11 @@
                 else if (validator.GetType(input) == GameDifficulty.Hard)
                 {
                     gamefield = new GameField(10, 10);
+                    this.Context.GameLogic.Game = new Game(gamefield);
+                }
+                else if (validator.GetType(input) == GameDifficulty.Torture)
+                {
+                    gamefield = new GameField(18, 18);
                     this.Context.GameLogic.Game = new Game(gamefield);
                 }
             }

@@ -4,6 +4,7 @@
     {
         Easy,
         Medium,
-        Hard
+        Hard,
+        Torture
     }
 }

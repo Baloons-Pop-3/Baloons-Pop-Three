@@ -63,6 +63,7 @@ namespace BalloonsPop.Engine
 
         private void ProcessInput(string input)
         {
+            Printer.CleanDisplay();
             var commandsValidator = new CommandValidator<CommandType>();
             Coordinates coordinates = new Coordinates();
 

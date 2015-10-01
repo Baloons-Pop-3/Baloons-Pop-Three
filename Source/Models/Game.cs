@@ -3,7 +3,7 @@
     using Mementos;
     using Models.Contracts;
 
-    internal class Game : IPrototype<Game>, IModel
+    internal class Game : IPrototype<Game>, IModel, IGame
     {
         public Game(GameField field)
         {
@@ -18,12 +18,12 @@
 
         public int ShootCounter
         {
-            internal set; get;
+            set; get;
         }
 
         public int RemainingBalloons
         {
-            internal set; get;
+            set; get;
         }
 
         public GameMemento SaveMemento()

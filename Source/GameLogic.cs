@@ -1,7 +1,7 @@
 ﻿namespace BalloonsPop
 {
-    using BalloonsPop.Common;
     using System;
+    using BalloonsPop.Common;
 
     internal class GameLogic
     {
@@ -14,7 +14,7 @@
 
         public void ShootBalloonAtPosition(Coordinates positionToShoot)
         {
-            char balloonToShoot = GetBaloonTypeFromPosition(positionToShoot);
+            char balloonToShoot = this.GetBaloonTypeFromPosition(positionToShoot);
 
             if (balloonToShoot == (char)BallonType.Popped)
             {
@@ -28,13 +28,13 @@
             this.Game.Field.UpdateField(positionToShoot, '.');
             this.Game.RemainingBalloons--;
 
-            ShootSameBalloonsInDirection(ShootingDirection.Up, positionToShoot, balloonToShoot);
-            ShootSameBalloonsInDirection(ShootingDirection.Down, positionToShoot, balloonToShoot);
-            ShootSameBalloonsInDirection(ShootingDirection.Left, positionToShoot, balloonToShoot);
-            ShootSameBalloonsInDirection(ShootingDirection.Right, positionToShoot, balloonToShoot);
+            this.ShootSameBalloonsInDirection(ShootingDirection.Up, positionToShoot, balloonToShoot);
+            this.ShootSameBalloonsInDirection(ShootingDirection.Down, positionToShoot, balloonToShoot);
+            this.ShootSameBalloonsInDirection(ShootingDirection.Left, positionToShoot, balloonToShoot);
+            this.ShootSameBalloonsInDirection(ShootingDirection.Right, positionToShoot, balloonToShoot);
 
             this.Game.ShootCounter++;
-            LandFlyingBaloons();
+            this.LandFlyingBaloons();
         }
 
         private void ShootSameBalloonsInDirection(ShootingDirection direction, Coordinates startingPoint, char balloonToShoot)
@@ -45,23 +45,61 @@
 
             switch (direction)
             {
-                case ShootingDirection.Left: nextCoordinates.X--; break;
-                case ShootingDirection.Right: nextCoordinates.X++; break;
-                case ShootingDirection.Up: nextCoordinates.Y--; break;
-                case ShootingDirection.Down: nextCoordinates.Y++; break;
+                case ShootingDirection.Left:
+                    {
+                        nextCoordinates.X--;
+                        break;
+                    }
+
+                case ShootingDirection.Right:
+                    {
+                        nextCoordinates.X++;
+                        break;
+                    }
+
+                case ShootingDirection.Up:
+                    {
+                        nextCoordinates.Y--;
+                        break;
+                    }
+
+                case ShootingDirection.Down:
+                    {
+                        nextCoordinates.Y++;
+                        break;
+                    }
             }
 
-            while (balloonToShoot == GetBaloonTypeFromPosition(nextCoordinates))
+            while (balloonToShoot == this.GetBaloonTypeFromPosition(nextCoordinates))
             {
                 this.Game.Field.UpdateField(nextCoordinates, '.');
                 this.Game.RemainingBalloons--;
 
                 switch (direction)
                 {
-                    case ShootingDirection.Left: nextCoordinates.X--; break;
-                    case ShootingDirection.Right: nextCoordinates.X++; break;
-                    case ShootingDirection.Up: nextCoordinates.Y--; break;
-                    case ShootingDirection.Down: nextCoordinates.Y++; break;
+                    case ShootingDirection.Left:
+                        {
+                            nextCoordinates.X--;
+                            break;
+                        }
+
+                    case ShootingDirection.Right:
+                        {
+                            nextCoordinates.X++;
+                            break;
+                        }
+
+                    case ShootingDirection.Up:
+                        {
+                            nextCoordinates.Y--;
+                            break;
+                        }
+
+                    case ShootingDirection.Down:
+                        {
+                            nextCoordinates.Y++;
+                            break;
+                        }
                 }
             }
         }
@@ -88,14 +126,14 @@
                 for (int row = 0; row < this.Game.Field.FieldRows; row++)
                 {
                     Coordinates positionToCheck = new Coordinates(row, column);
-                    if (GetBaloonTypeFromPosition(positionToCheck) == '.')
+                    if (this.GetBaloonTypeFromPosition(positionToCheck) == '.')
                     {
                         for (int k = row; k > 0; k--)
                         {
                             Coordinates oldCoordinates = new Coordinates(k, column);
                             Coordinates newCoordinates = new Coordinates(k - 1, column);
 
-                            SwapBalloons(oldCoordinates, newCoordinates);
+                            this.SwapBalloons(oldCoordinates, newCoordinates);
                         }
                     }
                 }
@@ -104,8 +142,8 @@
 
         private void SwapBalloons(Coordinates currentPosition, Coordinates newPosition)
         {
-            char balloonToSwap = GetBaloonTypeFromPosition(currentPosition);
-            char balloonToBeSwapped = GetBaloonTypeFromPosition(newPosition);
+            char balloonToSwap = this.GetBaloonTypeFromPosition(currentPosition);
+            char balloonToBeSwapped = this.GetBaloonTypeFromPosition(newPosition);
 
             this.Game.Field.UpdateField(currentPosition, balloonToBeSwapped);
             this.Game.Field.UpdateField(newPosition, balloonToSwap);

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace BalloonsPop.Reader
+﻿namespace BalloonsPop.Reader
 {
+    using System;
+
     internal class ConsoleReader : IReader
     {
         public string ReadInput()

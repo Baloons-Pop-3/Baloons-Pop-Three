@@ -1,7 +1,7 @@
 ﻿namespace BalloonsPop.Data
 {
-    using BalloonsPop.Models.Contracts;
     using System.Collections.Generic;
+    using BalloonsPop.Models.Contracts;
 
     internal interface IGenericRepository<T> where T : IModel
     {

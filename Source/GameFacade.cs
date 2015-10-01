@@ -11,8 +11,8 @@
     {
         private IGenericRepository<Player> players = new TxtFileRepository<Player>(GlobalConstants.TopScorePath);
         private IGenericRepository<Game> games = new TxtFileRepository<Game>(GlobalConstants.GamesPath);
-        // TODO: implement logic for saving games(this is the repository used for)
 
+        //// TODO: implement logic for saving games(this is the repository used for)
         private GameField field = new GameField(GlobalConstants.FieldBoardRows, GlobalConstants.FieldBoardCols);
         private IReader reader = new ConsoleReader();
         private IGamePrinter printer = new ConsoleGamePrinter();

@@ -29,15 +29,15 @@
                 {
                     if (number == 0)
                     {
-                        this.Board[0, i] = "     " + number++.ToString();
+                        this.Board[0, i] = "     " + (number++).ToString();
                     }
                     else if (number + 1 <= 10)
                     {
-                        this.Board[0, i] = "  " + number++.ToString();
+                        this.Board[0, i] = "  " + (number++).ToString();
                     }
                     else
                     {
-                        this.Board[0, i] = " " + number++.ToString();
+                        this.Board[0, i] = " " + (number++).ToString();
                     }
 
                     counter++;
@@ -60,11 +60,11 @@
                 {
                     if (number + 1 <= 10)
                     {
-                        this.Board[i, 0] = ' ' + number++.ToString();
+                        this.Board[i, 0] = ' ' + (number++).ToString();
                     }
                     else
                     {
-                        this.Board[i, 0] = number++.ToString();
+                        this.Board[i, 0] = (number++).ToString();
                     }
 
                     this.Board[i, 1] = " ";

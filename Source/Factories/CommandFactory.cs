@@ -1,8 +1,8 @@
 ﻿namespace BalloonsPop.Factories
 {
+    using System.Collections.Generic;
     using BalloonsPop.Commands;
     using BalloonsPop.Contexts;
-    using System.Collections.Generic;
 
     internal class CommandFactory : ICommandFactory
     {

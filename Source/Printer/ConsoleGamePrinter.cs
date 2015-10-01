@@ -1,13 +1,13 @@
 ﻿namespace BalloonsPop.Printer
 {
-    using Drawer;
-    using Models;
     using System;
     using System.Collections;
+    using Drawer;
+    using Models;
 
     internal class ConsoleGamePrinter : IGamePrinter
     {
-        public IGameBoardDrawingLogic drawingLogic { private set; get; }
+        public IGameBoardDrawingLogic DrawingLogic { get; private set; }
 
         public void CleanDisplay()
         {
@@ -16,9 +16,9 @@
 
         public void PrintGameBoard(GameField field)
         {
-            this.drawingLogic = new GameBoardDrawingLogic(field);
+            this.DrawingLogic = new GameBoardDrawingLogic(field);
 
-            var board = drawingLogic.Board;
+            var board = this.DrawingLogic.Board;
 
             for (int i = 0; i < board.GetLength(0); i++)
             {
@@ -26,8 +26,10 @@
                 {
                     Console.Write(board[i, j]);
                 }
+
                 Console.WriteLine();
             }
+
             Console.WriteLine();
         }
 

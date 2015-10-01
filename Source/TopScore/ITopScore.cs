@@ -1,9 +1,8 @@
 ﻿namespace BalloonsPop.TopScoreBoard
 {
-    using BalloonsPop.Data;
     using System.Collections.Generic;
+    using BalloonsPop.Data;
 
-    // TODO: Implement ITopScore
     internal interface ITopScore
     {
         IGenericRepository<Player> HighScores { get; }

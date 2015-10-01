@@ -1,9 +1,9 @@
 ﻿namespace BalloonsPop.Data
 {
-    using Common.Serializer;
-    using Models.Contracts;
     using System.Collections.Generic;
     using System.IO;
+    using Common.Serializer;
+    using Models.Contracts;
 
     /// <summary>
     /// This is a repository which save the data in a txt file(JSON format)
@@ -21,7 +21,7 @@
         }
 
         /// <summary>
-        ///The objects are serialized internally and saved in the file in JSON format
+        /// The objects are serialized internally and saved in the file in JSON format
         /// </summary>
         /// <param name="entity">Type of object to save in the repository</param>
         public void Add(T entity)
@@ -35,7 +35,7 @@
         }
 
         /// <summary>
-        ///The objects are deserialized internally after fetching
+        /// The objects are deserialized internally after fetching
         /// </summary>
         /// <returns>Type of object to get from repository</returns>
         public IEnumerable<T> All()

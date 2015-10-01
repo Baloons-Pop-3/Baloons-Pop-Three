@@ -19,16 +19,16 @@
             this.Memory = new GameStateMemory();
         }
 
-        public IBalloonsData DataBase { private set; get; }
+        public IBalloonsData DataBase { get; private set; }
 
-        public GameLogic GameLogic { private set; get; }
+        public GameLogic GameLogic { get; private set; }
 
-        public IGamePrinter Printer { private set; get; }
+        public IGamePrinter Printer { get; private set; }
 
-        public IReader Reader { private set; get; }
+        public IReader Reader { get; private set; }
 
-        public ITopScore TopScore { private set; get; }
+        public ITopScore TopScore { get; private set; }
 
-        public GameStateMemory Memory { set; get; }
+        public GameStateMemory Memory { get; set; }
     }
 }

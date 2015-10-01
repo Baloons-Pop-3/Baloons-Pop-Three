@@ -1,15 +1,15 @@
-﻿using BalloonsPop.Commands;
-using BalloonsPop.Common;
-using BalloonsPop.Contexts;
-using BalloonsPop.Data;
-using BalloonsPop.Factories;
-using BalloonsPop.Printer;
-using BalloonsPop.Reader;
-using BalloonsPop.TopScoreBoard;
-using System;
-
-namespace BalloonsPop.Engine
+﻿namespace BalloonsPop.Engine
 {
+    using System;
+    using BalloonsPop.Commands;
+    using BalloonsPop.Common;
+    using BalloonsPop.Contexts;
+    using BalloonsPop.Data;
+    using BalloonsPop.Factories;
+    using BalloonsPop.Printer;
+    using BalloonsPop.Reader;
+    using BalloonsPop.TopScoreBoard;
+
     internal class GameEngine : IGameEngine
     {
         public GameEngine(GameLogic gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScore topScore)
@@ -44,9 +44,9 @@ namespace BalloonsPop.Engine
 
             while (this.GameLogic.Game.RemainingBalloons > 0)
             {
-                var input = Reader.ReadInput();
+                var input = this.Reader.ReadInput();
 
-                Printer.CleanDisplay();
+                this.Printer.CleanDisplay();
                 this.Printer.PrintMessage(GlobalMessages.GreetingMsg);
 
                 this.ProcessInput(input);
@@ -63,7 +63,7 @@ namespace BalloonsPop.Engine
 
         private void ProcessInput(string input)
         {
-            Printer.CleanDisplay();
+            this.Printer.CleanDisplay();
             var commandsValidator = new CommandValidator<CommandType>();
             Coordinates coordinates = new Coordinates();
 
@@ -93,7 +93,7 @@ namespace BalloonsPop.Engine
             else
             {
                 this.Printer.PrintGameBoard(this.GameLogic.Game.Field);
-                Printer.PrintMessage(GlobalMessages.InvalidCommandMsg);
+                this.Printer.PrintMessage(GlobalMessages.InvalidCommandMsg);
             }
         }
     }

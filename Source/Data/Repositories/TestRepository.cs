@@ -1,7 +1,7 @@
 ﻿namespace BalloonsPop.Data
 {
-    using BalloonsPop.Models.Contracts;
     using System.Collections.Generic;
+    using BalloonsPop.Models.Contracts;
 
     // this repo ha the purpose to be used for testing.
     internal class TestRepository<T> : IGenericRepository<T> where T : IModel

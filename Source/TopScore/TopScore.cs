@@ -1,8 +1,8 @@
 ﻿namespace BalloonsPop.TopScoreBoard
 {
-    using BalloonsPop.Data;
     using System.Collections.Generic;
     using System.Linq;
+    using BalloonsPop.Data;
 
     internal class TopScore : ITopScore
     {

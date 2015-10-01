@@ -16,15 +16,9 @@
 
         public GameField Field { get; set; }
 
-        public int ShootCounter
-        {
-            set; get;
-        }
+        public int ShootCounter { get; set; }
 
-        public int RemainingBalloons
-        {
-            set; get;
-        }
+        public int RemainingBalloons { get; set; }
 
         public GameMemento SaveMemento()
         {

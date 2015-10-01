@@ -106,6 +106,7 @@
     <Compile Include="Reader\ConsoleReader.cs" />
     <Compile Include="Reader\IReader.cs" />
     <Compile Include="TopScore\ITopScore.cs" />
+    <None Include="JSLintNet.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

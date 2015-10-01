@@ -1,15 +1,14 @@
 ﻿namespace BalloonsPop
 {
-    using Models.Contracts;
     using Mementos;
-    using System;
+    using Models.Contracts;
 
-    internal class Game:IPrototype<Game>,IModel
+    internal class Game : IPrototype<Game>, IModel
     {
         public Game(GameField field)
         {
             this.Field = field;
-            this.RemainingBalloons = field.FieldRows*field.FieldCols;
+            this.RemainingBalloons = field.FieldRows * field.FieldCols;
             this.ShootCounter = 0;
         }
 
@@ -21,6 +20,7 @@
         {
             internal set; get;
         }
+
         public int RemainingBalloons
         {
             internal set; get;

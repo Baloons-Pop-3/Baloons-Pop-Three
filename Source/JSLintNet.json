@@ -1,0 +1,8 @@
+﻿{
+  "version": "2.0.2",
+  "ignore": [
+    "\\Content\\TopScore.json",
+    "\\Content\\Games.json"
+  ],
+  "globalVariables": []
+}

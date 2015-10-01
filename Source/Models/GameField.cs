@@ -1,14 +1,14 @@
 ﻿namespace BalloonsPop
 {
-    using Models.Contracts;
     using Common;
+    using Models.Contracts;
     using System;
 
-    class GameField:IPrototype<GameField>
+    internal class GameField : IPrototype<GameField>
     {
         public char[,] field;
 
-        public GameField(int fieldRows,int fieldCols)
+        public GameField(int fieldRows, int fieldCols)
         {
             this.FieldRows = fieldRows;
             this.FieldCols = fieldCols;
@@ -28,7 +28,7 @@
             {
                 if (col < 0 || col > this.FieldCols - 1 || row < 0 || row > this.FieldRows - 1)
                 {
-                    throw new IndexOutOfRangeException(GlobalMessages.INVALID_INDEX_OF_FIELD);
+                    throw new IndexOutOfRangeException(GlobalMessages.InvalidIndexOfField);
                 }
                 else
                 {
@@ -39,7 +39,7 @@
             {
                 if (col < 0 || col > this.FieldCols - 1 || row < 0 || row > this.FieldRows - 1)
                 {
-                    throw new IndexOutOfRangeException(GlobalMessages.INVALID_INDEX_OF_FIELD);
+                    throw new IndexOutOfRangeException(GlobalMessages.InvalidIndexOfField);
                 }
                 else
                 {
@@ -64,13 +64,13 @@
             Coordinates currentPosition = new Coordinates();
             for (int row = 0; row < this.FieldRows; row++)
             {
-                for (int column= 0; column < this.FieldCols; column++)
+                for (int column = 0; column < this.FieldCols; column++)
                 {
                     currentPosition.X = row;
                     currentPosition.Y = column;
 
                     this.UpdateField(
-                        currentPosition, 
+                        currentPosition,
                         (char)(random.Next((int)BallonType.First - (int)'0', (int)BallonType.Fifth - (int)'0') + (int)'0'));
                 }
             }
@@ -78,7 +78,7 @@
 
         public GameField Clone()
         {
-            var clone= new GameField(this.FieldRows, this.FieldCols);
+            var clone = new GameField(this.FieldRows, this.FieldCols);
 
             for (int i = 0; i < clone.FieldRows; i++)
             {
@@ -90,6 +90,5 @@
 
             return clone;
         }
-
     }
 }

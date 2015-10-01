@@ -1,11 +1,10 @@
-﻿using BalloonsPop.Models.Contracts;
-using System;
-using System.Collections.Generic;
-
-namespace BalloonsPop.Data
+﻿namespace BalloonsPop.Data
 {
-    //this repo ha the purpose to be used for testing.
-    class TestRepository<T> : IGenericRepository<T> where T : IModel
+    using BalloonsPop.Models.Contracts;
+    using System.Collections.Generic;
+
+    // this repo ha the purpose to be used for testing.
+    internal class TestRepository<T> : IGenericRepository<T> where T : IModel
     {
         private readonly IList<T> testingDataBase;
 
@@ -13,6 +12,7 @@ namespace BalloonsPop.Data
         {
             this.testingDataBase = testingDataBase;
         }
+
         public void Add(T entity)
         {
             this.testingDataBase.Add(entity);

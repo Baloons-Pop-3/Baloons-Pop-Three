@@ -1,9 +1,9 @@
 ﻿namespace BalloonsPop.Common.Enums
 {
-        internal enum GameDifficulty
-        {
-            Easy,
-            Medium,
-            Hard
-        }
+    internal enum GameDifficulty
+    {
+        Easy,
+        Medium,
+        Hard
+    }
 }

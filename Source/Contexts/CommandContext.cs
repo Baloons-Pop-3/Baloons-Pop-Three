@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BalloonsPop.Data;
-using BalloonsPop.Printer;
-using BalloonsPop.Reader;
-using BalloonsPop.TopScoreBoard;
-using BalloonsPop.Mementos;
-
-namespace BalloonsPop.Contexts
+﻿namespace BalloonsPop.Contexts
 {
-    class CommandContext : ICommandContext
+    using BalloonsPop.Data;
+    using BalloonsPop.Mementos;
+    using BalloonsPop.Printer;
+    using BalloonsPop.Reader;
+    using BalloonsPop.TopScoreBoard;
+
+    internal class CommandContext : ICommandContext
     {
-        public CommandContext(IBalloonsData data, GameLogic logic,IGamePrinter printer, IReader reader, ITopScore topScore)
+        public CommandContext(IBalloonsData data, GameLogic logic, IGamePrinter printer, IReader reader, ITopScore topScore)
         {
             this.DataBase = data;
             this.GameLogic = logic;

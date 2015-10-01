@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BalloonsPop.Mementos
+﻿namespace BalloonsPop.Mementos
 {
-    class GameStateMemory
+    internal class GameStateMemory
     {
         public GameMemento GameMemento { get; set; }
     }

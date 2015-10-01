@@ -1,11 +1,9 @@
 ﻿namespace BalloonsPop.Printer
 {
     using Drawer;
-    using Models;
     using System.Collections;
 
-    using TopScoreBoard;
-    interface IGamePrinter
+    internal interface IGamePrinter
     {
         IGameBoardDrawingLogic drawingLogic { get; }
 

@@ -1,28 +1,26 @@
 ﻿namespace BalloonsPop
 {
     using Common;
-    using Reader;
-    using Printer;
-    using Engine;
     using Data;
+    using Engine;
+    using Printer;
+    using Reader;
     using TopScoreBoard;
 
-    public class GameFacade
+    internal class GameFacade
     {
+        private IGenericRepository<Player> players = new TxtFileRepository<Player>(GlobalConstants.TopScorePath);
+        private IGenericRepository<Game> games = new TxtFileRepository<Game>(GlobalConstants.GamesPath);
+        // TODO: implement logic for saving games(this is the repository used for)
 
-        IGenericRepository<Player> players = new TxtFileRepository<Player>(GlobalConstants.TOP_SCORE_PATH);
-        IGenericRepository<Game> games = new TxtFileRepository<Game>(GlobalConstants.GAMES_PATH);
-        // TODO: implement logic for saving games(this is the repository used for)    
-
-        GameField field = new GameField(GlobalConstants.FIELD_BOARD_ROWS,GlobalConstants.FIELD_BOARD_COLS);
-        IReader reader = new ConsoleReader();
-        IGamePrinter printer = new ConsoleGamePrinter();
-        ITopScore topScore;
-        Game balloonsGame;
-        GameLogic gameLogic;
-        IBalloonsData db;
-        IGameEngine engine;
-
+        private GameField field = new GameField(GlobalConstants.FieldBoardRows, GlobalConstants.FieldBoardCols);
+        private IReader reader = new ConsoleReader();
+        private IGamePrinter printer = new ConsoleGamePrinter();
+        private ITopScore topScore;
+        private Game balloonsGame;
+        private GameLogic gameLogic;
+        private IBalloonsData db;
+        private IGameEngine engine;
 
         public void Start()
         {
@@ -30,7 +28,7 @@
             this.gameLogic = new GameLogic(this.balloonsGame);
             this.db = new BalloonsData(this.players, this.games);
             this.topScore = new TopScore(this.db);
-            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.db,this.topScore);
+            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.db, this.topScore);
 
             this.engine.StartGame();
         }

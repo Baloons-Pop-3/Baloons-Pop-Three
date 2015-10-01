@@ -2,14 +2,14 @@
 {
     using Contexts;
 
-    class NullCommand : ICommand
+    internal class NullCommand : ICommand
     {
         public NullCommand(ICommandContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { private set; get; }
+        public ICommandContext Context { get; private set; }
 
         public void Execute()
         {

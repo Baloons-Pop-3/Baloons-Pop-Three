@@ -1,13 +1,13 @@
 ﻿namespace BalloonsPop.Engine
 {
-    using TopScoreBoard;
+    using Contexts;
     using Data;
+    using Factories;
     using Printer;
     using Reader;
-    using Contexts;
-    using Factories;
+    using TopScoreBoard;
 
-    interface IGameEngine
+    internal interface IGameEngine
     {
         GameLogic GameLogic { get; }
 

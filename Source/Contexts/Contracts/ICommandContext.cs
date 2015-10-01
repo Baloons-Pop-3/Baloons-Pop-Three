@@ -1,17 +1,12 @@
-﻿using BalloonsPop.Data;
-using BalloonsPop.Mementos;
-using BalloonsPop.Printer;
-using BalloonsPop.Reader;
-using BalloonsPop.TopScoreBoard;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BalloonsPop.Contexts
+﻿namespace BalloonsPop.Contexts
 {
-    interface ICommandContext
+    using BalloonsPop.Data;
+    using BalloonsPop.Mementos;
+    using BalloonsPop.Printer;
+    using BalloonsPop.Reader;
+    using BalloonsPop.TopScoreBoard;
+
+    internal interface ICommandContext
     {
         GameLogic GameLogic { get; }
 

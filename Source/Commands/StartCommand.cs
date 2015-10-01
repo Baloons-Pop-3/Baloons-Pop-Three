@@ -3,14 +3,14 @@
     using Common.Enums;
     using Contexts;
 
-    class StartCommand : ICommand
+    internal class StartCommand : ICommand
     {
         public StartCommand(ICommandContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { private set; get; }
+        public ICommandContext Context { get; private set; }
 
         public void Execute()
         {
@@ -20,10 +20,9 @@
 
             var validator = new CommandValidator<GameDifficulty>();
 
-
             if (validator.IsValidCommand(input))
             {
-                if (validator.GetType(input)==GameDifficulty.Easy)
+                if (validator.GetType(input) == GameDifficulty.Easy)
                 {
                     gamefield = new GameField(5, 5);
                     this.Context.GameLogic.Game = new Game(gamefield);
@@ -45,6 +44,6 @@
             }
 
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
-            }
         }
     }
+}

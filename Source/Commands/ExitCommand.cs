@@ -2,18 +2,18 @@
 {
     using Contexts;
 
-    class ExitCommand : ICommand
+    internal class ExitCommand : ICommand
     {
         public ExitCommand(ICommandContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { private set; get; }
+        public ICommandContext Context { get; private set; }
 
         public void Execute()
         {
-            Context.Printer.PrintMessage("Thank you for playing this stupid game :) Welcome back");
+            this.Context.Printer.PrintMessage("Thank you for playing this stupid game :) Welcome back");
         }
     }
 }

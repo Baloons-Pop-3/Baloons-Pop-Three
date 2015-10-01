@@ -1,9 +1,8 @@
 ﻿namespace BalloonsPop
 {
-    using System;
-
     using Common;
     using Models.Contracts;
+    using System;
 
     /// <summary>
     /// A class representing the game user.
@@ -14,6 +13,7 @@
         /// The name of the user.
         /// </summary>
         private string name;
+
         /// <summary>
         /// The score or how good the player did in the game.
         /// </summary>

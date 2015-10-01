@@ -2,7 +2,9 @@
 {
     internal class Coordinates
     {
-        public Coordinates() { }
+        public Coordinates()
+        {
+        }
 
         public Coordinates(int x, int y)
         {

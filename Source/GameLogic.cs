@@ -1,10 +1,9 @@
 ﻿namespace BalloonsPop
 {
+    using BalloonsPop.Common;
     using System;
 
-    using BalloonsPop.Common;
-
-    class GameLogic
+    internal class GameLogic
     {
         public GameLogic(Game game)
         {
@@ -19,11 +18,11 @@
 
             if (balloonToShoot == (char)BallonType.Popped)
             {
-                throw new ArgumentException(GlobalMessages.ALREADY_POPPED_BALLOON_MSG);
+                throw new ArgumentException(GlobalMessages.AlreadyPoppedBalloonsMsg);
             }
             else if (balloonToShoot == (char)BallonType.Invalid)
             {
-                throw new ArgumentException(GlobalMessages.INVALID_COORDINATES_MSG);
+                throw new ArgumentException(GlobalMessages.InvalidCoordinatesMsg);
             }
 
             this.Game.Field.UpdateField(positionToShoot, '.');
@@ -38,7 +37,7 @@
             LandFlyingBaloons();
         }
 
-        private void ShootSameBalloonsInDirection(ShootingDirection direction, Coordinates startingPoint,char balloonToShoot)
+        private void ShootSameBalloonsInDirection(ShootingDirection direction, Coordinates startingPoint, char balloonToShoot)
         {
             Coordinates nextCoordinates = new Coordinates();
             nextCoordinates.X = startingPoint.X;
@@ -88,13 +87,13 @@
             {
                 for (int row = 0; row < this.Game.Field.FieldRows; row++)
                 {
-                    Coordinates positionToCheck = new Coordinates(row,column);
+                    Coordinates positionToCheck = new Coordinates(row, column);
                     if (GetBaloonTypeFromPosition(positionToCheck) == '.')
                     {
                         for (int k = row; k > 0; k--)
                         {
-                            Coordinates oldCoordinates = new Coordinates(k,column);
-                            Coordinates newCoordinates = new Coordinates(k-1, column);
+                            Coordinates oldCoordinates = new Coordinates(k, column);
+                            Coordinates newCoordinates = new Coordinates(k - 1, column);
 
                             SwapBalloons(oldCoordinates, newCoordinates);
                         }

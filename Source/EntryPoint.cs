@@ -1,8 +1,8 @@
 ﻿namespace BalloonsPop
 {
-    class EntryPoint
+    public class EntryPoint
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             GameFacade game = new GameFacade();
 

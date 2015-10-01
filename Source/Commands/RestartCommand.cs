@@ -2,14 +2,14 @@
 {
     using Contexts;
 
-    class RestartCommand : ICommand
+    internal class RestartCommand : ICommand
     {
         public RestartCommand(ICommandContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { private set; get; }
+        public ICommandContext Context { get; private set; }
 
         public void Execute()
         {

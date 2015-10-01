@@ -1,11 +1,9 @@
-﻿using BalloonsPop.Commands;
-using BalloonsPop.Contexts;
-
-namespace BalloonsPop.Factories
+﻿namespace BalloonsPop.Factories
 {
+    using BalloonsPop.Commands;
+    using BalloonsPop.Contexts;
 
-
-    interface ICommandFactory
+    internal interface ICommandFactory
     {
         ICommandContext Context { get; }
 

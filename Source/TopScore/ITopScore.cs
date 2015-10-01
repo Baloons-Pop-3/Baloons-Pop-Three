@@ -1,11 +1,10 @@
-﻿
-namespace BalloonsPop.TopScoreBoard
+﻿namespace BalloonsPop.TopScoreBoard
 {
-    using System.Collections.Generic;
     using BalloonsPop.Data;
+    using System.Collections.Generic;
 
     // TODO: Implement ITopScore
-    interface ITopScore
+    internal interface ITopScore
     {
         IGenericRepository<Player> HighScores { get; }
 

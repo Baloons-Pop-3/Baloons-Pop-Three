@@ -1,18 +1,15 @@
 ﻿namespace BalloonsPop.Data
 {
     using Common.Serializer;
+    using Models.Contracts;
     using System.Collections.Generic;
     using System.IO;
-    using System.Web.Script.Serialization;
-    using System;
-    using System.Linq;
-    using Models.Contracts;
 
     /// <summary>
     /// This is a repository which save the data in a txt file(JSON format)
     /// </summary>
     /// <typeparam name="T">Type of the model object used to </typeparam>
-    class TxtFileRepository<T> : IGenericRepository<T> where T : class, IModel
+    internal class TxtFileRepository<T> : IGenericRepository<T> where T : class, IModel
     {
         private readonly string pathOfTxtFile;
         private readonly ISerializer serializer;
@@ -29,9 +26,9 @@
         /// <param name="entity">Type of object to save in the repository</param>
         public void Add(T entity)
         {
-            var jsonEntity = serializer.Serialize<T>(entity);
+            var jsonEntity = this.serializer.Serialize<T>(entity);
 
-            using (StreamWriter writer = new StreamWriter(this.pathOfTxtFile,true))
+            using (StreamWriter writer = new StreamWriter(this.pathOfTxtFile, true))
             {
                 writer.WriteLine(jsonEntity);
             }
@@ -45,12 +42,12 @@
         {
             var fetchedCollection = new List<T>();
 
-             using (StreamReader reader = new StreamReader(this.pathOfTxtFile))
+            using (StreamReader reader = new StreamReader(this.pathOfTxtFile))
             {
                 string line = reader.ReadLine();
                 while (line != null)
                 {
-                    T item = serializer.Deserialize<T>(line);
+                    T item = this.serializer.Deserialize<T>(line);
                     fetchedCollection.Add(item);
 
                     line = reader.ReadLine();
@@ -69,13 +66,13 @@
                 string line = reader.ReadLine();
                 while (line != null)
                 {
-                    T item = serializer.Deserialize<T>(line);
+                    T item = this.serializer.Deserialize<T>(line);
 
                     currentId = item.Id;
 
-                    if (currentId.ToString()==id.ToString())
+                    if (currentId.ToString() == id.ToString())
                     {
-                        return item; 
+                        return item;
                     }
 
                     line = reader.ReadLine();

@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPop.Reader
 {
-    interface IReader
+    internal interface IReader
     {
         string ReadInput();
     }

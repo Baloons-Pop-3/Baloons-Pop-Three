@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BalloonsPop.Data;
-
-namespace BalloonsPop.TopScoreBoard
+﻿namespace BalloonsPop.TopScoreBoard
 {
-    class TopScore : ITopScore
+    using BalloonsPop.Data;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    internal class TopScore : ITopScore
     {
         public TopScore(IBalloonsData db)
         {
             this.HighScores = db.Players;
         }
 
-        public IGenericRepository<Player> HighScores{ get; set; }
+        public IGenericRepository<Player> HighScores { get; set; }
 
         public void AddPlayer(Player player)
         {

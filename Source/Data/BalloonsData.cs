@@ -1,11 +1,6 @@
 ﻿namespace BalloonsPop.Data
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    class BalloonsData : IBalloonsData
+    internal class BalloonsData : IBalloonsData
     {
         public BalloonsData(IGenericRepository<Player> players, IGenericRepository<Game> games)
         {
@@ -13,8 +8,8 @@
             this.Games = games;
         }
 
-        public IGenericRepository<Game> Games { private set; get; }
+        public IGenericRepository<Game> Games { get; private set; }
 
-        public IGenericRepository<Player> Players { private set;  get; }
+        public IGenericRepository<Player> Players { get; private set; }
     }
 }

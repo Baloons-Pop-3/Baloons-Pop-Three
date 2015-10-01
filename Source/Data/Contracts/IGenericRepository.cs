@@ -1,12 +1,9 @@
-﻿using BalloonsPop.Models.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BalloonsPop.Data
+﻿namespace BalloonsPop.Data
 {
-    interface IGenericRepository<T> where T :IModel
+    using BalloonsPop.Models.Contracts;
+    using System.Collections.Generic;
+
+    internal interface IGenericRepository<T> where T : IModel
     {
         IEnumerable<T> All();
 

@@ -3,14 +3,14 @@
     using Common;
     using Contexts;
 
-    class FinishCommand:ICommand
+    internal class FinishCommand : ICommand
     {
-       public FinishCommand(ICommandContext context)
+        public FinishCommand(ICommandContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { private set; get; }
+        public ICommandContext Context { get; private set; }
 
         public void Execute()
         {
@@ -18,11 +18,10 @@
             player.Score = this.Context.GameLogic.Game.ShootCounter;
 
             this.Context.Printer.PrintMessage("Congratulations, you popped all ballooons with " + this.Context.GameLogic.Game.ShootCounter);
-            this.Context.Printer.PrintMessage(GlobalMessages.ADD_TO_TOPSCORE_MSG);
+            this.Context.Printer.PrintMessage(GlobalMessages.AddToTopscoreMsg);
             player.Name = this.Context.Reader.ReadInput();
 
             this.Context.TopScore.AddPlayer(player);
         }
     }
 }
-

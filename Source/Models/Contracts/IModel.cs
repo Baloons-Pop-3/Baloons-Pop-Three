@@ -1,7 +1,7 @@
 ﻿namespace BalloonsPop.Models.Contracts
 {
-    interface IModel
+    internal interface IModel
     {
-         string Id { get; set; }
+        string Id { get; set; }
     }
 }

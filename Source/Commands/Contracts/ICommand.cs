@@ -1,10 +1,11 @@
-﻿using BalloonsPop.Contexts;
-
-namespace BalloonsPop.Commands
+﻿namespace BalloonsPop.Commands
 {
-    interface ICommand
+    using BalloonsPop.Contexts;
+
+    internal interface ICommand
     {
         ICommandContext Context { get; }
+
         void Execute();
     }
 }

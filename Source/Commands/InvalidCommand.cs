@@ -2,19 +2,19 @@
 {
     using Contexts;
 
-    class InvalidCommand : ICommand
+    internal class InvalidCommand : ICommand
     {
         public InvalidCommand(ICommandContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { private set; get; }
+        public ICommandContext Context { get; private set; }
 
         public void Execute()
         {
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
-            Context.Printer.PrintMessage("Invalid command type. Please try again");
+            this.Context.Printer.PrintMessage("Invalid command type. Please try again");
         }
     }
 }

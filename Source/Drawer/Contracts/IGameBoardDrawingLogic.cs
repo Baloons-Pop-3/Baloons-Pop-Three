@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPop.Drawer
 {
-    interface IGameBoardDrawingLogic
+    internal interface IGameBoardDrawingLogic
     {
         string[,] Board { get; }
     }

@@ -3,8 +3,8 @@
     using System;
     using System.Linq;
 
-    internal class CommandValidator<T> 
-    { 
+    internal class CommandValidator<T>
+    {
         public CommandValidator()
         {
             if (!typeof(T).IsEnum)
@@ -15,8 +15,11 @@
 
         internal bool IsValidCommand(string input)
         {
-            // transform the string into string with first uppercase letter.
-            input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
+            if (!string.IsNullOrEmpty(input))
+            {
+                // transform the string into string with first uppercase letter.
+                input = input.First().ToString().ToUpper() + string.Join(string.Empty, input.Skip(1));
+            }
 
             if (!Enum.IsDefined(typeof(T), input))
             {

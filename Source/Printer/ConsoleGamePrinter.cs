@@ -24,7 +24,30 @@
             {
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
-                    Console.Write(board[i, j]);
+                    if (i != 0 && j != 0)
+                    {
+                        switch (board[i, j])
+                        {
+                            case " 1 ":
+                                ColoringBalloons(ConsoleColor.Red);
+                                break;
+                            case " 2 ":
+                                ColoringBalloons(ConsoleColor.Yellow);
+                                break;
+                            case " 3 ":
+                                ColoringBalloons(ConsoleColor.Green);
+                                break;
+                            case " 4 ":
+                                ColoringBalloons(ConsoleColor.Cyan);
+                                break;
+                            default: Console.Write(board[i, j]);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.Write(board[i, j]);
+                    }
                 }
                 Console.WriteLine();
             }
@@ -47,6 +70,14 @@
 
                 playerPosition++;
             }
+        }
+
+        private static void ColoringBalloons(ConsoleColor color)
+        {
+            ConsoleColor originalColor = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            Console.Write(" " + Common.GlobalConstants.BalloonsSymbol + " ");
+            Console.ForegroundColor = originalColor;
         }
     }
 }

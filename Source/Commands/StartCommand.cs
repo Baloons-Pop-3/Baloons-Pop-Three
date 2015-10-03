@@ -28,22 +28,22 @@
             {
                 if (validator.GetType(input) == GameDifficulty.Easy)
                 {
-                    gamefield = new GameField(5, 5);
+                    gamefield = new GameField(GlobalConstants.EasyLevelRows, GlobalConstants.EasyLevelCols);
                     this.Context.GameLogic.Game = new Game(gamefield);
                 }
                 else if (validator.GetType(input) == GameDifficulty.Medium)
                 {
-                    gamefield = new GameField(8, 8);
+                    gamefield = new GameField(GlobalConstants.MediumLevelRows, GlobalConstants.MediumLevelCols);
                     this.Context.GameLogic.Game = new Game(gamefield);
                 }
                 else if (validator.GetType(input) == GameDifficulty.Hard)
                 {
-                    gamefield = new GameField(10, 10);
+                    gamefield = new GameField(GlobalConstants.HardLevelRows, GlobalConstants.HardLevelCols);
                     this.Context.GameLogic.Game = new Game(gamefield);
                 }
                 else if (validator.GetType(input) == GameDifficulty.Torture)
                 {
-                    gamefield = new GameField(18, 18);
+                    gamefield = new GameField(GlobalConstants.TortureLevelRows, GlobalConstants.TortureLevelRows);
                     this.Context.GameLogic.Game = new Game(gamefield);
                 }
             }

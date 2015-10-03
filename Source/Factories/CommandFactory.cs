@@ -20,79 +20,34 @@
 
         public ICommand CreateCommand(CommandType input)
         {
-            if (!this.commands.ContainsKey(input))
+            if (this.commands.ContainsKey(input))
             {
-                this.commands
+                return this.commands[input];
             }
+
             switch (input)
             {
                 case CommandType.Exit:
-                    if (!this.commands.ContainsKey(CommandType.Exit))
-                    {
-                        this.commands[CommandType.Exit] = new ExitCommand(this.Context);
-                    }
-
-                    return this.commands[CommandType.Exit];
-
+                    this.commands[CommandType.Exit] = new ExitCommand(this.Context); break;
                 case CommandType.Restart:
-                    if (!this.commands.ContainsKey(CommandType.Restart))
-                    {
-                        this.commands[CommandType.Restart] = new RestartCommand(this.Context);
-                    }
-
-                    return this.commands[CommandType.Restart];
-
+                    this.commands[CommandType.Restart] = new RestartCommand(this.Context); break;
                 case CommandType.Top:
-                    if (!this.commands.ContainsKey(CommandType.Top))
-                    {
-                        this.commands[CommandType.Top] = new TopScoreCommand(this.Context);
-                    }
-
-                    return this.commands[CommandType.Top];
-
+                    this.commands[CommandType.Top] = new TopScoreCommand(this.Context); break;
                 case CommandType.Start:
-                    if (!this.commands.ContainsKey(CommandType.Start))
-                    {
-                        this.commands[CommandType.Start] = new StartCommand(this.Context);
-                    }
-
-                    return this.commands[CommandType.Start];
-
+                    this.commands[CommandType.Start] = new StartCommand(this.Context); break;
                 case CommandType.Finish:
-                    if (!this.commands.ContainsKey(CommandType.Finish))
-                    {
-                        this.commands[CommandType.Finish] = new FinishCommand(this.Context);
-                    }
-
-                    return this.commands[CommandType.Finish];
-
+                    this.commands[CommandType.Finish] = new FinishCommand(this.Context); break;
                 case CommandType.Undo:
-                    if (!this.commands.ContainsKey(CommandType.Undo))
-                    {
-                        this.commands[CommandType.Undo] = new UndoCommand(this.Context);
-                    }
-
-                    return this.commands[CommandType.Undo];
-
+                    this.commands[CommandType.Undo] = new UndoCommand(this.Context); break;
                 case CommandType.Save:
-                    if (!this.commands.ContainsKey(CommandType.Save))
-                    {
-                        this.commands[CommandType.Save] = new SaveCommand(this.Context);
-                    }
-
-                    return this.commands[CommandType.Save];
-
+                    this.commands[CommandType.Save] = new SaveCommand(this.Context); break;
                 case CommandType.Restore:
-                    if (!this.commands.ContainsKey(CommandType.Restore))
-                    {
-                        this.commands[CommandType.Restore] = new RestoreCommand(this.Context);
-                    }
-
-                    return this.commands[CommandType.Restore];
-
+                    this.commands[CommandType.Restore] = new RestoreCommand(this.Context); break;
                 default:
-                    return new NullCommand(this.Context);
+                    this.commands[CommandType.Restore] = new NullCommand(this.Context); break;
             }
+
+            return this.commands[input];
         }
     }
 }

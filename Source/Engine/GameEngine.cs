@@ -69,7 +69,7 @@
 
         private void ProcessInput(string input)
         {
-            this.Printer.CleanDisplay();
+            //this.Printer.CleanDisplay();
             var commandsValidator = new CommandValidator<CommandType>();
             Coordinates coordinates = new Coordinates();
 

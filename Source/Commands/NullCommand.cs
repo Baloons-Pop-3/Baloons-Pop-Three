@@ -1,6 +1,7 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Contexts.Contracts;
 
     internal class NullCommand : ICommand
     {

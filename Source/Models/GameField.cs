@@ -1,8 +1,9 @@
-﻿namespace BalloonsPop
+﻿namespace BalloonsPop.Models
 {
     using System;
-    using Common;
-    using Models.Contracts;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Common.Enums;
+    using BalloonsPop.Models.Contracts;
 
     internal class GameField : IPrototype<GameField>
     {

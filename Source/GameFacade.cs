@@ -1,11 +1,15 @@
 ﻿namespace BalloonsPop
 {
-    using Common;
-    using Data;
-    using Engine;
-    using Printer;
-    using Reader;
-    using TopScoreBoard;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Data;
+    using BalloonsPop.Data.Contracts;
+    using BalloonsPop.Data.Repositories;
+    using BalloonsPop.Engine;
+    using BalloonsPop.Engine.Contracts;
+    using BalloonsPop.Models;
+    using BalloonsPop.Printer;
+    using BalloonsPop.Reader;
+    using BalloonsPop.TopScoreBoard;
 
     internal class GameFacade
     {

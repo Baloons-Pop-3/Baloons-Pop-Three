@@ -1,6 +1,8 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Contexts.Contracts;
 
     internal class InvalidCommand : ICommand
     {
@@ -14,7 +16,7 @@
         public void Execute()
         {
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
-            this.Context.Printer.PrintMessage("Invalid command type. Please try again");
+            this.Context.Printer.PrintMessage(GlobalMessages.InvalidCommandMessage);
         }
     }
 }

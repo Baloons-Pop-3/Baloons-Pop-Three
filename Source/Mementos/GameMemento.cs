@@ -1,5 +1,6 @@
 ﻿namespace BalloonsPop.Mementos
 {
+    using BalloonsPop.Models;
     using BalloonsPop.Models.Contracts;
 
     internal class GameMemento : IGame

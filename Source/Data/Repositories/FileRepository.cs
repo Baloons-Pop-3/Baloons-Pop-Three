@@ -1,9 +1,11 @@
-﻿namespace BalloonsPop.Data
+﻿namespace BalloonsPop.Data.Repositories
 {
     using System.Collections.Generic;
     using System.IO;
-    using Common.Serializer;
-    using Models.Contracts;
+    using BalloonsPop.Common.Serializer;
+    using BalloonsPop.Common.Serializer.Contracts;
+    using BalloonsPop.Data.Contracts;
+    using BalloonsPop.Models.Contracts;
 
     /// <summary>
     /// This is a repository which save the data in a txt file(JSON format)

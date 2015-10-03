@@ -1,6 +1,7 @@
-﻿namespace BalloonsPop.Data
+﻿namespace BalloonsPop.Data.Repositories
 {
     using System.Collections.Generic;
+    using BalloonsPop.Data.Contracts;
     using BalloonsPop.Models.Contracts;
 
     // this repo ha the purpose to be used for testing.

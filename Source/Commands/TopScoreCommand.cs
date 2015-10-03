@@ -1,7 +1,8 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using Common;
-    using Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Contexts.Contracts;
 
     internal class TopScoreCommand : ICommand
     {

@@ -2,8 +2,10 @@
 {
     using System;
     using System.Collections;
-    using Drawer;
-    using Models;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Drawer;
+    using BalloonsPop.Drawer.Contracts;
+    using BalloonsPop.Models;
 
     internal class ConsoleGamePrinter : IGamePrinter
     {
@@ -78,7 +80,7 @@
         {
             ConsoleColor originalColor = Console.ForegroundColor;
             Console.ForegroundColor = color;
-            Console.Write(" " + Common.GlobalConstants.BalloonsSymbol + " ");
+            Console.Write(" " + GlobalConstants.BalloonsSymbol + " ");
             Console.ForegroundColor = originalColor;
         }
     }

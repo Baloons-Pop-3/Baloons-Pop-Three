@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.Common.Serializer
+﻿namespace BalloonsPop.Common.Serializer.Contracts
 {
     internal interface ISerializer
     {

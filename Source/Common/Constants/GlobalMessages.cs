@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.Common
+﻿namespace BalloonsPop.Common.Constants
 {
     public class GlobalMessages
     {
@@ -11,5 +11,11 @@
 
         internal const string InvalidCoordinatesMsg = "Invalid coordinates! Please try again";
         internal const string InvalidIndexOfField = "There is no such index!";
+        internal const string ExitCommandMessage = "Thank you for playing this stupid game :) Welcome back";
+        internal const string FinishCommandGreeting = "Congratulations, you popped all ballooons with ";
+        internal const string InvalidCommandMessage = "Invalid command type. Please try again";
+        internal const string StartCommandMessage = "How dificult do you want it: Your options are:\neasy\nmedium\nhard\ntorture";
+        internal const string StartCommandInvalidDifficultyMessage = "Invalid dificulty chosen. Default one is genereted.";
+        internal const string RestoreCommandInvalidGame = "Sorry, game with this name is not found.";
     }
 }

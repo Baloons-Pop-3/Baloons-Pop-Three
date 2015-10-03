@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.Common
+﻿namespace BalloonsPop.Common.Validators
 {
     using System;
 

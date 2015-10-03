@@ -1,6 +1,6 @@
-﻿namespace BalloonsPop.Commands
+﻿namespace BalloonsPop.Commands.Contracts
 {
-    using BalloonsPop.Contexts;
+    using BalloonsPop.Contexts.Contracts;
 
     internal interface ICommand
     {

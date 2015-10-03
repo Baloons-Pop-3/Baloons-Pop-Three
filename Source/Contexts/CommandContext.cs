@@ -1,6 +1,7 @@
 ﻿namespace BalloonsPop.Contexts
 {
-    using BalloonsPop.Data;
+    using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Data.Contracts;
     using BalloonsPop.Mementos;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;

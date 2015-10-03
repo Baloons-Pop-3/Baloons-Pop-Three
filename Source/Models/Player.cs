@@ -1,8 +1,8 @@
-﻿namespace BalloonsPop
+﻿namespace BalloonsPop.Models
 {
     using System;
-    using Common;
-    using Models.Contracts;
+    using BalloonsPop.Common.Validators;
+    using BalloonsPop.Models.Contracts;
 
     /// <summary>
     /// A class representing the game user.

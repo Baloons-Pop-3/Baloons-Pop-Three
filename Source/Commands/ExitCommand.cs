@@ -1,6 +1,8 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Contexts.Contracts;
 
     internal class ExitCommand : ICommand
     {
@@ -13,7 +15,7 @@
 
         public void Execute()
         {
-            this.Context.Printer.PrintMessage("Thank you for playing this stupid game :) Welcome back");
+            this.Context.Printer.PrintMessage(GlobalMessages.ExitCommandMessage);
         }
     }
 }

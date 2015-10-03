@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.Drawer
+﻿namespace BalloonsPop.Drawer.Contracts
 {
     internal interface IGameBoardDrawingLogic
     {

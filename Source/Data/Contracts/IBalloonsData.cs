@@ -1,5 +1,7 @@
-﻿namespace BalloonsPop.Data
+﻿namespace BalloonsPop.Data.Contracts
 {
+    using BalloonsPop.Models; 
+
     internal interface IBalloonsData
     {
         IGenericRepository<Player> Players { get; }

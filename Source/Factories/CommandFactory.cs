@@ -2,7 +2,10 @@
 {
     using System.Collections.Generic;
     using BalloonsPop.Commands;
-    using BalloonsPop.Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Common.Enums;
+    using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Factories.Contracts;
 
     internal class CommandFactory : ICommandFactory
     {

@@ -1,5 +1,7 @@
-﻿namespace BalloonsPop.Models
+﻿namespace BalloonsPop.Drawer
 {
+    using BalloonsPop.Drawer.Contracts;
+    using BalloonsPop.Models;
     using Drawer;
 
     internal class GameBoardDrawingLogic : IGameBoardDrawingLogic

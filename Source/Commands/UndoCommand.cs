@@ -1,6 +1,7 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using BalloonsPop.Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Contexts.Contracts;
 
     internal class UndoCommand : ICommand
     {

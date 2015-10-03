@@ -1,5 +1,6 @@
 ﻿namespace BalloonsPop.Common.Serializer
 {
+    using BalloonsPop.Common.Serializer.Contracts;
     using Newtonsoft.Json;
 
     internal class JsonSerializer : ISerializer

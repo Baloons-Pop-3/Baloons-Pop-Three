@@ -1,11 +1,17 @@
 ﻿namespace BalloonsPop.Engine
 {
     using System;
-    using BalloonsPop.Commands;
-    using BalloonsPop.Common;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Common.Enums;
+    using BalloonsPop.Common.Validators;
     using BalloonsPop.Contexts;
-    using BalloonsPop.Data;
+    using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Data.Contracts;
+    using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Factories;
+    using BalloonsPop.Factories.Contracts;
+    using BalloonsPop.Models;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
     using BalloonsPop.TopScoreBoard;

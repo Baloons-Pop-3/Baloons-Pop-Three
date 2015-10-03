@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.Common
+﻿namespace BalloonsPop.Common.Constants
 {
     public class GlobalConstants
     {

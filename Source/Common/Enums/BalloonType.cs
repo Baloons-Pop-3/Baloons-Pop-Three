@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop
+﻿namespace BalloonsPop.Common.Enums
 {
     internal enum BallonType
     {

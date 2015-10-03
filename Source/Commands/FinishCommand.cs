@@ -1,7 +1,9 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using Common;
-    using Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Models;
 
     internal class FinishCommand : ICommand
     {
@@ -17,7 +19,7 @@
             Player player = new Player();
             player.Score = this.Context.GameLogic.Game.ShootCounter;
 
-            this.Context.Printer.PrintMessage("Congratulations, you popped all ballooons with " + this.Context.GameLogic.Game.ShootCounter);
+            this.Context.Printer.PrintMessage(GlobalMessages.FinishCommandGreeting + this.Context.GameLogic.Game.ShootCounter);
             this.Context.Printer.PrintMessage(GlobalMessages.AddToTopscoreMsg);
             player.Name = this.Context.Reader.ReadInput();
 

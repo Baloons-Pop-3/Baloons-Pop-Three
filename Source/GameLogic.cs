@@ -1,7 +1,9 @@
 ﻿namespace BalloonsPop
 {
     using System;
-    using BalloonsPop.Common;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Common.Enums;
+    using BalloonsPop.Models;
 
     internal class GameLogic
     {

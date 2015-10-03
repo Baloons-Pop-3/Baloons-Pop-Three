@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.Data
+﻿namespace BalloonsPop.Data.Contracts
 {
     using System.Collections.Generic;
     using BalloonsPop.Models.Contracts;

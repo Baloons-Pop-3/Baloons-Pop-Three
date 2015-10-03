@@ -1,7 +1,8 @@
 ﻿namespace BalloonsPop.Printer
 {
     using System.Collections;
-    using Drawer;
+    using BalloonsPop.Drawer.Contracts;
+    using BalloonsPop.Models;
 
     internal interface IGamePrinter
     {

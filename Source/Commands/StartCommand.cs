@@ -1,7 +1,11 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using Common.Enums;
-    using Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Common.Enums;
+    using BalloonsPop.Common.Validators;
+    using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Models;
 
     internal class StartCommand : ICommand
     {
@@ -14,7 +18,7 @@
 
         public void Execute()
         {
-            this.Context.Printer.PrintMessage("How dificult do you want it: Your options are:\neasy\nmedium\nhard\ntorture");
+            this.Context.Printer.PrintMessage(GlobalMessages.StartCommandMessage);
             var input = this.Context.Reader.ReadInput();
             GameField gamefield;
 
@@ -45,7 +49,7 @@
             }
             else
             {
-                this.Context.Printer.PrintMessage("Invalid dificulty chosen. Default one is genereted.");
+                this.Context.Printer.PrintMessage(GlobalMessages.StartCommandInvalidDifficultyMessage);
             }
 
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);

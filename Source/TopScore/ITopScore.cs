@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
     using BalloonsPop.Data;
+    using BalloonsPop.Data.Contracts;
+    using BalloonsPop.Models;
 
     internal interface ITopScore
     {

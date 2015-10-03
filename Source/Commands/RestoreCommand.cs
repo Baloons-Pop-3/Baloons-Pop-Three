@@ -1,6 +1,9 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Models;
 
     internal class RestoreCommand : ICommand
     {
@@ -30,7 +33,7 @@
 
             if (game == null)
             {
-                this.Context.Printer.PrintMessage("Sorry, game with this name is not found.");
+                this.Context.Printer.PrintMessage(GlobalMessages.RestoreCommandInvalidGame);
                 return;
             }
 

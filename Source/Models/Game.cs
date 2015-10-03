@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop
+﻿namespace BalloonsPop.Models
 {
     using Mementos;
     using Models.Contracts;

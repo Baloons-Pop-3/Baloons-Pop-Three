@@ -1,7 +1,9 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using BalloonsPop.Common;
-    using BalloonsPop.Contexts;
+    using BalloonsPop.Commands.Contracts;
+    using BalloonsPop.Common.Constants;
+    using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Models;
 
     internal class SaveCommand : ICommand
     {

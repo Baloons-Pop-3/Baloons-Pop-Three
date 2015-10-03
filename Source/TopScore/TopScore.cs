@@ -2,7 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using BalloonsPop.Data;
+    using BalloonsPop.Data.Contracts;
+    using BalloonsPop.Models;
 
     internal class TopScore : ITopScore
     {

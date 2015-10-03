@@ -11,12 +11,12 @@
     {
         private readonly Dictionary<CommandType, ICommand> commands = new Dictionary<CommandType, ICommand>();
 
-        public CommandFactory(ICommandContext context)
+        public CommandFactory(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public ICommand CreateCommand(CommandType input)
         {
@@ -44,7 +44,7 @@
                 case CommandType.Restore:
                     this.commands[CommandType.Restore] = new RestoreCommand(this.Context); break;
                 default:
-                    this.commands[CommandType.Restore] = new NullCommand(this.Context); break;
+                    this.commands[CommandType.Restore] = null; break;
             }
 
             return this.commands[input];

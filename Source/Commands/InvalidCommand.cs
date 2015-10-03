@@ -6,12 +6,12 @@
 
     internal class InvalidCommand : ICommand
     {
-        public InvalidCommand(ICommandContext context)
+        public InvalidCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {

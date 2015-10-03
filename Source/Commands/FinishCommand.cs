@@ -7,12 +7,12 @@
 
     internal class FinishCommand : ICommand
     {
-        public FinishCommand(ICommandContext context)
+        public FinishCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {

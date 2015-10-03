@@ -6,7 +6,7 @@
     using BalloonsPop.Reader;
     using BalloonsPop.TopScoreBoard;
 
-    internal interface ICommandContext
+    internal interface IContext
     {
         GameLogic GameLogic { get; }
 

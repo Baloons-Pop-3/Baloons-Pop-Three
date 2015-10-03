@@ -26,7 +26,7 @@
             this.DataBase = db;
             this.TopScore = topScore;
 
-            this.Context = new CommandContext(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScore);
+            this.Context = new Context(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScore);
             this.Factory = new CommandFactory(this.Context);
         }
 
@@ -40,7 +40,7 @@
 
         public ITopScore TopScore { get; private set; }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public ICommandFactory Factory { get; private set; }
 

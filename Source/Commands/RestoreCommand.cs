@@ -7,12 +7,12 @@
 
     internal class RestoreCommand : ICommand
     {
-        public RestoreCommand(ICommandContext context)
+        public RestoreCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {

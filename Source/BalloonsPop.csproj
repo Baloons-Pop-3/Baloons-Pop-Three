@@ -71,11 +71,13 @@
     <Compile Include="Common\Constants\GlobalMessages.cs" />
     <Compile Include="Common\Serializers\Contracts\ISerializer.cs" />
     <Compile Include="Common\Serializers\JsonSerializer.cs" />
-    <Compile Include="Contexts\CommandContext.cs" />
-    <Compile Include="Contexts\Contracts\ICommandContext.cs" />
+    <Compile Include="Contexts\Context.cs" />
+    <Compile Include="Contexts\Contracts\IContext.cs" />
     <Compile Include="Drawer\Contracts\IGameBoardDrawingLogic.cs" />
     <Compile Include="Factories\CommandFactory.cs" />
     <Compile Include="Factories\Contracts\ICommandFactory.cs" />
+    <Compile Include="Factories\Contracts\IGameFieldFactory.cs" />
+    <Compile Include="Factories\GameFieldFactory.cs" />
     <Compile Include="Mementos\GameStateMemory.cs" />
     <Compile Include="Mementos\GameMemento.cs" />
     <Compile Include="Models\Contracts\IGame.cs" />

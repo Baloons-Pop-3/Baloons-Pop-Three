@@ -6,12 +6,12 @@
 
     internal class ExitCommand : ICommand
     {
-        public ExitCommand(ICommandContext context)
+        public ExitCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {

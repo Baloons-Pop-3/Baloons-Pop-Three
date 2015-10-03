@@ -5,47 +5,30 @@
     using BalloonsPop.Common.Enums;
     using BalloonsPop.Common.Validators;
     using BalloonsPop.Contexts.Contracts;
+    using Factories;
     using BalloonsPop.Models;
+    using Factories.Contracts;
 
     internal class StartCommand : ICommand
     {
-        public StartCommand(ICommandContext context)
+        public StartCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {
+            var factory = new GameFieldFactory(this.Context);
+            var validator = new CommandValidator<GameDifficulty>();
+
             this.Context.Printer.PrintMessage(GlobalMessages.StartCommandMessage);
             var input = this.Context.Reader.ReadInput();
-            GameField gamefield;
-
-            var validator = new CommandValidator<GameDifficulty>();
 
             if (validator.IsValidCommand(input))
             {
-                if (validator.GetType(input) == GameDifficulty.Easy)
-                {
-                    gamefield = new GameField(GlobalConstants.EasyLevelRows, GlobalConstants.EasyLevelCols);
-                    this.Context.GameLogic.Game = new Game(gamefield);
-                }
-                else if (validator.GetType(input) == GameDifficulty.Medium)
-                {
-                    gamefield = new GameField(GlobalConstants.MediumLevelRows, GlobalConstants.MediumLevelCols);
-                    this.Context.GameLogic.Game = new Game(gamefield);
-                }
-                else if (validator.GetType(input) == GameDifficulty.Hard)
-                {
-                    gamefield = new GameField(GlobalConstants.HardLevelRows, GlobalConstants.HardLevelCols);
-                    this.Context.GameLogic.Game = new Game(gamefield);
-                }
-                else if (validator.GetType(input) == GameDifficulty.Torture)
-                {
-                    gamefield = new GameField(GlobalConstants.TortureLevelRows, GlobalConstants.TortureLevelRows);
-                    this.Context.GameLogic.Game = new Game(gamefield);
-                }
+                this.Context.GameLogic.Game.Field = factory.CreateGame(validator.GetType(input));             
             }
             else
             {

@@ -1,10 +1,10 @@
 ﻿namespace BalloonsPop.Commands.Contracts
 {
-    using BalloonsPop.Contexts.Contracts;
+    using Contexts.Contracts;
 
     internal interface ICommand
     {
-        ICommandContext Context { get; }
+        IContext Context { get; }
 
         void Execute();
     }

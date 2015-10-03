@@ -6,12 +6,12 @@
 
     internal class TopScoreCommand : ICommand
     {
-        public TopScoreCommand(ICommandContext context)
+        public TopScoreCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {

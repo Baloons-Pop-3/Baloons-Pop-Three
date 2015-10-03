@@ -5,12 +5,12 @@
 
     internal class UndoCommand : ICommand
     {
-        public UndoCommand(ICommandContext context)
+        public UndoCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {

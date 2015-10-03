@@ -19,7 +19,7 @@
 
         ITopScore TopScore { get; }
 
-        ICommandContext Context { get; }
+        IContext Context { get; }
 
         ICommandFactory Factory { get; }
 

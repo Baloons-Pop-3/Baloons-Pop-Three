@@ -5,12 +5,12 @@
 
     internal class NullCommand : ICommand
     {
-        public NullCommand(ICommandContext context)
+        public NullCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {

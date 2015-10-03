@@ -7,12 +7,12 @@
 
     internal class SaveCommand : ICommand
     {
-        public SaveCommand(ICommandContext context)
+        public SaveCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {

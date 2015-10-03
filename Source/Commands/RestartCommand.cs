@@ -5,12 +5,12 @@
 
     internal class RestartCommand : ICommand
     {
-        public RestartCommand(ICommandContext context)
+        public RestartCommand(IContext context)
         {
             this.Context = context;
         }
 
-        public ICommandContext Context { get; private set; }
+        public IContext Context { get; private set; }
 
         public void Execute()
         {

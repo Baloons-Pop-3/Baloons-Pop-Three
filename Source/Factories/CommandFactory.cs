@@ -9,7 +9,7 @@
 
     internal class CommandFactory : ICommandFactory
     {
-        private readonly Dictionary<CommandType, ICommand> characters = new Dictionary<CommandType, ICommand>();
+        private readonly Dictionary<CommandType, ICommand> commands = new Dictionary<CommandType, ICommand>();
 
         public CommandFactory(ICommandContext context)
         {
@@ -20,71 +20,75 @@
 
         public ICommand CreateCommand(CommandType input)
         {
+            if (!this.commands.ContainsKey(input))
+            {
+                this.commands
+            }
             switch (input)
             {
                 case CommandType.Exit:
-                    if (!this.characters.ContainsKey(CommandType.Exit))
+                    if (!this.commands.ContainsKey(CommandType.Exit))
                     {
-                        this.characters[CommandType.Exit] = new ExitCommand(this.Context);
+                        this.commands[CommandType.Exit] = new ExitCommand(this.Context);
                     }
 
-                    return this.characters[CommandType.Exit];
+                    return this.commands[CommandType.Exit];
 
                 case CommandType.Restart:
-                    if (!this.characters.ContainsKey(CommandType.Restart))
+                    if (!this.commands.ContainsKey(CommandType.Restart))
                     {
-                        this.characters[CommandType.Restart] = new RestartCommand(this.Context);
+                        this.commands[CommandType.Restart] = new RestartCommand(this.Context);
                     }
 
-                    return this.characters[CommandType.Restart];
+                    return this.commands[CommandType.Restart];
 
                 case CommandType.Top:
-                    if (!this.characters.ContainsKey(CommandType.Top))
+                    if (!this.commands.ContainsKey(CommandType.Top))
                     {
-                        this.characters[CommandType.Top] = new TopScoreCommand(this.Context);
+                        this.commands[CommandType.Top] = new TopScoreCommand(this.Context);
                     }
 
-                    return this.characters[CommandType.Top];
+                    return this.commands[CommandType.Top];
 
                 case CommandType.Start:
-                    if (!this.characters.ContainsKey(CommandType.Start))
+                    if (!this.commands.ContainsKey(CommandType.Start))
                     {
-                        this.characters[CommandType.Start] = new StartCommand(this.Context);
+                        this.commands[CommandType.Start] = new StartCommand(this.Context);
                     }
 
-                    return this.characters[CommandType.Start];
+                    return this.commands[CommandType.Start];
 
                 case CommandType.Finish:
-                    if (!this.characters.ContainsKey(CommandType.Finish))
+                    if (!this.commands.ContainsKey(CommandType.Finish))
                     {
-                        this.characters[CommandType.Finish] = new FinishCommand(this.Context);
+                        this.commands[CommandType.Finish] = new FinishCommand(this.Context);
                     }
 
-                    return this.characters[CommandType.Finish];
+                    return this.commands[CommandType.Finish];
 
                 case CommandType.Undo:
-                    if (!this.characters.ContainsKey(CommandType.Undo))
+                    if (!this.commands.ContainsKey(CommandType.Undo))
                     {
-                        this.characters[CommandType.Undo] = new UndoCommand(this.Context);
+                        this.commands[CommandType.Undo] = new UndoCommand(this.Context);
                     }
 
-                    return this.characters[CommandType.Undo];
+                    return this.commands[CommandType.Undo];
 
                 case CommandType.Save:
-                    if (!this.characters.ContainsKey(CommandType.Save))
+                    if (!this.commands.ContainsKey(CommandType.Save))
                     {
-                        this.characters[CommandType.Save] = new SaveCommand(this.Context);
+                        this.commands[CommandType.Save] = new SaveCommand(this.Context);
                     }
 
-                    return this.characters[CommandType.Save];
+                    return this.commands[CommandType.Save];
 
                 case CommandType.Restore:
-                    if (!this.characters.ContainsKey(CommandType.Restore))
+                    if (!this.commands.ContainsKey(CommandType.Restore))
                     {
-                        this.characters[CommandType.Restore] = new RestoreCommand(this.Context);
+                        this.commands[CommandType.Restore] = new RestoreCommand(this.Context);
                     }
 
-                    return this.characters[CommandType.Restore];
+                    return this.commands[CommandType.Restore];
 
                 default:
                     return new NullCommand(this.Context);

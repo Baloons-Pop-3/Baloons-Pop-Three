@@ -3,13 +3,14 @@
     using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Factories.Contracts;
+    using LogicProviders.Contracts;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
     using BalloonsPop.TopScoreBoard;
 
     internal interface IGameEngine
     {
-        GameLogic GameLogic { get; }
+        IGameLogicProvider GameLogic { get; }
 
         IGamePrinter Printer { get; }
 

@@ -2,6 +2,7 @@
 {
     using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Data.Contracts;
+    using LogicProviders.Contracts;
     using BalloonsPop.Mementos;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
@@ -9,7 +10,7 @@
 
     internal class Context : IContext
     {
-        public Context(IBalloonsData data, GameLogic logic, IGamePrinter printer, IReader reader, ITopScore topScore)
+        public Context(IBalloonsData data, IGameLogicProvider logic, IGamePrinter printer, IReader reader, ITopScore topScore)
         {
             this.DataBase = data;
             this.GameLogic = logic;
@@ -22,7 +23,7 @@
 
         public IBalloonsData DataBase { get; private set; }
 
-        public GameLogic GameLogic { get; private set; }
+        public IGameLogicProvider GameLogic { get; private set; }
 
         public IGamePrinter Printer { get; private set; }
 

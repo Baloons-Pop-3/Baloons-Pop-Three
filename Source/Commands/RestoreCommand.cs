@@ -19,13 +19,12 @@
             Game game;
             var savedGames = this.Context.DataBase.Games.All();
 
-            this.Context.Printer.PrintMessage("All games are:");
+            this.Context.Printer.PrintMessage(GlobalMessages.AllGamesMsg);
             foreach (var savedGame in savedGames)
             {
                 this.Context.Printer.PrintMessage(savedGame.Id);
             }
-
-            this.Context.Printer.PrintMessage("Write the name of your game:");
+            this.Context.Printer.PrintMessage(GlobalMessages.NameOfGameToRestoreMsg);
 
             var nameOfTheGame = this.Context.Reader.ReadInput();
 

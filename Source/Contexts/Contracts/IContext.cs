@@ -1,6 +1,7 @@
 ﻿namespace BalloonsPop.Contexts.Contracts
 {
     using BalloonsPop.Data.Contracts;
+    using LogicProviders.Contracts;
     using BalloonsPop.Mementos;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
@@ -8,7 +9,7 @@
 
     internal interface IContext
     {
-        GameLogic GameLogic { get; }
+        IGameLogicProvider GameLogic { get; }
 
         IGamePrinter Printer { get; }
 

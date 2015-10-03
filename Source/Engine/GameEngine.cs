@@ -15,10 +15,11 @@
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
     using BalloonsPop.TopScoreBoard;
+    using LogicProviders.Contracts;
 
     internal class GameEngine : IGameEngine
     {
-        public GameEngine(GameLogic gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScore topScore)
+        public GameEngine(IGameLogicProvider gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScore topScore)
         {
             this.GameLogic = gameLogic;
             this.Printer = printer;
@@ -32,7 +33,7 @@
 
         public IBalloonsData DataBase { get; private set; }
 
-        public GameLogic GameLogic { get; private set; }
+        public IGameLogicProvider GameLogic { get; private set; }
 
         public IGamePrinter Printer { get; private set; }
 

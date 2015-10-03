@@ -16,7 +16,7 @@
 
         public void Execute()
         {
-            this.Context.Printer.PrintMessage("Write the name of your game: ");
+            this.Context.Printer.PrintMessage(GlobalMessages.SaveGameMsg);
             var gameId = this.Context.Reader.ReadInput();
 
             Game savedGame = this.Context.GameLogic.Game.Clone();
@@ -24,7 +24,7 @@
 
             this.Context.DataBase.Games.Add(savedGame);
 
-            this.Context.Printer.PrintMessage(GlobalMessages.SaveGameMsg);
+            this.Context.Printer.PrintMessage(GlobalMessages.SavedGameMsg);
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
         }
     }

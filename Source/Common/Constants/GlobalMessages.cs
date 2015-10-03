@@ -7,7 +7,11 @@
         internal const string RowColMsg = "Enter a row and column or valid command: ";
         internal const string InvalidCommandMsg = "Invalid move or command!";
         internal const string AddToTopscoreMsg = "Please enter your name for the top scoreboard: ";
-        internal const string SaveGameMsg = "Your game has been saved!";
+        internal const string SaveGameMsg = "Write the name of your game: ";
+        internal const string SavedGameMsg = "Your game has been saved!";
+        internal const string AllGamesMsg = "All games are: ";
+        internal const string NameOfGameToRestoreMsg = "Write the name of your game";
+
 
         internal const string InvalidCoordinatesMsg = "Invalid coordinates! Please try again";
         internal const string InvalidIndexOfField = "There is no such index!";

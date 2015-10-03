@@ -6,6 +6,7 @@
     using BalloonsPop.Data.Repositories;
     using BalloonsPop.Engine;
     using BalloonsPop.Engine.Contracts;
+    using LogicProviders.Contracts;
     using BalloonsPop.Models;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
@@ -22,14 +23,14 @@
         private IGamePrinter printer = new ConsoleGamePrinter();
         private ITopScore topScore;
         private Game balloonsGame;
-        private GameLogic gameLogic;
+        private IGameLogicProvider gameLogic;
         private IBalloonsData db;
         private IGameEngine engine;
 
         public void Start()
         {
             this.balloonsGame = new Game(this.field);
-            this.gameLogic = new GameLogic(this.balloonsGame);
+            this.gameLogic = new GameLogicProvider(this.balloonsGame);
             this.db = new BalloonsData(this.players, this.games);
             this.topScore = new TopScore(this.db);
             this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.db, this.topScore);

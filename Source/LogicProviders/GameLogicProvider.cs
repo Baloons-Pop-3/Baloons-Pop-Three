@@ -1,13 +1,15 @@
 ﻿namespace BalloonsPop
 {
     using System;
-    using BalloonsPop.Common.Constants;
-    using BalloonsPop.Common.Enums;
-    using BalloonsPop.Models;
+    using Common.Constants;
+    using Common.Enums;
+    using Models;
+    using LogicProviders.Contracts;
+    using Models.Contracts;
 
-    internal class GameLogic
+    internal class GameLogicProvider:IGameLogicProvider
     {
-        public GameLogic(Game game)
+        public GameLogicProvider(Game game)
         {
             this.Game = game;
         }

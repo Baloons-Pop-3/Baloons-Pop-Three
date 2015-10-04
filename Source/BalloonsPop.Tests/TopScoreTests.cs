@@ -16,7 +16,7 @@
         private readonly IEnumerable<Player> fakePlayers;
         private readonly MockGenericRepository<Player> playersRepo;
         private readonly IBalloonsData db;
-        private  TopScore scoreBoard;
+        private TopScore scoreBoard;
 
         public TopScoreTests()
         {
@@ -29,20 +29,20 @@
         [TestMethod]
         public void GetTopCount_WithCetainNumberOfRecordsIfTheyArePresented_ShouldReturnTheRequestedNumber()
         {
-            var requestedNumber = 3;
-            var numberOfRecords = this.scoreBoard.GetTop(requestedNumber).Count();
+            var expectedNumberOfRecords = 3;
+            var actualNumberOfRecords = this.scoreBoard.GetTop(expectedNumberOfRecords).Count();
 
-            Assert.AreEqual(requestedNumber, numberOfRecords);
+            Assert.AreEqual(expectedNumberOfRecords, actualNumberOfRecords);
         }
 
         [TestMethod]
         public void GetTopCount_WithCetainNumberOfRecordsIfTheyAreNotPresented_ShouldReturnAllHighScoreRecordsNumber()
         {
             var requestedNumber = 5;
-            var numberOfRecords = this.scoreBoard.GetTop(requestedNumber).Count();
-            var allRecords = this.scoreBoard.HighScores.All().Count();
+            var actualNumberOfRecords = this.scoreBoard.GetTop(requestedNumber).Count();
+            var expectedNumberOfRecords = this.scoreBoard.HighScores.All().Count();
 
-            Assert.AreEqual(allRecords, numberOfRecords);
+            Assert.AreEqual(expectedNumberOfRecords, actualNumberOfRecords);
         }
 
         [TestMethod]
@@ -63,9 +63,9 @@
         private IEnumerable<Player> GenerateFakeCollectionOfPlayers()
         {
             var players = new List<Player>();
-            players.Add(new Player() { Name = "Player0", Score =10, Id= "0" });
-            players.Add(new Player() { Name = "Player1", Score = 20 , Id ="1"});
-            players.Add(new Player() { Name = "Player2", Score = 30 , Id="2"});
+            players.Add(new Player() { Name = "Player0", Score = 10, Id = "0" });
+            players.Add(new Player() { Name = "Player1", Score = 20, Id = "1" });
+            players.Add(new Player() { Name = "Player2", Score = 30, Id = "2" });
 
             return players;
         }

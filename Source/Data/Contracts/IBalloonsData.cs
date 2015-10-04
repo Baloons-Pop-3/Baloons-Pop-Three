@@ -2,7 +2,7 @@
 {
     using BalloonsPop.Models; 
 
-    internal interface IBalloonsData
+    public interface IBalloonsData
     {
         IGenericRepository<Player> Players { get; }
 

@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPop.Models.Contracts
 {
-    internal interface IGame
+    public interface IGame
     {
         GameField Field { get; set; }
 

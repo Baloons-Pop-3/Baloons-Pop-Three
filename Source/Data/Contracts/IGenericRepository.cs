@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using BalloonsPop.Models.Contracts;
 
-    internal interface IGenericRepository<T> where T : IModel
+    public interface IGenericRepository<T> where T : IModel
     {
         IEnumerable<T> All();
 

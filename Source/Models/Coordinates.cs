@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPop.Models
 {
-    internal class Coordinates
+    public class Coordinates
     {
         public Coordinates()
         {

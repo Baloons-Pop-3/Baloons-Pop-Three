@@ -3,7 +3,7 @@
     using Mementos;
     using Models.Contracts;
 
-    internal class Game : IPrototype<Game>, IModel, IGame
+    public class Game : IPrototype<Game>, IModel, IGame
     {
         public Game(GameField field)
         {

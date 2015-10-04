@@ -5,7 +5,7 @@
     using BalloonsPop.Common.Enums;
     using BalloonsPop.Models.Contracts;
 
-    internal class GameField : IPrototype<GameField>
+    public class GameField : IPrototype<GameField>
     {
         private char[,] field;
 

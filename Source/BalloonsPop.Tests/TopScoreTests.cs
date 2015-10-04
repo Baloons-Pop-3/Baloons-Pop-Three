@@ -1,30 +1,28 @@
 ﻿namespace BalloonsPop.Tests
 {
+    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Linq;
+    using System.Collections.Generic;
 
     using Data.Contracts;
-    using Moq;
-    using System.Linq;
     using Models;
     using TopScoreBoard;
-    using System.Collections.Generic;
     using Mocks;
-    using System;
 
     [TestClass]
     public class TopScoreTests
     {
         private readonly IEnumerable<Player> fakePlayers;
-        private readonly Mock<IGenericRepository<Player>> mockedPlayersRepo;
+        private readonly MockGenericRepository<Player> playersRepo;
         private readonly IBalloonsData db;
         private  TopScore scoreBoard;
 
         public TopScoreTests()
         {
             this.fakePlayers = this.GenerateFakeCollectionOfPlayers();
-            this.mockedPlayersRepo =new Mock<IGenericRepository<Player>>();
-            this.ArrangeMockedPlayersRepository();
-            this.db = new TestBalloonsData(this.mockedPlayersRepo.Object,null);
+            this.playersRepo = new MockGenericRepository<Player>(this.fakePlayers);
+            this.db = new TestBalloonsData(this.playersRepo.mockedRepo.Object, null);
             this.scoreBoard = new TopScore(this.db);
         }
 
@@ -55,11 +53,11 @@
             var numberOfRecords = this.scoreBoard.GetTop(requestedNumber);
         }
 
-        private void ArrangeMockedPlayersRepository()
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void AddPlayer_ShouldThrow_IfPlayerIsNull()
         {
-            this.mockedPlayersRepo.Setup(r => r.Add(It.IsAny<Player>())).Verifiable();
-            this.mockedPlayersRepo.Setup(r => r.All()).Returns(this.fakePlayers);
-            this.mockedPlayersRepo.Setup(r => r.Find(It.IsAny<string>())).Verifiable();
+            this.scoreBoard.AddPlayer(null);
         }
 
         private IEnumerable<Player> GenerateFakeCollectionOfPlayers()

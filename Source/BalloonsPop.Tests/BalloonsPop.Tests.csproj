@@ -54,8 +54,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Mocks\IGenericRepositoryTests.cs" />
-    <Compile Include="Mocks\TestBalloonsData.cs" />
+    <Compile Include="Mocks\MockGenericRepository.cs" />
+    <Compile Include="TestBalloonsData.cs" />
     <Compile Include="TopScoreTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

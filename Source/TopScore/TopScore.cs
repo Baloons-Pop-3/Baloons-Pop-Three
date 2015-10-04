@@ -17,6 +17,11 @@
 
         public void AddPlayer(Player player)
         {
+            if (player == null)
+            {
+                throw new ArgumentNullException("player null");
+            }
+
             this.HighScores.Add(player);
         }
 
@@ -28,6 +33,11 @@
             }
 
             return this.HighScores.All().OrderByDescending(p => p.Score).Take(count);
+        }
+
+        public Player Find(string id)
+        {
+            return this.HighScores.Find(id);
         }
     }
 }

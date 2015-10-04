@@ -60,6 +60,12 @@
             this.scoreBoard.AddPlayer(null);
         }
 
+        [TestMethod]
+        public void AddPlayer_ShouldNotThrowAnException()
+        {
+            this.scoreBoard.AddPlayer(new Player());
+        }
+
         private IEnumerable<Player> GenerateFakeCollectionOfPlayers()
         {
             var players = new List<Player>();

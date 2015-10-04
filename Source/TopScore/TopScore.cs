@@ -34,10 +34,5 @@
 
             return this.HighScores.All().OrderByDescending(p => p.Score).Take(count);
         }
-
-        public Player Find(string id)
-        {
-            return this.HighScores.Find(id);
-        }
     }
 }

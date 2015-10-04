@@ -20,6 +20,11 @@
         {
             char[] separators = { ' ', ',' };
 
+            if (string.IsNullOrEmpty(input))
+            {
+                return false;
+            }
+
             string[] subStrings = input.Split(separators);
 
             if (subStrings.Length != 2)

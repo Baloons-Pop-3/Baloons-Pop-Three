@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CoordinatesTests.cs" />
     <Compile Include="Mocks\MockGenericRepository.cs" />
     <Compile Include="TestBalloonsData.cs" />
     <Compile Include="TopScoreTests.cs" />

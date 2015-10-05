@@ -6,6 +6,7 @@
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
     using BalloonsPop.TopScoreBoard;
+    using Controllers;
 
     internal interface IContext
     {
@@ -17,7 +18,9 @@
 
         IBalloonsData DataBase { get; }
 
-        ITopScore TopScore { get; }
+        ITopScoreController TopScoreController { get; }
+
+        IGamesController GamesController { get; }
 
         GameStateMemory Memory { get; set; }
     }

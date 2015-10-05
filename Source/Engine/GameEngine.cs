@@ -16,18 +16,20 @@
     using BalloonsPop.Reader;
     using BalloonsPop.TopScoreBoard;
     using LogicProviders.Contracts;
+    using Controllers;
 
     internal class GameEngine : IGameEngine
     {
-        public GameEngine(IGameLogicProvider gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScore topScore)
+        public GameEngine(IGameLogicProvider gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScoreController topScoreController,IGamesController gamesController)
         {
             this.GameLogic = gameLogic;
             this.Printer = printer;
             this.Reader = reader;
             this.DataBase = db;
-            this.TopScore = topScore;
+            this.TopScoreController = topScoreController;
+            this.GamesController = gamesController;
 
-            this.Context = new Context(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScore);
+            this.Context = new Context(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScoreController,this.GamesController);
             this.Factory = new CommandFactory(this.Context);
         }
 
@@ -39,11 +41,14 @@
 
         public IReader Reader { get; private set; }
 
-        public ITopScore TopScore { get; private set; }
+        public ITopScoreController TopScoreController { get; private set; }
+
+        public IGamesController GamesController { get; private set; }
 
         public IContext Context { get; private set; }
 
         public ICommandFactory Factory { get; private set; }
+
 
         public void StartGame()
         {

@@ -11,6 +11,7 @@
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
     using BalloonsPop.TopScoreBoard;
+    using Controllers;
 
     internal class GameFacade
     {
@@ -21,18 +22,20 @@
         private Game balloonsGame;
         private IReader reader = new ConsoleReader();
         private IGamePrinter printer = new ConsoleGamePrinter();
-        private ITopScore topScore;
+        private ITopScoreController topScoreController;
+        private IGamesController gamesController;
         private IGameLogicProvider gameLogic;
-        private IBalloonsData db;
+        private IBalloonsData data;
         private IGameEngine engine;
 
         public void Start()
         {
             this.balloonsGame = new Game(this.field);
             this.gameLogic = new GameLogicProvider(this.balloonsGame);
-            this.db = new BalloonsData(this.players, this.games);
-            this.topScore = new TopScore(this.db);
-            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.db, this.topScore);
+            this.data = new BalloonsData(this.players, this.games);
+            this.topScoreController = new TopScoreController(this.data.Players);
+            this.gamesController = new GamesController(this.data.Games);
+            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.data, this.topScoreController,this.gamesController);
 
             this.engine.StartGame();
         }

@@ -22,7 +22,7 @@
             Game savedGame = this.Context.GameLogic.Game.Clone();
             savedGame.Id = gameId;
 
-            this.Context.DataBase.Games.Add(savedGame);
+            this.Context.GamesController.AddGame(savedGame);
 
             this.Context.Printer.PrintMessage(GlobalMessages.SavedGameMsg);
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);

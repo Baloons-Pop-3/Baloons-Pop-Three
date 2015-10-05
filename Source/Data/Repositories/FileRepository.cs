@@ -81,7 +81,7 @@
                 }
             }
 
-            return null;
+            return default(T);
         }
     }
 }

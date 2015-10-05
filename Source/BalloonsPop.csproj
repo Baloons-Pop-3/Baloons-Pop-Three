@@ -73,6 +73,8 @@
     <Compile Include="Common\Serializers\JsonSerializer.cs" />
     <Compile Include="Contexts\Context.cs" />
     <Compile Include="Contexts\Contracts\IContext.cs" />
+    <Compile Include="Controllers\Contracts\IGamesController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Drawer\Contracts\IGameBoardDrawingLogic.cs" />
     <Compile Include="Factories\CommandFactory.cs" />
     <Compile Include="Factories\Contracts\ICommandFactory.cs" />
@@ -92,7 +94,7 @@
     <Compile Include="Data\Repositories\FileRepository.cs" />
     <Compile Include="LogicProviders\GameLogicProvider.cs" />
     <Compile Include="Drawer\GameBoardDrawingLogic.cs" />
-    <Compile Include="TopScore\TopScore.cs" />
+    <Compile Include="Controllers\TopScoreController.cs" />
     <None Include="Content\Games.json" />
     <None Include="Content\TopScore.json" />
     <Compile Include="Data\Contracts\IGenericRepository.cs" />
@@ -109,7 +111,7 @@
     <Compile Include="Printer\IGamePrinter.cs" />
     <Compile Include="Reader\ConsoleReader.cs" />
     <Compile Include="Reader\IReader.cs" />
-    <Compile Include="TopScore\ITopScore.cs" />
+    <Compile Include="Controllers\Contracts\ITopScoreController.cs" />
     <None Include="JSLintNet.json" />
     <None Include="packages.config" />
   </ItemGroup>

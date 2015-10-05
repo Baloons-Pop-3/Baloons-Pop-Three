@@ -15,7 +15,7 @@
 
         public void Execute()
         {
-            this.Context.Printer.PrintTopScore(this.Context.TopScore.GetTop(GlobalConstants.NumberOfTopPlayers));
+            this.Context.Printer.PrintTopScore(this.Context.TopScoreController.GetTop(GlobalConstants.NumberOfTopPlayers));
         }
     }
 }

@@ -23,7 +23,7 @@
             this.Context.Printer.PrintMessage(GlobalMessages.AddToTopscoreMsg);
             player.Name = this.Context.Reader.ReadInput();
 
-            this.Context.TopScore.AddPlayer(player);
+            this.Context.TopScoreController.AddPlayer(player);
         }
     }
 }

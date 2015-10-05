@@ -6,14 +6,14 @@
     using BalloonsPop.Models;
     using System;
 
-    public class TopScore : ITopScore
+    public class TopScoreController : ITopScoreController
     {
-        public TopScore(IBalloonsData db)
+        public TopScoreController(IGenericRepository<Player> players)
         {
-            this.HighScores = db.Players;
+            this.Players = players;
         }
 
-        public IGenericRepository<Player> HighScores { get; set; }
+        private IGenericRepository<Player> Players { get; set; }
 
         public void AddPlayer(Player player)
         {
@@ -22,7 +22,12 @@
                 throw new ArgumentNullException("player null");
             }
 
-            this.HighScores.Add(player);
+            this.Players.Add(player);
+        }
+
+        public IEnumerable<Player> All()
+        {
+            return this.Players.All();
         }
 
         public IEnumerable<Player> GetTop(int count)
@@ -32,7 +37,7 @@
                 throw new IndexOutOfRangeException("count cannot be negative");
             }
 
-            return this.HighScores.All().OrderByDescending(p => p.Score).Take(count);
+            return this.Players.All().OrderByDescending(p => p.Score).Take(count);
         }
     }
 }

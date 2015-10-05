@@ -15,22 +15,20 @@
     {
         private readonly IEnumerable<Player> fakePlayers;
         private readonly MockGenericRepository<Player> playersRepo;
-        private readonly IBalloonsData db;
-        private TopScore scoreBoard;
+        private TopScoreController topScoreController;
 
         public TopScoreTests()
         {
             this.fakePlayers = this.GenerateFakeCollectionOfPlayers();
             this.playersRepo = new MockGenericRepository<Player>(this.fakePlayers);
-            this.db = new TestBalloonsData(this.playersRepo.mockedRepo.Object, null);
-            this.scoreBoard = new TopScore(this.db);
+            this.topScoreController = new TopScoreController(this.playersRepo.mockedRepo.Object);
         }
 
         [TestMethod]
         public void GetTopCount_WithCetainNumberOfRecordsIfTheyArePresented_ShouldReturnTheRequestedNumber()
         {
             var expectedNumberOfRecords = 3;
-            var actualNumberOfRecords = this.scoreBoard.GetTop(expectedNumberOfRecords).Count();
+            var actualNumberOfRecords = this.topScoreController.GetTop(expectedNumberOfRecords).Count();
 
             Assert.AreEqual(expectedNumberOfRecords, actualNumberOfRecords);
         }
@@ -39,8 +37,8 @@
         public void GetTopCount_WithCetainNumberOfRecordsIfTheyAreNotPresented_ShouldReturnAllHighScoreRecordsNumber()
         {
             var requestedNumber = 5;
-            var actualNumberOfRecords = this.scoreBoard.GetTop(requestedNumber).Count();
-            var expectedNumberOfRecords = this.scoreBoard.HighScores.All().Count();
+            var actualNumberOfRecords = this.topScoreController.GetTop(requestedNumber).Count();
+            var expectedNumberOfRecords = this.topScoreController.All().Count();
 
             Assert.AreEqual(expectedNumberOfRecords, actualNumberOfRecords);
         }
@@ -50,20 +48,20 @@
         public void GetTop_ShouldThrow_IfCountIsNegative()
         {
             var requestedNumber = -1;
-            var numberOfRecords = this.scoreBoard.GetTop(requestedNumber);
+            var numberOfRecords = this.topScoreController.GetTop(requestedNumber);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void AddPlayer_ShouldThrow_IfPlayerIsNull()
         {
-            this.scoreBoard.AddPlayer(null);
+            this.topScoreController.AddPlayer(null);
         }
 
         [TestMethod]
         public void AddPlayer_ShouldNotThrowAnException()
         {
-            this.scoreBoard.AddPlayer(new Player());
+            this.topScoreController.AddPlayer(new Player());
         }
 
         private IEnumerable<Player> GenerateFakeCollectionOfPlayers()

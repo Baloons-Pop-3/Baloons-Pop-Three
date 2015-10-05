@@ -17,7 +17,7 @@
         public void Execute()
         {
             Game game;
-            var savedGames = this.Context.DataBase.Games.All();
+            var savedGames = this.Context.GamesController.All();
 
             this.Context.Printer.PrintMessage(GlobalMessages.AllGamesMsg);
             foreach (var savedGame in savedGames)
@@ -28,7 +28,7 @@
 
             var nameOfTheGame = this.Context.Reader.ReadInput();
 
-            game = this.Context.DataBase.Games.Find(nameOfTheGame);
+            game = this.Context.GamesController.SearchById(nameOfTheGame);
 
             if (game == null)
             {

@@ -5,11 +5,11 @@
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Models;
 
-    internal interface ITopScore
+    internal interface ITopScoreController
     {
-        IGenericRepository<Player> HighScores { get; }
-
         IEnumerable<Player> GetTop(int count);
+
+        IEnumerable<Player> All();
 
         void AddPlayer(Player player);
     }

@@ -7,16 +7,18 @@
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
     using BalloonsPop.TopScoreBoard;
+    using Controllers;
 
     internal class Context : IContext
     {
-        public Context(IBalloonsData data, IGameLogicProvider logic, IGamePrinter printer, IReader reader, ITopScore topScore)
+        public Context(IBalloonsData data, IGameLogicProvider logic, IGamePrinter printer, IReader reader, ITopScoreController topScore,IGamesController gamesController)
         {
             this.DataBase = data;
             this.GameLogic = logic;
             this.Printer = printer;
             this.Reader = reader;
-            this.TopScore = topScore;
+            this.TopScoreController = topScore;
+            this.GamesController = gamesController;
 
             this.Memory = new GameStateMemory();
         }
@@ -29,7 +31,9 @@
 
         public IReader Reader { get; private set; }
 
-        public ITopScore TopScore { get; private set; }
+        public ITopScoreController TopScoreController { get; private set; }
+
+        public IGamesController GamesController { get; private set; }
 
         public GameStateMemory Memory { get; set; }
     }

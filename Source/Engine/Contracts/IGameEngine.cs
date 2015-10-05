@@ -7,6 +7,7 @@
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
     using BalloonsPop.TopScoreBoard;
+    using Controllers;
 
     internal interface IGameEngine
     {
@@ -18,7 +19,9 @@
 
         IBalloonsData DataBase { get; }
 
-        ITopScore TopScore { get; }
+        ITopScoreController TopScoreController { get; }
+
+        IGamesController GamesController { get; }
 
         IContext Context { get; }
 

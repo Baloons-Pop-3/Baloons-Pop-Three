@@ -42,6 +42,9 @@
                             case " 4 ":
                                 ColoringBalloons(ConsoleColor.Cyan);
                                 break;
+                            case " 5 ":
+                                ColoringBalloons(ConsoleColor.Magenta);
+                                break;
                             default: Console.Write(board[i, j]);
                                 break;
                         }

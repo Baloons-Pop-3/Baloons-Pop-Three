@@ -1,6 +1,8 @@
 ﻿namespace BalloonsPop
 {
     using BalloonsPop.Common.Constants;
+    using BalloonsPop.Contexts;
+    using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Controllers;
     using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data;
@@ -8,6 +10,8 @@
     using BalloonsPop.Data.Repositories;
     using BalloonsPop.Engine;
     using BalloonsPop.Engine.Contracts;
+    using BalloonsPop.Factories;
+    using BalloonsPop.Factories.Contracts;
     using BalloonsPop.Models;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
@@ -27,6 +31,8 @@
         private IGameLogicProvider gameLogic;
         private IBalloonsData data;
         private IGameEngine engine;
+        private IContext context;
+        private ICommandFactory factory;
 
         public void Start()
         {
@@ -35,7 +41,9 @@
             this.data = new BalloonsData(this.players, this.games);
             this.topScoreController = new TopScoreController(this.data.Players);
             this.gamesController = new GamesController(this.data.Games);
-            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.data, this.topScoreController, this.gamesController);
+            this.context = new Context(this.data, this.gameLogic, this.printer, this.reader, this.topScoreController, this.gamesController);
+            this.factory = new CommandFactory(this.context);
+            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.data, this.topScoreController, this.gamesController, this.context, this.factory);
 
             this.engine.StartGame();
         }

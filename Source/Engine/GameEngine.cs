@@ -5,12 +5,10 @@
     using BalloonsPop.Common.Constants;
     using BalloonsPop.Common.Enums;
     using BalloonsPop.Common.Validators;
-    using BalloonsPop.Contexts;
     using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Engine.Contracts;
-    using BalloonsPop.Factories;
     using BalloonsPop.Factories.Contracts;
     using BalloonsPop.Models;
     using BalloonsPop.Printer;
@@ -19,7 +17,7 @@
 
     internal class GameEngine : IGameEngine
     {
-        public GameEngine(IGameLogicProvider gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScoreController topScoreController, IGamesController gamesController)
+        public GameEngine(IGameLogicProvider gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScoreController topScoreController, IGamesController gamesController, IContext context, ICommandFactory factory)
         {
             this.GameLogic = gameLogic;
             this.Printer = printer;
@@ -27,9 +25,8 @@
             this.DataBase = db;
             this.TopScoreController = topScoreController;
             this.GamesController = gamesController;
-
-            this.Context = new Context(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScoreController, this.GamesController);
-            this.Factory = new CommandFactory(this.Context);
+            this.Context = context;
+            this.Factory = factory;
         }
 
         public IBalloonsData DataBase { get; private set; }

@@ -7,6 +7,7 @@
     using BalloonsPop.Common.Validators;
     using BalloonsPop.Contexts;
     using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Factories;
@@ -14,13 +15,11 @@
     using BalloonsPop.Models;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
-    using BalloonsPop.TopScoreBoard;
     using LogicProviders.Contracts;
-    using Controllers;
 
     internal class GameEngine : IGameEngine
     {
-        public GameEngine(IGameLogicProvider gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScoreController topScoreController,IGamesController gamesController)
+        public GameEngine(IGameLogicProvider gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScoreController topScoreController, IGamesController gamesController)
         {
             this.GameLogic = gameLogic;
             this.Printer = printer;
@@ -29,7 +28,7 @@
             this.TopScoreController = topScoreController;
             this.GamesController = gamesController;
 
-            this.Context = new Context(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScoreController,this.GamesController);
+            this.Context = new Context(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScoreController, this.GamesController);
             this.Factory = new CommandFactory(this.Context);
         }
 
@@ -48,7 +47,6 @@
         public IContext Context { get; private set; }
 
         public ICommandFactory Factory { get; private set; }
-
 
         public void StartGame()
         {
@@ -75,7 +73,7 @@
 
         private void ProcessInput(string input)
         {
-            //this.Printer.CleanDisplay();
+            // this.Printer.CleanDisplay();
             var commandsValidator = new CommandValidator<CommandType>();
             Coordinates coordinates = new Coordinates();
 

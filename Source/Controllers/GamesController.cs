@@ -3,19 +3,18 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Contracts;
     using Data.Contracts;
     using Models;
 
-    class GamesController : IGamesController
+    public class GamesController : IGamesController
     {
-        public IGenericRepository<Game> Games { private set; get; }
-
         public GamesController(IGenericRepository<Game> games)
         {
             this.Games = games;
         }
+
+        public IGenericRepository<Game> Games { get; private set; }
 
         public void AddGame(Game game)
         {

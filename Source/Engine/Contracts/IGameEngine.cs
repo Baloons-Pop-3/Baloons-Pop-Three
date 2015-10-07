@@ -1,13 +1,12 @@
 ﻿namespace BalloonsPop.Engine.Contracts
 {
     using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Factories.Contracts;
-    using LogicProviders.Contracts;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
-    using BalloonsPop.TopScoreBoard;
-    using Controllers;
+    using LogicProviders.Contracts;
 
     internal interface IGameEngine
     {

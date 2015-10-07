@@ -1,17 +1,16 @@
 ﻿namespace BalloonsPop.Contexts
 {
     using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data.Contracts;
-    using LogicProviders.Contracts;
     using BalloonsPop.Mementos;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
-    using BalloonsPop.TopScoreBoard;
-    using Controllers;
+    using LogicProviders.Contracts;
 
     internal class Context : IContext
     {
-        public Context(IBalloonsData data, IGameLogicProvider logic, IGamePrinter printer, IReader reader, ITopScoreController topScore,IGamesController gamesController)
+        public Context(IBalloonsData data, IGameLogicProvider logic, IGamePrinter printer, IReader reader, ITopScoreController topScore, IGamesController gamesController)
         {
             this.DataBase = data;
             this.GameLogic = logic;

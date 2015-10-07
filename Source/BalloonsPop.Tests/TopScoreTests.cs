@@ -1,14 +1,12 @@
 ﻿namespace BalloonsPop.Tests
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Linq;
     using System.Collections.Generic;
-
-    using Data.Contracts;
-    using Models;
-    using TopScoreBoard;
+    using System.Linq;
+    using BalloonsPop.Controllers;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Mocks;
+    using Models;
 
     [TestClass]
     public class TopScoreTests
@@ -21,7 +19,7 @@
         {
             this.fakePlayers = this.GenerateFakeCollectionOfPlayers();
             this.playersRepo = new MockGenericRepository<Player>(this.fakePlayers);
-            this.topScoreController = new TopScoreController(this.playersRepo.mockedRepo.Object);
+            this.topScoreController = new TopScoreController(this.playersRepo.MockedRepo.Object);
         }
 
         [TestMethod]

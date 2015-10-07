@@ -24,6 +24,7 @@
             {
                 this.Context.Printer.PrintMessage(savedGame.Id);
             }
+
             this.Context.Printer.PrintMessage(GlobalMessages.NameOfGameToRestoreMsg);
 
             var nameOfTheGame = this.Context.Reader.ReadInput();

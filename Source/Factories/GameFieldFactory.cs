@@ -1,14 +1,13 @@
 ﻿namespace BalloonsPop.Factories
 {
-    using Contexts.Contracts;
-    using Common.Enums;
-    using Models;
-    using System.Collections.Generic;
-    using Common.Constants;
-    using Contracts;
     using System;
+    using Common.Constants;
+    using Common.Enums;
+    using Contexts.Contracts;
+    using Contracts;
+    using Models;
 
-    class GameFieldFactory:IGameFieldFactory
+    internal class GameFieldFactory : IGameFieldFactory
     {
         public GameFieldFactory(IContext context)
         {
@@ -22,13 +21,13 @@
             switch (input)
             {
                 case GameDifficulty.Easy:
-                    return new GameField(GlobalConstants.EasyLevelRows, GlobalConstants.EasyLevelCols); 
+                    return new GameField(GlobalConstants.EasyLevelRows, GlobalConstants.EasyLevelCols);
                 case GameDifficulty.Medium:
-                    return new GameField(GlobalConstants.MediumLevelRows, GlobalConstants.MediumLevelCols); 
+                    return new GameField(GlobalConstants.MediumLevelRows, GlobalConstants.MediumLevelCols);
                 case GameDifficulty.Hard:
-                    return new GameField(GlobalConstants.HardLevelRows, GlobalConstants.HardLevelCols); 
+                    return new GameField(GlobalConstants.HardLevelRows, GlobalConstants.HardLevelCols);
                 case GameDifficulty.Torture:
-                    return new GameField(GlobalConstants.TortureLevelRows, GlobalConstants.TortureLevelRows); 
+                    return new GameField(GlobalConstants.TortureLevelRows, GlobalConstants.TortureLevelRows);
                 default:
                     return null;
             }

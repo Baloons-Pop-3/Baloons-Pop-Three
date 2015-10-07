@@ -5,9 +5,7 @@
     using BalloonsPop.Common.Enums;
     using BalloonsPop.Common.Validators;
     using BalloonsPop.Contexts.Contracts;
-    using Factories;
-    using BalloonsPop.Models;
-    using Factories.Contracts;
+    using BalloonsPop.Factories;
 
     internal class StartCommand : ICommand
     {

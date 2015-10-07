@@ -1,12 +1,9 @@
 ﻿namespace BalloonsPop.Tests
 {
-    using Models;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Models;
 
     [TestClass]
     public class CoordinatesTests
@@ -21,7 +18,7 @@
         [TestMethod]
         public void TryParse_WhenStringWith2ComasProvided_ShouldReturnFalse()
         {
-            var actual=this.coordinates.TryParse("a,a,a");
+            var actual = this.coordinates.TryParse("a,a,a");
 
             Assert.IsFalse(actual);
         }
@@ -57,7 +54,5 @@
 
             Assert.IsTrue(actual);
         }
-
-
     }
 }

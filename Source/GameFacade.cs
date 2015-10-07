@@ -1,17 +1,17 @@
 ﻿namespace BalloonsPop
 {
     using BalloonsPop.Common.Constants;
+    using BalloonsPop.Controllers;
+    using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data;
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Data.Repositories;
     using BalloonsPop.Engine;
     using BalloonsPop.Engine.Contracts;
-    using LogicProviders.Contracts;
     using BalloonsPop.Models;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
-    using BalloonsPop.TopScoreBoard;
-    using Controllers;
+    using LogicProviders.Contracts;
 
     internal class GameFacade
     {
@@ -35,7 +35,7 @@
             this.data = new BalloonsData(this.players, this.games);
             this.topScoreController = new TopScoreController(this.data.Players);
             this.gamesController = new GamesController(this.data.Games);
-            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.data, this.topScoreController,this.gamesController);
+            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.data, this.topScoreController, this.gamesController);
 
             this.engine.StartGame();
         }

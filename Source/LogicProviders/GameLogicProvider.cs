@@ -3,11 +3,10 @@
     using System;
     using Common.Constants;
     using Common.Enums;
-    using Models;
     using LogicProviders.Contracts;
-    using Models.Contracts;
+    using Models;
 
-    internal class GameLogicProvider:IGameLogicProvider
+    internal class GameLogicProvider : IGameLogicProvider
     {
         public GameLogicProvider(Game game)
         {

@@ -28,23 +28,58 @@
             switch (input)
             {
                 case CommandType.Exit:
-                    this.commands[CommandType.Exit] = new ExitCommand(this.Context); break;
+                    {
+                        this.commands[CommandType.Exit] = new ExitCommand(this.Context);
+                        break;
+                    }
+
                 case CommandType.Restart:
-                    this.commands[CommandType.Restart] = new RestartCommand(this.Context); break;
+                    {
+                        this.commands[CommandType.Restart] = new RestartCommand(this.Context);
+                        break;
+                    }
+
                 case CommandType.Top:
-                    this.commands[CommandType.Top] = new TopScoreCommand(this.Context); break;
+                    {
+                        this.commands[CommandType.Top] = new TopScoreCommand(this.Context);
+                        break;
+                    }
+
                 case CommandType.Start:
-                    this.commands[CommandType.Start] = new StartCommand(this.Context); break;
+                    {
+                        this.commands[CommandType.Start] = new StartCommand(this.Context);
+                        break;
+                    }
+
                 case CommandType.Finish:
-                    this.commands[CommandType.Finish] = new FinishCommand(this.Context); break;
+                    {
+                        this.commands[CommandType.Finish] = new FinishCommand(this.Context);
+                        break;
+                    }
+
                 case CommandType.Undo:
-                    this.commands[CommandType.Undo] = new UndoCommand(this.Context); break;
+                    {
+                        this.commands[CommandType.Undo] = new UndoCommand(this.Context);
+                        break;
+                    }
+
                 case CommandType.Save:
-                    this.commands[CommandType.Save] = new SaveCommand(this.Context); break;
+                    {
+                        this.commands[CommandType.Save] = new SaveCommand(this.Context);
+                        break;
+                    }
+
                 case CommandType.Restore:
-                    this.commands[CommandType.Restore] = new RestoreCommand(this.Context); break;
+                    {
+                        this.commands[CommandType.Restore] = new RestoreCommand(this.Context);
+                        break;
+                    }
+
                 default:
-                    this.commands[CommandType.Restore] = null; break;
+                    {
+                        this.commands[CommandType.Restore] = null;
+                        break;
+                    }
             }
 
             return this.commands[input];

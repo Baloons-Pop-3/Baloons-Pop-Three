@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.TopScoreBoard
+﻿namespace BalloonsPop.Controllers.Contracts
 {
     using System.Collections.Generic;
     using BalloonsPop.Data;

@@ -1,14 +1,13 @@
 ﻿namespace BalloonsPop.Contexts.Contracts
 {
+    using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data.Contracts;
-    using LogicProviders.Contracts;
     using BalloonsPop.Mementos;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
-    using BalloonsPop.TopScoreBoard;
-    using Controllers;
+    using LogicProviders.Contracts;
 
-    internal interface IContext
+     internal interface IContext
     {
         IGameLogicProvider GameLogic { get; }
 

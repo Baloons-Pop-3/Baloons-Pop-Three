@@ -12,7 +12,6 @@
         internal const string AllGamesMsg = "All games are: ";
         internal const string NameOfGameToRestoreMsg = "Write the name of your game";
 
-
         internal const string InvalidCoordinatesMsg = "Invalid coordinates! Please try again";
         internal const string InvalidIndexOfField = "There is no such index!";
         internal const string ExitCommandMessage = "Thank you for playing this stupid game :) Welcome back";

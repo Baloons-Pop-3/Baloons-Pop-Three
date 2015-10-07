@@ -1,10 +1,11 @@
-﻿namespace BalloonsPop.TopScoreBoard
+﻿namespace BalloonsPop.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Models;
-    using System;
 
     public class TopScoreController : ITopScoreController
     {

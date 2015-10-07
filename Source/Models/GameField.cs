@@ -72,7 +72,7 @@
                     currentPosition.Y = column;
 
                     var variousOfColors = (char)(random.Next((int)BallonType.First - (int)'0', (int)BallonType.Fifth - (int)'0') + (int)'0');
-                    if(this.FieldRows > 20)
+                    if (this.FieldRows > 20)
                     {
                         variousOfColors = (char)(random.Next((int)BallonType.First - (int)'0', (int)BallonType.Fifth - (int)'0' + 1) + (int)'0');
                     }

@@ -1,14 +1,11 @@
-﻿using BalloonsPop.Data.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BalloonsPop.Models;
-
-namespace BalloonsPop.Tests.Mocks
+﻿namespace BalloonsPop.Tests.Mocks
 {
-    class TestBalloonsData : IBalloonsData
+    using System;
+    using System.Linq;
+    using BalloonsPop.Data.Contracts;
+    using BalloonsPop.Models;
+
+    internal class TestBalloonsData : IBalloonsData
     {
         public TestBalloonsData(IGenericRepository<Player> players, IGenericRepository<Game> games)
         {
@@ -16,8 +13,8 @@ namespace BalloonsPop.Tests.Mocks
             this.Games = games;
         }
 
-        public IGenericRepository<Game> Games { get; private set;}
+        public IGenericRepository<Game> Games { get; private set; }
 
-        public IGenericRepository<Player> Players  {get; private set; }
+        public IGenericRepository<Player> Players { get; private set; }
     }
 }

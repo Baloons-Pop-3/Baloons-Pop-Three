@@ -1,14 +1,10 @@
-﻿using BalloonsPop.Models;
-using BalloonsPop.Models.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BalloonsPop.LogicProviders.Contracts
+﻿namespace BalloonsPop.LogicProviders.Contracts
 {
-    interface IGameLogicProvider
+    using System;
+    using System.Linq;
+    using BalloonsPop.Models;
+
+    public interface IGameLogicProvider
     {
         Game Game { get; set; }
 

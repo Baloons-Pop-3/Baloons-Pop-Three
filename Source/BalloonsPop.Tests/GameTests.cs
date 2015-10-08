@@ -2,8 +2,9 @@
 {
     using System;
     using System.Linq;
+    using BalloonsPop.Mementos;  
+    using BalloonsPop.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Models;
 
     [TestClass]
     public class GameTests
@@ -33,7 +34,7 @@
         }
 
         [TestMethod]
-        public void SaveMemento_ShouldReturnNewGameMementoWithRemainingBalloonsEqualToTheGamesRemainingBallons()
+        public void SaveMemento_ShouldReturnNewGameMementoWithRemainingBalloonsEqualToTheGamesRemainingBalloons()
         {
             var actual = this.game.SaveMemento();
 
@@ -62,6 +63,45 @@
             var actual = this.game.Clone();
 
             Assert.AreEqual(actual.ShootCounter, this.game.ShootCounter);
+        }
+
+        [TestMethod]
+        public void RestoreMemento_ShouldSetGamesFieldToMementosField()
+        {
+            var field = new GameField(3, 3);
+            int shootCounter = 5;
+            int remainingBalloons = 10;
+            var memento = new GameMemento(field, shootCounter, remainingBalloons);
+
+            this.game.RestoreMemento(memento);
+
+            Assert.AreSame(memento.Field, this.game.Field);
+        }
+
+        [TestMethod]
+        public void RestoreMemento_ShouldSetGamesShootCounterToMementosShootCounter()
+        {
+            var field = new GameField(3, 3);
+            int shootCounter = 5;
+            int remainingBalloons = 10;
+            var memento = new GameMemento(field, shootCounter, remainingBalloons);
+
+            this.game.RestoreMemento(memento);
+
+            Assert.AreEqual(memento.ShootCounter, this.game.ShootCounter);
+        }
+
+        [TestMethod]
+        public void RestoreMemento_ShouldSetGamesRemainingBalloonsToMementosRemainingBalloons()
+        {
+            var field = new GameField(3, 3);
+            int shootCounter = 5;
+            int remainingBalloons = 10;
+            var memento = new GameMemento(field, shootCounter, remainingBalloons);
+
+            this.game.RestoreMemento(memento);
+
+            Assert.AreEqual(memento.RemainingBalloons, this.game.RemainingBalloons);
         }
     }
 }

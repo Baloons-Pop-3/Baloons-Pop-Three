@@ -44,6 +44,8 @@
         public IContext Context { get; private set; }
 
         public ICommandFactory Factory { get; private set; }
+         
+        public CommandValidator<CommandType> CommandValidator { get; private set; }
 
         public void StartGame()
         {
@@ -70,13 +72,12 @@
 
         private void ProcessInput(string input)
         {
-            // this.Printer.CleanDisplay();
-            var commandsValidator = new CommandValidator<CommandType>();
+            this.CommandValidator = new CommandValidator<CommandType>();
             Coordinates coordinates = new Coordinates();
 
-            if (commandsValidator.IsValidCommand(input))
+            if (this.CommandValidator.IsValidCommand(input))
             {
-                ICommand command = this.Factory.CreateCommand(commandsValidator.GetType(input));
+                ICommand command = this.Factory.CreateCommand(this.CommandValidator.GetType(input));
                 command.Execute();
             }
             else if (coordinates.TryParse(input))

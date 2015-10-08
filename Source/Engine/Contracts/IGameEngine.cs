@@ -1,12 +1,14 @@
 ﻿namespace BalloonsPop.Engine.Contracts
 {
-    using BalloonsPop.Contexts.Contracts;
-    using BalloonsPop.Controllers.Contracts;
-    using BalloonsPop.Data.Contracts;
-    using BalloonsPop.Factories.Contracts;
-    using BalloonsPop.Printer;
-    using BalloonsPop.Reader;
+    using Common.Enums;
+    using Contexts.Contracts;
+    using Controllers.Contracts;
+    using Data.Contracts;
+    using Factories.Contracts;
+    using Printer;
+    using Reader;
     using LogicProviders.Contracts;
+    using Common.Validators;
 
     internal interface IGameEngine
     {
@@ -21,10 +23,6 @@
         ITopScoreController TopScoreController { get; }
 
         IGamesController GamesController { get; }
-
-        IContext Context { get; }
-
-        ICommandFactory Factory { get; }
 
         void StartGame();
     }

@@ -9,6 +9,6 @@
     {
         IGame Game { get; set; }
 
-        void ShootBalloonAtPosition(Coordinates positionToShoot);
+        void ShootBalloonAtPosition(ICoordinates positionToShoot);
     }
 }

@@ -56,7 +56,7 @@
             return this.field;
         }
 
-        public void UpdateField(Coordinates currentPosition, char baloonValue)
+        public void UpdateField(ICoordinates currentPosition, char baloonValue)
         {
             this.field[currentPosition.X, currentPosition.Y] = baloonValue;
         }
@@ -64,7 +64,7 @@
         public void FillWithBalloons()
         {
             Random random = new Random();
-            Coordinates currentPosition = new Coordinates();
+            ICoordinates currentPosition = new Coordinates();
             for (int row = 0; row < this.FieldRows; row++)
             {
                 for (int column = 0; column < this.FieldCols; column++)

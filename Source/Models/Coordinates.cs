@@ -1,6 +1,8 @@
 ﻿namespace BalloonsPop.Models
 {
-    public class Coordinates
+    using Contracts;
+
+    public class Coordinates:ICoordinates
     {
         public Coordinates()
         {

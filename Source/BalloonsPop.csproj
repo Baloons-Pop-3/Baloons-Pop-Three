@@ -83,6 +83,7 @@
     <Compile Include="LogicProviders\Contracts\IGameLogicProvider.cs" />
     <Compile Include="Mementos\GameStateMemory.cs" />
     <Compile Include="Mementos\GameMemento.cs" />
+    <Compile Include="Models\Contracts\ICoordinates.cs" />
     <Compile Include="Models\Contracts\IGame.cs" />
     <Compile Include="Models\Contracts\IModel.cs" />
     <Compile Include="Models\Contracts\IPrototype.cs" />
@@ -90,7 +91,6 @@
     <Compile Include="Common\Validators\Validator.cs" />
     <Compile Include="Data\BalloonsData.cs" />
     <Compile Include="Data\Contracts\IBalloonsData.cs" />
-    <Compile Include="Data\Repositories\TestRepository.cs" />
     <Compile Include="Data\Repositories\FileRepository.cs" />
     <Compile Include="LogicProviders\GameLogicProvider.cs" />
     <Compile Include="Drawer\GameBoardDrawingLogic.cs" />

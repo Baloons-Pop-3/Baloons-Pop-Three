@@ -17,6 +17,7 @@
     using LogicProviders.Contracts;
     using Contexts;
     using Factories;
+    using Models.Contracts;
 
     internal class GameEngine : IGameEngine
     {
@@ -77,7 +78,7 @@
 
         private void ProcessInput(string input)
         {
-            Coordinates coordinates = new Coordinates();
+            ICoordinates coordinates = new Coordinates();
 
             if (this.CommandValidator.IsValidCommand(input))
             {

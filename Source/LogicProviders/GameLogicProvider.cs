@@ -16,7 +16,7 @@
 
         public IGame Game { get; set; }
 
-        public void ShootBalloonAtPosition(Coordinates positionToShoot)
+        public void ShootBalloonAtPosition(ICoordinates positionToShoot)
         {
             char balloonToShoot = this.GetBaloonTypeFromPosition(positionToShoot);
 
@@ -41,9 +41,9 @@
             this.LandFlyingBaloons();
         }
 
-        private void ShootSameBalloonsInDirection(ShootingDirection direction, Coordinates startingPoint, char balloonToShoot)
+        private void ShootSameBalloonsInDirection(ShootingDirection direction, ICoordinates startingPoint, char balloonToShoot)
         {
-            Coordinates nextCoordinates = new Coordinates();
+            ICoordinates nextCoordinates = new Coordinates();
             nextCoordinates.X = startingPoint.X;
             nextCoordinates.Y = startingPoint.Y;
 
@@ -108,7 +108,7 @@
             }
         }
 
-        private char GetBaloonTypeFromPosition(Coordinates currentPosition)
+        private char GetBaloonTypeFromPosition(ICoordinates currentPosition)
         {
             bool isOutOfBoard = currentPosition.X < 0
                 || currentPosition.Y < 0
@@ -129,13 +129,13 @@
             {
                 for (int row = 0; row < this.Game.Field.FieldRows; row++)
                 {
-                    Coordinates positionToCheck = new Coordinates(row, column);
+                    ICoordinates positionToCheck = new Coordinates(row, column);
                     if (this.GetBaloonTypeFromPosition(positionToCheck) == '.')
                     {
                         for (int k = row; k > 0; k--)
                         {
-                            Coordinates oldCoordinates = new Coordinates(k, column);
-                            Coordinates newCoordinates = new Coordinates(k - 1, column);
+                            ICoordinates oldCoordinates = new Coordinates(k, column);
+                            ICoordinates newCoordinates = new Coordinates(k - 1, column);
 
                             this.SwapBalloons(oldCoordinates, newCoordinates);
                         }
@@ -144,7 +144,7 @@
             }
         }
 
-        private void SwapBalloons(Coordinates currentPosition, Coordinates newPosition)
+        private void SwapBalloons(ICoordinates currentPosition, ICoordinates newPosition)
         {
             char balloonToSwap = this.GetBaloonTypeFromPosition(currentPosition);
             char balloonToBeSwapped = this.GetBaloonTypeFromPosition(newPosition);

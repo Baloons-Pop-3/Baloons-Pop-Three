@@ -4,13 +4,14 @@
     using System.Collections.Generic;
     using System.Linq;
     using BalloonsPop.Models;
+    using Models.Contracts;
 
     public interface IGamesController
     {
-        void AddGame(Game game);
+        void AddGame(IGame game);
 
-        IEnumerable<Game> All();
+        IEnumerable<IGame> All();
 
-        Game SearchById(string id);
+        IGame SearchById(string id);
     }
 }

@@ -41,9 +41,7 @@
             this.data = new BalloonsData(this.players, this.games);
             this.topScoreController = new TopScoreController(this.data.Players);
             this.gamesController = new GamesController(this.data.Games);
-            this.context = new Context(this.data, this.gameLogic, this.printer, this.reader, this.topScoreController, this.gamesController);
-            this.factory = new CommandFactory(this.context);
-            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.data, this.topScoreController, this.gamesController, this.context, this.factory);
+            this.engine = new GameEngine(this.gameLogic, this.printer, this.reader, this.data, this.topScoreController, this.gamesController);
 
             this.engine.StartGame();
         }

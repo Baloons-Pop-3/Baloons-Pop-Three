@@ -3,10 +3,11 @@
     using System;
     using System.Linq;
     using BalloonsPop.Models;
+    using Models.Contracts;
 
     public interface IGameLogicProvider
     {
-        Game Game { get; set; }
+        IGame Game { get; set; }
 
         void ShootBalloonAtPosition(Coordinates positionToShoot);
     }

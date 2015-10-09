@@ -6,6 +6,8 @@
     using Contracts;
     using Data.Contracts;
     using Models;
+    using Models.Contracts;
+    using Printer;
 
     public class GamesController : IGamesController
     {
@@ -14,24 +16,25 @@
             this.Games = games;
         }
 
+        public object Board { get; private set; }
         public IGenericRepository<Game> Games { get; private set; }
 
-        public void AddGame(Game game)
+        public void AddGame(IGame game)
         {
             if (game == null)
             {
                 throw new ArgumentNullException("game null");
             }
 
-            this.Games.Add(game);
+            this.Games.Add((Game)game);
         }
 
-        public IEnumerable<Game> All()
+        public IEnumerable<IGame> All()
         {
             return this.Games.All();
         }
 
-        public Game SearchById(string id)
+        public IGame SearchById(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {

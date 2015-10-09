@@ -1,23 +1,26 @@
 ﻿namespace BalloonsPop.Engine
 {
     using System;
-    using BalloonsPop.Commands.Contracts;
-    using BalloonsPop.Common.Constants;
-    using BalloonsPop.Common.Enums;
-    using BalloonsPop.Common.Validators;
-    using BalloonsPop.Contexts.Contracts;
-    using BalloonsPop.Controllers.Contracts;
-    using BalloonsPop.Data.Contracts;
-    using BalloonsPop.Engine.Contracts;
-    using BalloonsPop.Factories.Contracts;
-    using BalloonsPop.Models;
-    using BalloonsPop.Printer;
-    using BalloonsPop.Reader;
+
+    using Commands.Contracts;
+    using Common.Constants;
+    using Common.Enums;
+    using Common.Validators;
+    using Contexts.Contracts;
+    using Controllers.Contracts;
+    using Data.Contracts;
+    using Contracts;
+    using Factories.Contracts;
+    using Models;
+    using Printer;
+    using Reader;
     using LogicProviders.Contracts;
+    using Contexts;
+    using Factories;
 
     internal class GameEngine : IGameEngine
     {
-        public GameEngine(IGameLogicProvider gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScoreController topScoreController, IGamesController gamesController, IContext context, ICommandFactory factory)
+        public GameEngine(IGameLogicProvider gameLogic, IGamePrinter printer, IReader reader, IBalloonsData db, ITopScoreController topScoreController, IGamesController gamesController)
         {
             this.GameLogic = gameLogic;
             this.Printer = printer;
@@ -25,8 +28,10 @@
             this.DataBase = db;
             this.TopScoreController = topScoreController;
             this.GamesController = gamesController;
-            this.Context = context;
-            this.Factory = factory;
+
+            this.Context = new Context(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScoreController, this.GamesController);
+            this.Factory = new CommandFactory(this.Context);
+            this.CommandValidator = new CommandValidator<CommandType>();
         }
 
         public IBalloonsData DataBase { get; private set; }
@@ -72,7 +77,6 @@
 
         private void ProcessInput(string input)
         {
-            this.CommandValidator = new CommandValidator<CommandType>();
             Coordinates coordinates = new Coordinates();
 
             if (this.CommandValidator.IsValidCommand(input))

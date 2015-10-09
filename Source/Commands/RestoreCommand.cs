@@ -4,6 +4,7 @@
     using BalloonsPop.Common.Constants;
     using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Models;
+    using Models.Contracts;
 
     internal class RestoreCommand : ICommand
     {
@@ -16,7 +17,7 @@
 
         public void Execute()
         {
-            Game game;
+            IGame game;
             var savedGames = this.Context.GamesController.All();
 
             this.Context.Printer.PrintMessage(GlobalMessages.AllGamesMsg);

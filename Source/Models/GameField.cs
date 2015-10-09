@@ -7,7 +7,8 @@
 
     public class GameField : IPrototype<GameField>
     {
-        private char[,] field;
+
+        public char[,] field;
 
         public GameField(int fieldRows, int fieldCols)
         {

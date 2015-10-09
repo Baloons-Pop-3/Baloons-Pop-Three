@@ -3,7 +3,7 @@
     using BalloonsPop.Models;
     using BalloonsPop.Models.Contracts;
 
-    public class GameMemento : IGame
+    public class GameMemento
     {
         public GameMemento(GameField field, int shootCounter, int remainingBallons)
         {

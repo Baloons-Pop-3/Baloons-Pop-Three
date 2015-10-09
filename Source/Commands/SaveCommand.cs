@@ -4,6 +4,7 @@
     using BalloonsPop.Common.Constants;
     using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Models;
+    using Models.Contracts;
 
     internal class SaveCommand : ICommand
     {
@@ -19,7 +20,7 @@
             this.Context.Printer.PrintMessage(GlobalMessages.SaveGameMsg);
             var gameId = this.Context.Reader.ReadInput();
 
-            Game savedGame = this.Context.GameLogic.Game.Clone();
+            IGame savedGame = this.Context.GameLogic.Game.Clone();
             savedGame.Id = gameId;
 
             this.Context.GamesController.AddGame(savedGame);

@@ -1,9 +1,11 @@
 ﻿namespace BalloonsPop.Models
 {
+    using System;
     using Mementos;
     using Models.Contracts;
+    using Printer;
 
-    public class Game : IPrototype<Game>, IModel, IGame
+    public class Game : IPrototype<IGame>, IModel, IGame
     {
         public Game(GameField field)
         {
@@ -32,7 +34,7 @@
             this.RemainingBalloons = memento.RemainingBalloons;
         }
 
-        public Game Clone()
+        public IGame Clone()
         {
             var game = new Game(this.Field);
             game.RemainingBalloons = this.RemainingBalloons;

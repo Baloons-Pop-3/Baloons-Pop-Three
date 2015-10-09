@@ -5,6 +5,7 @@
     using Common.Enums;
     using LogicProviders.Contracts;
     using Models;
+    using Models.Contracts;
 
     internal class GameLogicProvider : IGameLogicProvider
     {
@@ -13,7 +14,7 @@
             this.Game = game;
         }
 
-        public Game Game { get; set; }
+        public IGame Game { get; set; }
 
         public void ShootBalloonAtPosition(Coordinates positionToShoot)
         {

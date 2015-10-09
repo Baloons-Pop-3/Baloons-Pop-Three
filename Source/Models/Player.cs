@@ -8,7 +8,7 @@
     /// <summary>
     /// A class representing the game user.
     /// </summary>
-    public class Player : IModel
+    public class Player : IPlayer
     {
         /// <summary>
         /// The name of the user.
@@ -44,6 +44,5 @@
         /// gets or sets user Id 
         /// </summary>
         public string Id { get; set; }
-
     }
 }

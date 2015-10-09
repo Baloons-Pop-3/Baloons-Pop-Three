@@ -6,6 +6,7 @@
     using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Models;
+    using Models.Contracts;
 
     public class TopScoreController : ITopScoreController
     {
@@ -16,22 +17,22 @@
 
         private IGenericRepository<Player> Players { get; set; }
 
-        public void AddPlayer(Player player)
+        public void AddPlayer(IPlayer player)
         {
             if (player == null)
             {
                 throw new ArgumentNullException("player null");
             }
 
-            this.Players.Add(player);
+            this.Players.Add((Player)player);
         }
 
-        public IEnumerable<Player> All()
+        public IEnumerable<IPlayer> All()
         {
             return this.Players.All();
         }
 
-        public IEnumerable<Player> GetTop(int count)
+        public IEnumerable<IPlayer> GetTop(int count)
         {
             if (count < 0)
             {

@@ -26,6 +26,7 @@
                 throw new ArgumentNullException("game null");
             }
 
+
             this.Games.Add((Game)game);
         }
 

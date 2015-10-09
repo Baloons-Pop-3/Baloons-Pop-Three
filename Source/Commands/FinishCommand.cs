@@ -4,6 +4,7 @@
     using BalloonsPop.Common.Constants;
     using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Models;
+    using Models.Contracts;
 
     /// <summary>
     /// This is class for testing purposes. Must be deattached from 'BalloonsPop.Common.Enums.CommandType.cs' in production
@@ -19,7 +20,7 @@
 
         public void Execute()
         {
-            Player player = new Player();
+            IPlayer player = new Player();
             player.Score = this.Context.GameLogic.Game.ShootCounter;
 
             this.Context.Printer.PrintMessage(GlobalMessages.FinishCommandGreeting + this.Context.GameLogic.Game.ShootCounter);

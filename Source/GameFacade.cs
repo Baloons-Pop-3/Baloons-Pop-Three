@@ -31,8 +31,6 @@
         private IGameLogicProvider gameLogic;
         private IBalloonsData data;
         private IGameEngine engine;
-        private IContext context;
-        private ICommandFactory factory;
 
         public void Start()
         {

@@ -4,13 +4,14 @@
     using BalloonsPop.Data;
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Models;
+    using Models.Contracts;
 
     internal interface ITopScoreController
     {
-        IEnumerable<Player> GetTop(int count);
+        IEnumerable<IPlayer> GetTop(int count);
 
-        IEnumerable<Player> All();
+        IEnumerable<IPlayer> All();
 
-        void AddPlayer(Player player);
+        void AddPlayer(IPlayer player);
     }
 }

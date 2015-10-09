@@ -24,8 +24,8 @@
 
         private GameField field = new GameField(GlobalConstants.DefaultLevelRows, GlobalConstants.DefaultLevelCols);
         private Game balloonsGame;
-        private IReader reader = new ConsoleReader();
-        private IGamePrinter printer = new ConsoleGamePrinter();
+        private IReader reader = new ConsoleReader.Instance;
+        private IGamePrinter printer = ConsoleGamePrinter.Instance;
         private ITopScoreController topScoreController;
         private IGamesController gamesController;
         private IGameLogicProvider gameLogic;

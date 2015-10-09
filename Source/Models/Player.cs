@@ -10,6 +10,8 @@
     /// </summary>
     public class Player : IPlayer
     {
+        private const string componentName = "Player";
+
         /// <summary>
         /// The name of the user.
         /// </summary>
@@ -29,7 +31,7 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException(GlobalMessages.EmptyNameOfPlayer);
+                    throw new ArgumentException(componentName+GlobalMessages.NullExceptionMsg);
                 }
                 this.name = value;
             }

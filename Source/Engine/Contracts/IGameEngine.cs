@@ -10,7 +10,7 @@
     using LogicProviders.Contracts;
     using Common.Validators;
 
-    internal interface IGameEngine
+    public interface IGameEngine
     {
         IGameLogicProvider GameLogic { get; }
 

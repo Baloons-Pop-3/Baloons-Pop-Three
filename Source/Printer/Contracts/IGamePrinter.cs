@@ -4,7 +4,7 @@
     using BalloonsPop.Drawer.Contracts;
     using BalloonsPop.Models;
 
-    internal interface IGamePrinter
+    public interface IGamePrinter
     {
         IGameBoardDrawingLogic DrawingLogic { get; }
 

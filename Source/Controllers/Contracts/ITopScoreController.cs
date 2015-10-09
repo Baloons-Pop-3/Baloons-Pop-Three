@@ -6,7 +6,7 @@
     using BalloonsPop.Models;
     using Models.Contracts;
 
-    internal interface ITopScoreController
+    public interface ITopScoreController
     {
         IEnumerable<IPlayer> GetTop(int count);
 

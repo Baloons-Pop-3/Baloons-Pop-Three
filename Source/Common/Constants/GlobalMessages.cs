@@ -11,7 +11,6 @@
         internal const string SavedGameMsg = "Your game has been saved!";
         internal const string AllGamesMsg = "All games are: ";
         internal const string NameOfGameToRestoreMsg = "Write the name of your game";
-
         internal const string ExitCommandMessageMsg = "Thank you for playing this stupid game :) Welcome back";
         internal const string FinishCommandGreetingMsg = "Congratulations, you popped all ballooons with ";
         internal const string InvalidCommandTypeMsg = "Invalid command type. Please try again";

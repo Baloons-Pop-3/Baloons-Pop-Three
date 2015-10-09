@@ -7,8 +7,27 @@
     using BalloonsPop.Drawer.Contracts;
     using BalloonsPop.Models;
 
-    internal class ConsoleGamePrinter : IGamePrinter
+    internal sealed class ConsoleGamePrinter : IGamePrinter
     {
+        private static ConsoleGamePrinter instance;
+
+        private ConsoleGamePrinter()
+        {
+        }
+
+        public static ConsoleGamePrinter Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new ConsoleGamePrinter();
+                }
+
+                return instance;
+            }
+        }
+
         public IGameBoardDrawingLogic DrawingLogic { get; private set; }
 
         public void CleanDisplay()

@@ -106,9 +106,9 @@
     <Compile Include="Models\Player.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Printer\ConsoleGamePrinter.cs" />
-    <Compile Include="Printer\IGamePrinter.cs" />
+    <Compile Include="Printer\Contracts\IGamePrinter.cs" />
     <Compile Include="Reader\ConsoleReader.cs" />
-    <Compile Include="Reader\IReader.cs" />
+    <Compile Include="Reader\Contracts\IReader.cs" />
     <Compile Include="Controllers\Contracts\ITopScoreController.cs" />
     <None Include="JSLintNet.json" />
     <None Include="packages.config" />

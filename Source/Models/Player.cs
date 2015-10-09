@@ -3,11 +3,12 @@
     using System;
     using BalloonsPop.Common.Validators;
     using BalloonsPop.Models.Contracts;
+    using Common.Constants;
 
     /// <summary>
     /// A class representing the game user.
     /// </summary>
-    public class Player : IComparable<Player>, IModel
+    public class Player : IModel
     {
         /// <summary>
         /// The name of the user.
@@ -26,7 +27,10 @@
 
             set
             {
-                Validator.ValidateString(value, "Name");
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(GlobalMessages.EmptyNameOfPlayer);
+                }
                 this.name = value;
             }
         }
@@ -36,26 +40,10 @@
         /// </summary>
         public int Score { get; set; }
 
+        /// <summary>
+        /// gets or sets user Id 
+        /// </summary>
         public string Id { get; set; }
 
-        public static bool operator <(Player x, Player y)
-        {
-            return x.Score < y.Score;
-        }
-
-        public static bool operator >(Player x, Player y)
-        {
-            return x.Score > y.Score;
-        }
-
-        /// <summary>
-        /// A method that compares the scores of two players.
-        /// </summary>
-        /// <param name="otherPlayer">The other player with whose scores player's scores will be compared.</param>
-        /// <returns>Less than zero if the current player instance scores are higher than the other player, zero - if they are equal and greater than zero - otherwise.</returns>
-        public int CompareTo(Player otherPlayer)
-        {
-            return this.Score.CompareTo(otherPlayer.Score);
-        }
     }
 }

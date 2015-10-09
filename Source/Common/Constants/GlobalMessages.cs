@@ -14,6 +14,7 @@
 
         internal const string InvalidCoordinatesMsg = "Invalid coordinates! Please try again";
         internal const string InvalidIndexOfField = "There is no such index!";
+        internal const string EmptyNameOfPlayer = "Player name must not be null or empty";
         internal const string ExitCommandMessage = "Thank you for playing this stupid game :) Welcome back";
         internal const string FinishCommandGreeting = "Congratulations, you popped all ballooons with ";
         internal const string InvalidCommandMessage = "Invalid command type. Please try again";

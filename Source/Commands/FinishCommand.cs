@@ -5,6 +5,9 @@
     using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Models;
 
+    /// <summary>
+    /// This is class for testing purposes. Must be deattached from 'BalloonsPop.Common.Enums.CommandType.cs' in production
+    /// </summary>
     internal class FinishCommand : ICommand
     {
         public FinishCommand(IContext context)

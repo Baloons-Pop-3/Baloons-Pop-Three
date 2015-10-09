@@ -86,9 +86,9 @@
     <Compile Include="Models\Contracts\ICoordinates.cs" />
     <Compile Include="Models\Contracts\IGame.cs" />
     <Compile Include="Models\Contracts\IModel.cs" />
+    <Compile Include="Models\Contracts\IPlayer.cs" />
     <Compile Include="Models\Contracts\IPrototype.cs" />
     <Compile Include="Models\Coordinates.cs" />
-    <Compile Include="Common\Validators\Validator.cs" />
     <Compile Include="Data\BalloonsData.cs" />
     <Compile Include="Data\Contracts\IBalloonsData.cs" />
     <Compile Include="Data\Repositories\FileRepository.cs" />

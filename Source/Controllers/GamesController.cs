@@ -8,9 +8,12 @@
     using Models;
     using Models.Contracts;
     using Printer;
+    using Common.Constants;
 
     public class GamesController : IGamesController
     {
+        private const string ComponentName = "game";
+
         public GamesController(IGenericRepository<Game> games)
         {
             this.Games = games;
@@ -23,9 +26,8 @@
         {
             if (game == null)
             {
-                throw new ArgumentNullException("game null");
+                throw new ArgumentNullException(ComponentName + GlobalMessages.NullExceptionMsg);
             }
-
 
             this.Games.Add((Game)game);
         }
@@ -39,7 +41,7 @@
         {
             if (string.IsNullOrWhiteSpace(id))
             {
-                throw new ArgumentException("null or whitespace id of game");
+                throw new ArgumentException(ComponentName+GlobalMessages.NullIdExceptionMsg);
             }
 
             return this.Games.Find(id);

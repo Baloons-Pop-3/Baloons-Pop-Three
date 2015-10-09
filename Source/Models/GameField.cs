@@ -30,7 +30,7 @@
             {
                 if (col < 0 || col > this.FieldCols - 1 || row < 0 || row > this.FieldRows - 1)
                 {
-                    throw new IndexOutOfRangeException(GlobalMessages.InvalidIndexOfField);
+                    throw new IndexOutOfRangeException(GlobalMessages.InvalidIndexOfFieldExceptionMsg);
                 }
                 else
                 {
@@ -42,7 +42,7 @@
             {
                 if (col < 0 || col > this.FieldCols - 1 || row < 0 || row > this.FieldRows - 1)
                 {
-                    throw new IndexOutOfRangeException(GlobalMessages.InvalidIndexOfField);
+                    throw new IndexOutOfRangeException(GlobalMessages.InvalidIndexOfFieldExceptionMsg);
                 }
                 else
                 {

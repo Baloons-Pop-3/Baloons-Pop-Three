@@ -15,7 +15,7 @@
 
         public void Execute()
         {
-            this.Context.Printer.PrintMessage(GlobalMessages.ExitCommandMessage);
+            this.Context.Printer.PrintMessage(GlobalMessages.ExitCommandMessageMsg);
         }
     }
 }

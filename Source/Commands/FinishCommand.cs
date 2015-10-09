@@ -23,7 +23,7 @@
             IPlayer player = new Player();
             player.Score = this.Context.GameLogic.Game.ShootCounter;
 
-            this.Context.Printer.PrintMessage(GlobalMessages.FinishCommandGreeting + this.Context.GameLogic.Game.ShootCounter);
+            this.Context.Printer.PrintMessage(GlobalMessages.FinishCommandGreetingMsg + this.Context.GameLogic.Game.ShootCounter);
             this.Context.Printer.PrintMessage(GlobalMessages.AddToTopscoreMsg);
             player.Name = this.Context.Reader.ReadInput();
 

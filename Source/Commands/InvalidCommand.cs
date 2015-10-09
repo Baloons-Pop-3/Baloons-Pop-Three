@@ -16,7 +16,7 @@
         public void Execute()
         {
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
-            this.Context.Printer.PrintMessage(GlobalMessages.InvalidCommandMessage);
+            this.Context.Printer.PrintMessage(GlobalMessages.InvalidCommandMsg);
         }
     }
 }

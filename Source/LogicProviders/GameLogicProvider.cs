@@ -26,7 +26,7 @@
             }
             else if (balloonToShoot == (char)BallonType.Invalid)
             {
-                throw new ArgumentException(GlobalMessages.InvalidCoordinatesMsg);
+                throw new ArgumentException(GlobalMessages.InvalidCoordinatesExceptionMsg);
             }
 
             this.Game.Field.UpdateField(positionToShoot, '.');

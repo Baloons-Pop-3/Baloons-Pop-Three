@@ -12,14 +12,17 @@
         internal const string AllGamesMsg = "All games are: ";
         internal const string NameOfGameToRestoreMsg = "Write the name of your game";
 
-        internal const string InvalidCoordinatesMsg = "Invalid coordinates! Please try again";
-        internal const string InvalidIndexOfField = "There is no such index!";
-        internal const string EmptyNameOfPlayer = "Player name must not be null or empty";
-        internal const string ExitCommandMessage = "Thank you for playing this stupid game :) Welcome back";
-        internal const string FinishCommandGreeting = "Congratulations, you popped all ballooons with ";
-        internal const string InvalidCommandMessage = "Invalid command type. Please try again";
-        internal const string StartCommandMessage = "How dificult do you want it: Your options are:\neasy\nmedium\nhard\ntorture";
-        internal const string StartCommandInvalidDifficultyMessage = "Invalid dificulty chosen. Default one is genereted.";
-        internal const string RestoreCommandInvalidGame = "Sorry, game with this name is not found.";
+        internal const string ExitCommandMessageMsg = "Thank you for playing this stupid game :) Welcome back";
+        internal const string FinishCommandGreetingMsg = "Congratulations, you popped all ballooons with ";
+        internal const string InvalidCommandTypeMsg = "Invalid command type. Please try again";
+        internal const string StartCommandMsg = "How dificult do you want it: Your options are:\neasy\nmedium\nhard\ntorture";
+        internal const string StartCommandInvalidDifficultyMsg = "Invalid dificulty chosen. Default one is genereted.";
+        internal const string RestoreCommandInvalidGameMsg = "Sorry, game with this name is not found.";
+
+        internal const string InvalidCoordinatesExceptionMsg = "Invalid coordinates! Please try again";
+        internal const string InvalidIndexOfFieldExceptionMsg = "There is no such index!";
+        internal const string InvalidEnumerationExceptionMsg = "Should pass enumaration";
+        internal const string NullExceptionMsg = " null";
+        internal const string NullIdExceptionMsg = " null or whitespace id";
     }
 }

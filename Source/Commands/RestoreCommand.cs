@@ -34,7 +34,7 @@
 
             if (game == null)
             {
-                this.Context.Printer.PrintMessage(GlobalMessages.RestoreCommandInvalidGame);
+                this.Context.Printer.PrintMessage(GlobalMessages.RestoreCommandInvalidGameMsg);
                 return;
             }
 

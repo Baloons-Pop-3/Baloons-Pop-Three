@@ -7,9 +7,13 @@
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Models;
     using Models.Contracts;
+    using Common.Constants;
 
     public class TopScoreController : ITopScoreController
     {
+        private const string ComponentName = "player";
+        private const string CountExceptionMsg = "count cannot be negative";
+
         public TopScoreController(IGenericRepository<Player> players)
         {
             this.Players = players;
@@ -21,7 +25,7 @@
         {
             if (player == null)
             {
-                throw new ArgumentNullException("player null");
+                throw new ArgumentNullException(ComponentName + GlobalMessages.NullExceptionMsg);
             }
 
             this.Players.Add((Player)player);
@@ -36,7 +40,7 @@
         {
             if (count < 0)
             {
-                throw new IndexOutOfRangeException("count cannot be negative");
+                throw new IndexOutOfRangeException(CountExceptionMsg);
             }
 
             return this.Players.All().OrderByDescending(p => p.Score).Take(count);

@@ -95,8 +95,6 @@
     <Compile Include="LogicProviders\GameLogicProvider.cs" />
     <Compile Include="Drawer\GameBoardDrawingLogic.cs" />
     <Compile Include="Controllers\TopScoreController.cs" />
-    <None Include="Content\Games.json" />
-    <None Include="Content\TopScore.json" />
     <Compile Include="Data\Contracts\IGenericRepository.cs" />
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Engine\Contracts\IGameEngine.cs" />
@@ -120,6 +118,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Games.txt" />
+    <Content Include="Content\TopScore.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

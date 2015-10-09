@@ -21,7 +21,7 @@
             var factory = new GameFieldFactory(this.Context);
             var validator = new CommandValidator<GameDifficulty>();
 
-            this.Context.Printer.PrintMessage(GlobalMessages.StartCommandMessage);
+            this.Context.Printer.PrintMessage(GlobalMessages.StartCommandMsg);
             var input = this.Context.Reader.ReadInput();
 
             if (validator.IsValidCommand(input))
@@ -30,7 +30,7 @@
             }
             else
             {
-                this.Context.Printer.PrintMessage(GlobalMessages.StartCommandInvalidDifficultyMessage);
+                this.Context.Printer.PrintMessage(GlobalMessages.StartCommandInvalidDifficultyMsg);
             }
 
             this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);

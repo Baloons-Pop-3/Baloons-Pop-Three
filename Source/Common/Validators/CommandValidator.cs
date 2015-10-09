@@ -1,5 +1,6 @@
 ﻿namespace BalloonsPop.Common.Validators
 {
+    using Constants;
     using System;
     using System.Linq;
 
@@ -9,7 +10,7 @@
         {
             if (!typeof(T).IsEnum)
             {
-                throw new ArgumentException("should pass enumaration");
+                throw new ArgumentException(GlobalMessages.InvalidEnumerationExceptionMsg);
             }
         }
 

@@ -57,11 +57,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CommandFactoryTests.cs" />
+    <Compile Include="Commands.Tests\SaveCommandTests.cs" />
     <Compile Include="CoordinatesTests.cs" />
     <Compile Include="GameEngineTests.cs" />
     <Compile Include="GamesControllerTests.cs" />
     <Compile Include="GameTests.cs" />
     <Compile Include="JsonSerializerTests.cs" />
+    <Compile Include="Mocks\MockIContext.cs" />
     <Compile Include="Mocks\MockIGamesController.cs" />
     <Compile Include="Mocks\MockIGenericRepository.cs" />
     <Compile Include="Mocks\MockIPrinter.cs" />

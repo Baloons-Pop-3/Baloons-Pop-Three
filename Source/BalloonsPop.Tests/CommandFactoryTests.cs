@@ -1,7 +1,8 @@
 ﻿namespace BalloonsPop.Tests
 {
+    using BalloonsPop.Commands;
+    using BalloonsPop.Commands.Contracts;
     using Commands;
-    using Commands.Contracts;
     using Common.Enums;
     using Factories;
     using Factories.Contracts;

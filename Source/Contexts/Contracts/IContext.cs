@@ -8,7 +8,7 @@
     using BalloonsPop.Reader.Contracts;
     using LogicProviders.Contracts;
 
-    internal interface IContext
+    public interface IContext
     {
         IGameLogicProvider GameLogic { get; }
 

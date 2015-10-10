@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPop.Mementos
 {
-    internal class GameStateMemory
+    public class GameStateMemory
     {
         public GameMemento GameMemento { get; set; }
     }

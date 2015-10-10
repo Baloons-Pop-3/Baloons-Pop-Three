@@ -107,15 +107,14 @@
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Printer\ConsoleGamePrinter.cs" />
     <Compile Include="Printer\Contracts\IGamePrinter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\ConsoleReader.cs" />
     <Compile Include="Reader\Contracts\IReader.cs" />
     <Compile Include="Controllers\Contracts\ITopScoreController.cs" />
     <None Include="JSLintNet.json" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>

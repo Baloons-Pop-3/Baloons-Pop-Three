@@ -1,8 +1,8 @@
 ﻿namespace BalloonsPop.Tests
 {
     using Models;
-    using LogicProviders;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
 
     [TestClass]
     public class GameLogicProviderTests
@@ -183,6 +183,38 @@
             var gameFieldAfterShoot = ShootAt1x1(manualFieldBefor);
 
             Assert.IsTrue(EqualCharArrays(manualFieldAfter, gameFieldAfterShoot));
+        }
+
+        [ExpectedException(typeof(ArgumentException))]
+        [TestMethod]
+        public void ShootBalloonAtPosition_ShouldThrowOnPopedPlace()
+        {
+            GameField gameField = new GameField(3, 3);
+            var fieldAsCharArr = gameField.GetField();
+
+            var manualFieldBefor = new char[,] {
+                { '1','.','1' },
+                { '2','.','2' },
+                { '1','2','2' }
+            };
+
+            var gameFieldAfterShoot = ShootAt1x1(manualFieldBefor);
+        }
+
+        [ExpectedException(typeof(ArgumentException))]
+        [TestMethod]
+        public void ShootBalloonAtPosition_ShouldThrowOnInvalidBalloonCoordinats()
+        {
+            GameField gameField = new GameField(3, 3);
+            var fieldAsCharArr = gameField.GetField();
+
+            var manualFieldBefor = new char[,] {
+                { '1','.','1' },
+                { '2','e','2' },
+                { '1','2','2' }
+            };
+
+            var gameFieldAfterShoot = ShootAt1x1(manualFieldBefor);
         }
     }
 }

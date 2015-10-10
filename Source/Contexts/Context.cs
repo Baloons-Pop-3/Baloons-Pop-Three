@@ -1,13 +1,12 @@
 ﻿namespace BalloonsPop.Contexts
 {
-    using BalloonsPop.Contexts.Contracts;
-    using BalloonsPop.Controllers.Contracts;
-    using BalloonsPop.Data.Contracts;
-    using BalloonsPop.Mementos;
-    using BalloonsPop.Printer;
-    using Printer.Contracts;
-    using BalloonsPop.Reader.Contracts;
+    using Contracts;
+    using Controllers.Contracts;
+    using Data.Contracts;
     using LogicProviders.Contracts;
+    using Mementos;
+    using Printer.Contracts;
+    using Reader.Contracts;
 
     internal class Context : IContext
     {

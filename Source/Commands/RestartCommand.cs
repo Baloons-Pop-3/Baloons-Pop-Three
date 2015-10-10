@@ -1,9 +1,8 @@
 ﻿namespace BalloonsPop.Commands
 {
-    using BalloonsPop.Commands.Contracts;
-    using BalloonsPop.Contexts.Contracts;
+    using Contexts.Contracts;
+    using Contracts;
     using Models;
-    using System.Diagnostics;
 
     internal class RestartCommand : ICommand
     {

@@ -11,7 +11,7 @@
     {
         public void Execute(IContext context)
         {
-            var factory = new GameFieldFactory();
+            var factory = new GameFactory();
             var validator = new CommandValidator<GameDifficulty>();
 
             context.Printer.PrintMessage(GlobalMessages.StartCommandMsg);

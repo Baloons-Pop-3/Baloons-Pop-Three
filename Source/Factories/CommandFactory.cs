@@ -11,13 +11,6 @@
     {
         private readonly Dictionary<CommandType, ICommand> commands = new Dictionary<CommandType, ICommand>();
 
-        public CommandFactory(IContext context)
-        {
-            this.Context = context;
-        }
-
-        public IContext Context { get; private set; }
-
         public ICommand CreateCommand(CommandType input)
         {
             if (this.commands.ContainsKey(input))
@@ -29,55 +22,54 @@
             {
                 case CommandType.Exit:
                     {
-                        this.commands[CommandType.Exit] = new ExitCommand(this.Context);
+                        this.commands[CommandType.Exit] = new ExitCommand();
                         break;
                     }
 
                 case CommandType.Restart:
                     {
-                        this.commands[CommandType.Restart] = new RestartCommand(this.Context);
+                        this.commands[CommandType.Restart] = new RestartCommand();
                         break;
                     }
 
                 case CommandType.Top:
                     {
-                        this.commands[CommandType.Top] = new TopScoreCommand(this.Context);
+                        this.commands[CommandType.Top] = new TopScoreCommand();
                         break;
                     }
 
                 case CommandType.Start:
                     {
-                        this.commands[CommandType.Start] = new StartCommand(this.Context);
+                        this.commands[CommandType.Start] = new StartCommand();
                         break;
                     }
 
                 case CommandType.Finish:
                     {
-                        this.commands[CommandType.Finish] = new FinishCommand(this.Context);
+                        this.commands[CommandType.Finish] = new FinishCommand();
                         break;
                     }
 
                 case CommandType.Undo:
                     {
-                        this.commands[CommandType.Undo] = new UndoCommand(this.Context);
+                        this.commands[CommandType.Undo] = new UndoCommand();
                         break;
                     }
 
                 case CommandType.Save:
                     {
-                        this.commands[CommandType.Save] = new SaveCommand(this.Context);
+                        this.commands[CommandType.Save] = new SaveCommand();
                         break;
                     }
 
                 case CommandType.Restore:
                     {
-                        this.commands[CommandType.Restore] = new RestoreCommand(this.Context);
+                        this.commands[CommandType.Restore] = new RestoreCommand();
                         break;
                     }
 
                 default:
                     {
-                        this.commands[CommandType.Restore] = null;
                         break;
                     }
             }

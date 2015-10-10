@@ -11,23 +11,16 @@
     /// </summary>
     internal class FinishCommand : ICommand
     {
-        public FinishCommand(IContext context)
-        {
-            this.Context = context;
-        }
-
-        public IContext Context { get; private set; }
-
-        public void Execute()
+        public void Execute(IContext context)
         {
             IPlayer player = new Player();
-            player.Score = this.Context.GameLogic.Game.ShootCounter;
+            player.Score = context.GameLogic.Game.ShootCounter;
 
-            this.Context.Printer.PrintMessage(GlobalMessages.FinishCommandGreetingMsg + this.Context.GameLogic.Game.ShootCounter);
-            this.Context.Printer.PrintMessage(GlobalMessages.AddToTopscoreMsg);
-            player.Name = this.Context.Reader.ReadInput();
+            context.Printer.PrintMessage(GlobalMessages.FinishCommandGreetingMsg + context.GameLogic.Game.ShootCounter);
+            context.Printer.PrintMessage(GlobalMessages.AddToTopscoreMsg);
+            player.Name = context.Reader.ReadInput();
 
-            this.Context.TopScoreController.AddPlayer(player);
+            context.TopScoreController.AddPlayer(player);
         }
     }
 }

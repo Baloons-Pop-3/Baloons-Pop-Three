@@ -5,17 +5,10 @@
 
     internal class RestartCommand : ICommand
     {
-        public RestartCommand(IContext context)
+        public void Execute(IContext context)
         {
-            this.Context = context;
-        }
-
-        public IContext Context { get; private set; }
-
-        public void Execute()
-        {
-            this.Context.GameLogic.Game.Field.FillWithBalloons();
-            this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
+            context.GameLogic.Game.Field.FillWithBalloons();
+            context.Printer.PrintGameBoard(context.GameLogic.Game.Field);
         }
     }
 }

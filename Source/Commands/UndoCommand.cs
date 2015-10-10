@@ -5,21 +5,14 @@
 
     internal class UndoCommand : ICommand
     {
-        public UndoCommand(IContext context)
+        public void Execute(IContext context)
         {
-            this.Context = context;
-        }
-
-        public IContext Context { get; private set; }
-
-        public void Execute()
-        {
-            if (this.Context.Memory.GameMemento != null)
+            if (context.Memory.GameMemento != null)
             {
-                this.Context.GameLogic.Game.RestoreMemento(this.Context.Memory.GameMemento);
+                context.GameLogic.Game.RestoreMemento(context.Memory.GameMemento);
             }
 
-            this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
+            context.Printer.PrintGameBoard(context.GameLogic.Game.Field);
         }
     }
 }

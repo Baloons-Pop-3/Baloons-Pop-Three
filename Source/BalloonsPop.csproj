@@ -78,7 +78,6 @@
     <Compile Include="Commands\FinishCommand.cs" />
     <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
-    <Compile Include="Commands\InvalidCommand.cs" />
     <Compile Include="Commands\NullCommand.cs" />
     <Compile Include="Commands\RestartCommand.cs" />
     <Compile Include="Commands\StartCommand.cs" />

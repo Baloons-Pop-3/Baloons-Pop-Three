@@ -7,7 +7,7 @@
     using Contracts;
     using Models;
 
-    internal class GameFieldFactory : IGameFieldFactory
+    internal class GameFactory : IGameFieldFactory
     {
         public Game CreateGame(GameDifficulty input)
         {

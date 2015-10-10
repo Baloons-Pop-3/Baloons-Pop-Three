@@ -17,8 +17,8 @@
     using Reader.Contracts;
     using Data;
     using Mementos;
+    using Common.Constants;
 
-    [TestClass]
     class MockIContext
     {
         private readonly GameField field;
@@ -36,7 +36,7 @@
 
         public MockIContext()
         {
-            this.field = new GameField(5, 5);
+            this.field = new GameField(GlobalConstants.DefaultLevelRows, GlobalConstants.DefaultLevelCols);
             this.game = new Game(this.field);
             this.gameLogic = new GameLogicProvider(this.game);
             this.mockPrinter = new MockIPrinter().mockPrinter.Object;

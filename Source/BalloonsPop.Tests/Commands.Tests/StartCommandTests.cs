@@ -2,13 +2,9 @@
 {
     using Mocks;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Contexts.Contracts;
     using BalloonsPop.Commands;
+    using System.Diagnostics;
+    using Common.Constants;
 
     [TestClass]
     public class StartCommandTests
@@ -22,13 +18,29 @@
         }
 
         [TestMethod]
-        public void Execute_ShouldStart()
+        public void Execute_WithValidHardLevel_ShouldCreateProperGame()
         {
-            var mockReader = new MockIReader("easy");
+            var mockReader = new MockIReader("medium");
             this.mockingTool = new MockIContext();           
             this.mockingTool.mockContext.SetupGet(x => x.Reader).Returns(mockReader.mockReader.Object);
           
             this.command.Execute(mockingTool.mockContext.Object);
+
+            Assert.AreEqual(GlobalConstants.MediumLevelCols, this.mockingTool.mockContext.Object.GameLogic.Game.Field.FieldCols);
+            Assert.AreEqual(GlobalConstants.MediumLevelRows,this.mockingTool.mockContext.Object.GameLogic.Game.Field.FieldRows);
+        }
+
+        [TestMethod]
+        public void Execute_WithInvalidHardLevel_ShouldCreateDefaultGame()
+        {
+            var mockReader = new MockIReader("invalid");
+            this.mockingTool = new MockIContext();
+            this.mockingTool.mockContext.SetupGet(x => x.Reader).Returns(mockReader.mockReader.Object);
+
+            this.command.Execute(mockingTool.mockContext.Object);
+
+            Assert.AreEqual(GlobalConstants.DefaultLevelCols, this.mockingTool.mockContext.Object.GameLogic.Game.Field.FieldCols);
+            Assert.AreEqual(GlobalConstants.DefaultLevelRows, this.mockingTool.mockContext.Object.GameLogic.Game.Field.FieldRows);
         }
     }
 }

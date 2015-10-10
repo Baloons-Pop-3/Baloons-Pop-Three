@@ -14,7 +14,7 @@ namespace BalloonsPop.LogicProviders
     using Models.Contracts;
 
     /// <summary>
-    /// Class that provides the logic for the game for shooting, swaping, landing and getting the type of the balloons.
+    /// Class that provides the logic for the game for shooting, swapping, landing and getting the type of the balloons.
     /// </summary>
     internal class GameLogicProvider : IGameLogicProvider
     {

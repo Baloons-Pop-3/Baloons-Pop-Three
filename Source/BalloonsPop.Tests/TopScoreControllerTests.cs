@@ -3,19 +3,19 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using BalloonsPop.Controllers;
+    using Controllers;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Mocks;
     using Models;
 
     [TestClass]
-    public class TopScoreTests
+    public class TopScoreControllerTests
     {
         private readonly IEnumerable<Player> fakePlayers;
         private readonly MockGenericRepository<Player> playersRepo;
         private TopScoreController topScoreController;
 
-        public TopScoreTests()
+        public TopScoreControllerTests()
         {
             this.fakePlayers = this.GenerateFakeCollectionOfPlayers();
             this.playersRepo = new MockGenericRepository<Player>(this.fakePlayers);

@@ -55,11 +55,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CoordinatesTests.cs" />
+    <Compile Include="GamesControllerTests.cs" />
     <Compile Include="GameTests.cs" />
     <Compile Include="Mocks\MockGenericRepository.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="TestBalloonsData.cs" />
-    <Compile Include="TopScoreTests.cs" />
+    <Compile Include="TopScoreControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

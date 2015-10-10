@@ -13,7 +13,7 @@
         {
             var serializer = new JsonSerializer();
             Player input = new Player {};
-            string expResult = "{\"Name\":null,\"Score\":0,\"Id\":null}";
+            string expResult = "{\"Name\":null,\"Score\":0,\"Id\":null}" ; 
 
             Assert.AreEqual(expResult, serializer.Serialize<Player>(input));
         }

@@ -1,8 +1,8 @@
 ﻿namespace BalloonsPop.Common.Validators
 {
-    using Constants;
     using System;
     using System.Linq;
+    using Constants;
 
     internal class CommandValidator<T>
     {

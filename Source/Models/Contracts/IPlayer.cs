@@ -1,9 +1,9 @@
 ﻿namespace BalloonsPop.Models.Contracts
 {
-    public interface IPlayer: IModel
+    public interface IPlayer : IModel
     {
-         int Score { get; set; }
+        int Score { get; set; }
 
-         string Name { get; set; }
+        string Name { get; set; }
     }
 }

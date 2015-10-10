@@ -10,11 +10,6 @@
         {
         }
 
-        public string ReadInput()
-        {
-            return Console.ReadLine();
-        }
-
         public static ConsoleReader Instance
         {
             get
@@ -23,8 +18,14 @@
                 {
                     instance = new ConsoleReader();
                 }
+
                 return instance;
             }
+        }
+
+        public string ReadInput()
+        {
+            return Console.ReadLine();
         }
     }
 }

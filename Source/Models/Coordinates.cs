@@ -2,7 +2,7 @@
 {
     using Contracts;
 
-    public class Coordinates:ICoordinates
+    public class Coordinates : ICoordinates
     {
         public Coordinates()
         {

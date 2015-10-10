@@ -23,6 +23,6 @@
         internal const string InvalidEnumerationExceptionMsg = "Should pass enumaration";
         internal const string NullExceptionMsg = " null";
         internal const string NullIdExceptionMsg = " null or whitespace id";
-        internal const string ScoreNegativeMsg= " can't be negative";
+        internal const string ScoreNegativeMsg = " can't be negative";
     }
 }

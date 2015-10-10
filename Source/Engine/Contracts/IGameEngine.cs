@@ -1,14 +1,10 @@
 ﻿namespace BalloonsPop.Engine.Contracts
 {
-    using Common.Enums;
-    using Contexts.Contracts;
     using Controllers.Contracts;
     using Data.Contracts;
-    using Factories.Contracts;
+    using LogicProviders.Contracts;
     using Printer;
     using Reader;
-    using LogicProviders.Contracts;
-    using Common.Validators;
 
     public interface IGameEngine
     {

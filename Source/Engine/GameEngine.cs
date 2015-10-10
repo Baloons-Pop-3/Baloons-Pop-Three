@@ -1,23 +1,22 @@
 ﻿namespace BalloonsPop.Engine
 {
     using System;
-
     using Commands.Contracts;
     using Common.Constants;
     using Common.Enums;
     using Common.Validators;
+    using Contexts;
     using Contexts.Contracts;
+    using Contracts;
     using Controllers.Contracts;
     using Data.Contracts;
-    using Contracts;
+    using Factories;
     using Factories.Contracts;
+    using LogicProviders.Contracts;
     using Models;
+    using Models.Contracts;
     using Printer;
     using Reader;
-    using LogicProviders.Contracts;
-    using Contexts;
-    using Factories;
-    using Models.Contracts;
 
     internal class GameEngine : IGameEngine
     {

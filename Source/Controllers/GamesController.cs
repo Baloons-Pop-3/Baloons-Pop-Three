@@ -2,13 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
+    using Common.Constants;
     using Contracts;
     using Data.Contracts;
     using Models;
     using Models.Contracts;
-    using Printer;
-    using Common.Constants;
 
     public class GamesController : IGamesController
     {
@@ -20,6 +18,7 @@
         }
 
         public object Board { get; private set; }
+
         public IGenericRepository<Game> Games { get; private set; }
 
         public void AddGame(IGame game)
@@ -41,7 +40,7 @@
         {
             if (string.IsNullOrWhiteSpace(id))
             {
-                throw new ArgumentException(ComponentName+GlobalMessages.NullIdExceptionMsg);
+                throw new ArgumentException(ComponentName + GlobalMessages.NullIdExceptionMsg);
             }
 
             return this.Games.Find(id);

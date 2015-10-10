@@ -18,7 +18,7 @@
         [ExpectedException(typeof(ArgumentException))]
         public void PlayerShouldThrowArgumentExceptionWhenNameIsEmptyString()
         {
-            var player = new Player { Name = "", Score = 5, Id = "1" };
+            var player = new Player { Name = string.Empty, Score = 5, Id = "1" };
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@
         [ExpectedException(typeof(ArgumentException))]
         public void PlayerShouldThrowArgumentExceptionWhenScoreIsNegative()
         {
-            var player = new Player { Name = "", Score = -5, Id = "1" };
+            var player = new Player { Name = "Pesho", Score = -5, Id = "1" };
         }
 
         [TestMethod]

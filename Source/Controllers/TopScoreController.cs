@@ -6,8 +6,8 @@
     using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Models;
-    using Models.Contracts;
     using Common.Constants;
+    using Models.Contracts;
 
     public class TopScoreController : ITopScoreController
     {

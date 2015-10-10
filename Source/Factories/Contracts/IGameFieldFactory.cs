@@ -7,8 +7,6 @@
 
     internal interface IGameFieldFactory
     {
-        IContext Context { get; }
-
         Game CreateGame(GameDifficulty input);
     }
 }

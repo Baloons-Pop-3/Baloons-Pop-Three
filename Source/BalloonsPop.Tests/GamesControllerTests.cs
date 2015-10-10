@@ -11,7 +11,6 @@
     [TestClass]
     public class GamesControllerTests
     {
-
         private readonly IEnumerable<Game> fakeGames;
         private readonly MockIGenericRepository<Game> gamesRepo;
         private GamesController gamesController;
@@ -40,7 +39,7 @@
         [TestMethod]
         public void AllGames_ShouldReturnFakeCollectionGames()
         {
-            var allGames=this.gamesController.All();
+            var allGames = this.gamesController.All();
 
             Assert.AreEqual(allGames.Count(), allGames.Count());
         }
@@ -67,7 +66,7 @@
         [ExpectedException(typeof(ArgumentException))]
         public void SearchById_WhenEmptyStringProvided_ShouldThrow()
         {
-             this.gamesController.SearchById("");
+            this.gamesController.SearchById(string.Empty);
         }
 
         private IEnumerable<Game> GenerateFakeCollectionOfGames()
@@ -80,7 +79,7 @@
             games.Add(new Game(new GameField(10, 10)));
             games.Add(new Game(new GameField(15, 15)));
 
-           return games;
+            return games;
         }
     }
 }

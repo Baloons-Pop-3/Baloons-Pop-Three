@@ -1,19 +1,19 @@
-﻿using BalloonsPop.Commands;
-using BalloonsPop.Contexts.Contracts;
-using BalloonsPop.Tests.Mocks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace BalloonsPop.Tests.Commands.Tests
+﻿namespace BalloonsPop.Tests.Commands.Tests
 {
+    using BalloonsPop.Commands;
+    using BalloonsPop.Contexts.Contracts;
+    using BalloonsPop.Tests.Mocks;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class TopScoreCommandTests
     {
-        private IContext context;
         private readonly TopScoreCommand command;
+        private IContext context;
 
         public TopScoreCommandTests()
         {
-            this.context = new MockIContext().mockContext.Object;
+            this.context = new MockIContext().MockContext.Object;
             this.command = new TopScoreCommand();
         }
 

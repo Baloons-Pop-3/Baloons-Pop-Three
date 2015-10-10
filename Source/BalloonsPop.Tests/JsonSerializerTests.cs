@@ -1,9 +1,8 @@
 ﻿namespace BalloonsPop.Tests
 {
-    using System;
+    using Common.Serializer;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using BalloonsPop.Models;
-    using BalloonsPop.Common.Serializer;
+    using Models;
 
     [TestClass]
     public class JsonSerializerTests
@@ -12,8 +11,8 @@
         public void JsonSerializer_ShouldReturnCorrectResultWhenInputHasNoProperies()
         {
             var serializer = new JsonSerializer();
-            Player input = new Player {};
-            string expResult = "{\"Name\":null,\"Score\":0,\"Id\":null}" ; 
+            Player input = new Player { };
+            string expResult = "{\"Name\":null,\"Score\":0,\"Id\":null}";
 
             Assert.AreEqual(expResult, serializer.Serialize<Player>(input));
         }

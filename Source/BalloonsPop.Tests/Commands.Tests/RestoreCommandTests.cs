@@ -1,14 +1,8 @@
 ﻿namespace BalloonsPop.Tests.Commands.Tests
 {
     using BalloonsPop.Commands;
-    using Mocks;
-    using Contexts.Contracts;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Mocks;
 
     [TestClass]
     public class RestoreCommandTests
@@ -26,8 +20,8 @@
         public void Execute_WithValidId_ShouldReturnSearchedGame()
         {
             var mockReader = new MockIReader("FakeId");
-            var context = mockingTool.mockContext.Object;
-            this.mockingTool.mockContext.SetupGet(x => x.Reader).Returns(mockReader.mockReader.Object);
+            var context = this.mockingTool.MockContext.Object;
+            this.mockingTool.MockContext.SetupGet(x => x.Reader).Returns(mockReader.MockReader.Object);
             var expectedGame = context.GameLogic.Game;
 
             this.command.Execute(context);
@@ -41,8 +35,8 @@
         public void Execute_WithInValidId_ShouldReturnTheSameGame()
         {
             var mockReader = new MockIReader("InvalidId");
-            var context = mockingTool.mockContext.Object;
-            this.mockingTool.mockContext.SetupGet(x => x.Reader).Returns(mockReader.mockReader.Object);
+            var context = this.mockingTool.MockContext.Object;
+            this.mockingTool.MockContext.SetupGet(x => x.Reader).Returns(mockReader.MockReader.Object);
             var expectedGame = context.GameLogic.Game;
 
             this.command.Execute(context);

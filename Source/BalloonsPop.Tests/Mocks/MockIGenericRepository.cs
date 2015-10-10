@@ -17,7 +17,7 @@
 
             this.MockedRepo.Setup(r => r.Add(It.IsAny<T>())).Verifiable();
             this.MockedRepo.Setup(r => r.All()).Returns(collection);
-            this.MockedRepo.Setup(r => r.Find(It.IsAny<string>())).Returns((string id) => collection.FirstOrDefault(c=>c.Id==id));
+            this.MockedRepo.Setup(r => r.Find(It.IsAny<string>())).Returns((string id) => collection.FirstOrDefault(c => c.Id == id));
         }
     }
 }

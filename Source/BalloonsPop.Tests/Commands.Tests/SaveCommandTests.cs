@@ -1,24 +1,19 @@
 ﻿namespace BalloonsPop.Tests.Commands.Tests
 {
     using BalloonsPop.Commands;
-    using Mocks;
     using Contexts.Contracts;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Mocks;
 
     [TestClass]
     public class SaveCommandTests
     {
-        private IContext context;
         private readonly SaveCommand command;
+        private IContext context;
 
         public SaveCommandTests()
         {
-            this.context = new MockIContext().mockContext.Object;
+            this.context = new MockIContext().MockContext.Object;
             this.command = new SaveCommand();
         }
 

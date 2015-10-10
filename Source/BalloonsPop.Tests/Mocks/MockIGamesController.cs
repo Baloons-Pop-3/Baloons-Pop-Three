@@ -1,25 +1,23 @@
-﻿using BalloonsPop.Controllers.Contracts;
-using BalloonsPop.Models;
-using BalloonsPop.Models.Contracts;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BalloonsPop.Tests.Mocks
+﻿namespace BalloonsPop.Tests.Mocks
 {
-    class MockIGamesController
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Controllers.Contracts;
+    using Models;
+    using Models.Contracts;
+    using Moq;
+
+    public class MockIGamesController
     {
-        public readonly Mock<IGamesController> mockGamesController;
+        public readonly Mock<IGamesController> MockGamesController;
 
         public MockIGamesController()
         {
-            this.mockGamesController = new Mock<IGamesController>();
-            this.mockGamesController.Setup(x => x.All()).Returns(GenerateFakeCollectionOfGames());
-            this.mockGamesController.Setup(x => x.AddGame(It.IsAny<IGame>())).Verifiable();
-            this.mockGamesController.Setup(x => x.SearchById(It.IsAny<string>())).Returns((string id) => this.GenerateFakeCollectionOfGames().FirstOrDefault(c => c.Id == id));
+            this.MockGamesController = new Mock<IGamesController>();
+            this.MockGamesController.Setup(x => x.All()).Returns(this.GenerateFakeCollectionOfGames());
+            this.MockGamesController.Setup(x => x.AddGame(It.IsAny<IGame>())).Verifiable();
+            this.MockGamesController.Setup(x => x.SearchById(It.IsAny<string>())).Returns((string id) => this.GenerateFakeCollectionOfGames().FirstOrDefault(c => c.Id == id));
         }
 
         private IEnumerable<Game> GenerateFakeCollectionOfGames()

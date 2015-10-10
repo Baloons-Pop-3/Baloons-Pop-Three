@@ -17,6 +17,7 @@
     using Models.Contracts;
     using Printer;
     using Reader.Contracts;
+    using BalloonsPop.Printer.Contracts;
 
     internal class GameEngine : IGameEngine
     {

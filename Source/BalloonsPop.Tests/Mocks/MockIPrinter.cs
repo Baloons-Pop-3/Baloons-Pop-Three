@@ -1,5 +1,6 @@
 ﻿using BalloonsPop.Models;
 using BalloonsPop.Printer;
+using BalloonsPop.Printer.Contracts;
 using Moq;
 using System;
 using System.Collections;

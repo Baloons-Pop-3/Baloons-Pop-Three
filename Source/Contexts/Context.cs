@@ -5,6 +5,7 @@
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Mementos;
     using BalloonsPop.Printer;
+    using BalloonsPop.Printer.Contracts;
     using BalloonsPop.Reader.Contracts;
     using LogicProviders.Contracts;
 

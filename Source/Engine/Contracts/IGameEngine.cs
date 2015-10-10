@@ -1,5 +1,6 @@
 ﻿namespace BalloonsPop.Engine.Contracts
 {
+    using BalloonsPop.Printer.Contracts;
     using Controllers.Contracts;
     using Data.Contracts;
     using LogicProviders.Contracts;

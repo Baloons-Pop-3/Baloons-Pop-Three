@@ -16,6 +16,8 @@
     using Controllers.Contracts;
     using Data.Contracts;
     using Data;
+    using BalloonsPop.Printer.Contracts;
+    using BalloonsPop.Reader.Contracts;
 
     [TestClass]
     class GameEngineTests

@@ -62,6 +62,8 @@
     <Compile Include="Commands.Tests\RestoreCommandTests.cs" />
     <Compile Include="Commands.Tests\SaveCommandTests.cs" />
     <Compile Include="Commands.Tests\StartCommandTests.cs" />
+    <Compile Include="Commands.Tests\TopScoreCommandTests.cs" />
+    <Compile Include="Commands.Tests\UndoCommandTests.cs" />
     <Compile Include="CoordinatesTests.cs" />
     <Compile Include="GameEngineTests.cs" />
     <Compile Include="GamesControllerTests.cs" />

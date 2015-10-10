@@ -6,21 +6,21 @@
 //-----------------------------------------------------------------------
 namespace BalloonsPop
 {
-    using BalloonsPop.Common.Constants;
-    using BalloonsPop.Controllers;
-    using BalloonsPop.Controllers.Contracts;
-    using BalloonsPop.Data;
-    using BalloonsPop.Data.Contracts;
-    using BalloonsPop.Data.Repositories;
-    using BalloonsPop.Engine;
-    using BalloonsPop.Engine.Contracts;
-    using BalloonsPop.LogicProviders;
-    using BalloonsPop.LogicProviders.Contracts;
-    using BalloonsPop.Models;
-    using BalloonsPop.Printer;
-    using BalloonsPop.Printer.Contracts;
-    using BalloonsPop.Reader;
-    using BalloonsPop.Reader.Contracts;
+    using Common.Constants;
+    using Controllers;
+    using Controllers.Contracts;
+    using Data;
+    using Data.Contracts;
+    using Data.Repositories;
+    using Engine;
+    using Engine.Contracts;
+    using LogicProviders;
+    using LogicProviders.Contracts;
+    using Models;
+    using Printer;
+    using Printer.Contracts;
+    using Reader;
+    using Reader.Contracts;
 
     /// <summary>
     /// Class that hides the complex logic for creating a game.

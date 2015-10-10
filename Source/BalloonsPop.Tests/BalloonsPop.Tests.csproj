@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,6 +58,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CommandFactoryTests.cs" />
+    <Compile Include="Commands.Tests\RestartCommandTests.cs" />
     <Compile Include="Commands.Tests\StartCommandTests.cs" />
     <Compile Include="CoordinatesTests.cs" />
     <Compile Include="GameEngineTests.cs" />

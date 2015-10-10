@@ -18,6 +18,8 @@
     using Data;
     using Reader.Contracts;
     using Printer.Contracts;
+    using LogicProviders;
+    using Common.Constants;
 
     [TestClass]
     public class GameEngineTests
@@ -37,7 +39,7 @@
 
         public GameEngineTests()
         {
-            this.field = new GameField(5, 5);
+            this.field = new GameField(GlobalConstants.DefaultLevelRows, GlobalConstants.DefaultLevelCols);
             this.game = new Game(this.field);
             this.gameLogic = new GameLogicProvider(this.game);
             this.mockPrinter = new MockIPrinter().mockPrinter.Object;

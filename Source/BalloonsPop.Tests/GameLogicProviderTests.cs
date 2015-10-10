@@ -3,6 +3,7 @@
     using Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
+    using LogicProviders;
 
     [TestClass]
     public class GameLogicProviderTests

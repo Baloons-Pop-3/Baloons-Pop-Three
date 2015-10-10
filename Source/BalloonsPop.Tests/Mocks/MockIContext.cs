@@ -18,6 +18,7 @@
     using Data;
     using Mementos;
     using Common.Constants;
+    using LogicProviders;
 
     class MockIContext
     {

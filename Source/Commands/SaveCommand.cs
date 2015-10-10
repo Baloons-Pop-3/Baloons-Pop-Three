@@ -8,25 +8,18 @@
 
     internal class SaveCommand : ICommand
     {
-        public SaveCommand(IContext context)
+        public void Execute(IContext context)
         {
-            this.Context = context;
-        }
+            context.Printer.PrintMessage(GlobalMessages.SaveGameMsg);
+            var gameId = context.Reader.ReadInput();
 
-        public IContext Context { get; private set; }
-
-        public void Execute()
-        {
-            this.Context.Printer.PrintMessage(GlobalMessages.SaveGameMsg);
-            var gameId = this.Context.Reader.ReadInput();
-
-            IGame savedGame = this.Context.GameLogic.Game.Clone();
+            IGame savedGame = context.GameLogic.Game.Clone();
             savedGame.Id = gameId;
 
-            this.Context.GamesController.AddGame(savedGame);
+            context.GamesController.AddGame(savedGame);
 
-            this.Context.Printer.PrintMessage(GlobalMessages.SavedGameMsg);
-            this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
+            context.Printer.PrintMessage(GlobalMessages.SavedGameMsg);
+            context.Printer.PrintGameBoard(context.GameLogic.Game.Field);
         }
     }
 }

@@ -6,16 +6,9 @@
 
     internal class TopScoreCommand : ICommand
     {
-        public TopScoreCommand(IContext context)
+        public void Execute(IContext context)
         {
-            this.Context = context;
-        }
-
-        public IContext Context { get; private set; }
-
-        public void Execute()
-        {
-            this.Context.Printer.PrintTopScore(this.Context.TopScoreController.GetTop(GlobalConstants.NumberOfTopPlayers));
+            context.Printer.PrintTopScore(context.TopScoreController.GetTop(GlobalConstants.NumberOfTopPlayers));
         }
     }
 }

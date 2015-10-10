@@ -12,7 +12,7 @@
     using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Models;
     using BalloonsPop.Printer;
-    using BalloonsPop.Printer.Contracts;
+    using Printer.Contracts;
     using BalloonsPop.Reader;
     using BalloonsPop.Reader.Contracts;
     using LogicProviders.Contracts;

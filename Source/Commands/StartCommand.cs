@@ -9,31 +9,24 @@
 
     internal class StartCommand : ICommand
     {
-        public StartCommand(IContext context)
-        {
-            this.Context = context;
-        }
-
-        public IContext Context { get; private set; }
-
-        public void Execute()
+        public void Execute(IContext context)
         {
             var factory = new GameFieldFactory();
             var validator = new CommandValidator<GameDifficulty>();
 
-            this.Context.Printer.PrintMessage(GlobalMessages.StartCommandMsg);
-            var input = this.Context.Reader.ReadInput();
+            context.Printer.PrintMessage(GlobalMessages.StartCommandMsg);
+            var input = context.Reader.ReadInput();
 
             if (validator.IsValidCommand(input))
             {
-                this.Context.GameLogic.Game = factory.CreateGame(validator.GetType(input));
+                context.GameLogic.Game = factory.CreateGame(validator.GetType(input));
             }
             else
             {
-                this.Context.Printer.PrintMessage(GlobalMessages.StartCommandInvalidDifficultyMsg);
+                context.Printer.PrintMessage(GlobalMessages.StartCommandInvalidDifficultyMsg);
             }
 
-            this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
+            context.Printer.PrintGameBoard(context.GameLogic.Game.Field);
         }
     }
 }

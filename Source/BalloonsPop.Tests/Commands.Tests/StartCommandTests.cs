@@ -11,21 +11,24 @@
     using BalloonsPop.Commands;
 
     [TestClass]
-    public class SaveCommandTests
+    public class StartCommandTests
     {
-        private readonly IContext mockContext;
+        private  MockIContext mockingTool;
         private readonly StartCommand command;
 
-        public SaveCommandTests()
+        public StartCommandTests()
         {
-            this.mockContext = new MockIContext().mockContext.Object;
             this.command = new StartCommand();
         }
 
         [TestMethod]
-        public void Execute_ShouldSave()
+        public void Execute_ShouldStart()
         {
-            this.command.Execute(this.mockContext);
+            var mockReader = new MockIReader("easy");
+            this.mockingTool = new MockIContext();           
+            this.mockingTool.mockContext.SetupGet(x => x.Reader).Returns(mockReader.mockReader.Object);
+          
+            this.command.Execute(mockingTool.mockContext.Object);
         }
     }
 }

@@ -16,6 +16,8 @@
 
         public IGame Game { get; set; }
 
+        public bool IsGameOver {  set; get; }
+
         public void ShootBalloonAtPosition(ICoordinates positionToShoot)
         {
             char balloonToShoot = this.GetBaloonTypeFromPosition(positionToShoot);

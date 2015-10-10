@@ -64,7 +64,12 @@
                 this.Printer.PrintMessage(GlobalMessages.GreetingMsg);
                
                 this.ProcessInput(input);
-                Console.WriteLine(this.GameLogic.Game.RemainingBalloons);
+                //Console.WriteLine(this.GameLogic.Game.RemainingBalloons);
+
+                if (this.GameLogic.IsGameOver)
+                {
+                    return;
+                }
             }
 
             ICommand command = this.Factory.CreateCommand(CommandType.Finish);

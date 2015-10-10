@@ -22,17 +22,16 @@
     [TestClass]
     public class GameEngineTests
     {
-        private readonly GameField field;
-        private readonly Game game;
-        private readonly IGamePrinter mockPrinter;
-        private readonly IReader mockReader;
-        private readonly IGameLogicProvider gameLogic;
-        private readonly ITopScoreController topScoreController;
-        private readonly IGamesController gamesController;
-        private readonly IGameEngine engine;
-        private readonly MockIGenericRepository<Game> gamesRepo;
-        private readonly MockIGenericRepository<Player> playersRepo;
-        private readonly IBalloonsData db;
+        private GameField field;
+        private Game game;
+        private IGamePrinter mockPrinter;
+        private IReader mockReader;
+        private IGameLogicProvider gameLogic;
+        private ITopScoreController topScoreController;
+        private IGamesController gamesController;
+        private MockIGenericRepository<Game> gamesRepo;
+        private MockIGenericRepository<Player> playersRepo;
+        private IBalloonsData db;
 
 
 
@@ -42,14 +41,29 @@
             this.game = new Game(this.field);
             this.gameLogic = new GameLogicProvider(this.game);
             this.mockPrinter = new MockIPrinter().mockPrinter.Object;
-            this.mockReader = new MockIReader().mockReader.Object;
             this.topScoreController = new MockITopScoreController().mockTopScoreController.Object;
             this.gamesController = new MockIGamesController().mockGamesController.Object;
             this.gamesRepo = new MockIGenericRepository<Game>(this.GenerateFakeCollectionOfGames());
             this.playersRepo = new MockIGenericRepository<Player>(this.GenerateFakeCollectionOfPlayers());
-            this.db = new BalloonsData(this.playersRepo.MockedRepo.Object, this.gamesRepo.MockedRepo.Object);
+            this.db = new BalloonsData(this.playersRepo.MockedRepo.Object, this.gamesRepo.MockedRepo.Object);           
+        }
 
-            this.engine = new GameEngine(this.gameLogic, this.mockPrinter, this.mockReader, this.db, this.topScoreController, this.gamesController);
+        [TestMethod]
+        public void StartGame_WithExitInput_ShouldEndGame()
+        {
+            this.mockReader = new MockIReader("exit").mockReader.Object;
+            var engine = new GameEngine(this.gameLogic, this.mockPrinter, this.mockReader, this.db, this.topScoreController, this.gamesController);
+
+            engine.StartGame();
+        }
+
+        [TestMethod]
+        public void StartGame_WithFinishInput_ShouldEndGame()
+        {
+            this.mockReader = new MockIReader("finish").mockReader.Object;
+            var engine = new GameEngine(this.gameLogic, this.mockPrinter, this.mockReader, this.db, this.topScoreController, this.gamesController);
+
+            engine.StartGame();
         }
 
         private IEnumerable<Player> GenerateFakeCollectionOfPlayers()

@@ -42,7 +42,7 @@
             this.mockPrinter = new MockIPrinter().mockPrinter.Object;
             this.mockReader = new MockIReader().mockReader.Object;
             this.topScoreController = new MockITopScoreController().mockTopScoreController.Object;
-            this.gamesController = new MockIGamesController().mockTopScoreController.Object;
+            this.gamesController = new MockIGamesController().mockGamesController.Object;
             this.gamesRepo = new MockIGenericRepository<Game>(this.GenerateFakeCollectionOfGames());
             this.playersRepo = new MockIGenericRepository<Player>(this.GenerateFakeCollectionOfPlayers());
             this.db = new BalloonsData(this.playersRepo.MockedRepo.Object, this.gamesRepo.MockedRepo.Object);

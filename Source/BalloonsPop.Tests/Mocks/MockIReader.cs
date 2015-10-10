@@ -13,10 +13,10 @@ namespace BalloonsPop.Tests.Mocks
     {
         public readonly Mock<IReader> mockReader;
 
-        public MockIReader()
+        public MockIReader(string msgToReturn)
         {
             this.mockReader = new Mock<IReader>();
-            this.mockReader.Setup(p => p.ReadInput()).Returns("fake input");
+            this.mockReader.Setup(p => p.ReadInput()).Returns(msgToReturn);
         }
     }
 }

@@ -40,7 +40,7 @@
             this.game = new Game(this.field);
             this.gameLogic = new GameLogicProvider(this.game);
             this.mockPrinter = new MockIPrinter().mockPrinter.Object;
-            this.mockReader = new MockIReader().mockReader.Object;
+            this.mockReader = new MockIReader("default").mockReader.Object;
             this.topScoreController = new MockITopScoreController().mockTopScoreController.Object;
             this.gamesController = new MockIGamesController().mockGamesController.Object;
             this.gamesRepo = new MockIGenericRepository<Game>(this.GenerateFakeCollectionOfGames());

@@ -21,6 +21,7 @@
             player.Name = context.Reader.ReadInput();
 
             context.TopScoreController.AddPlayer(player);
+            context.GameLogic.IsGameOver = true;
         }
     }
 }

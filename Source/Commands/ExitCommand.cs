@@ -9,6 +9,7 @@
         public void Execute(IContext context)
         {
             context.Printer.PrintMessage(GlobalMessages.ExitCommandMessageMsg);
+            context.GameLogic.IsGameOver = true;
         }
     }
 }

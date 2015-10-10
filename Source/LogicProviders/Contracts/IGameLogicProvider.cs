@@ -9,6 +9,8 @@
     {
         IGame Game { get; set; }
 
+        bool IsGameOver { get; set; }
+
         void ShootBalloonAtPosition(ICoordinates positionToShoot);
     }
 }

@@ -4,7 +4,7 @@
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Mementos;
     using BalloonsPop.Printer;
-    using BalloonsPop.Reader;
+    using BalloonsPop.Reader.Contracts;
     using LogicProviders.Contracts;
 
      internal interface IContext

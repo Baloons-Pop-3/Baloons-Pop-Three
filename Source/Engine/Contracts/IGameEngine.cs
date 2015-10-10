@@ -4,7 +4,7 @@
     using Data.Contracts;
     using LogicProviders.Contracts;
     using Printer;
-    using Reader;
+    using Reader.Contracts;
 
     public interface IGameEngine
     {

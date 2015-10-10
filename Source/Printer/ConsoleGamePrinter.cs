@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Printer
+﻿//-----------------------------------------------------------------------
+// <copyright file="ConsoleGamePrinter.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the ConsoleGamePrinter class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Printer
 {
     using System;
     using System.Collections;
@@ -6,15 +12,28 @@
     using BalloonsPop.Drawer;
     using BalloonsPop.Drawer.Contracts;
     using BalloonsPop.Models;
+    using BalloonsPop.Printer.Contracts;
 
+    /// <summary>
+    /// A single-instance class that provides methods for printing to the console and cleaning the display.
+    /// </summary>
     internal sealed class ConsoleGamePrinter : IGamePrinter
     {
+        /// <summary>
+        ///  The instance of the <see cref="ConsoleGamePrinter"/> class.
+        /// </summary>
         private static ConsoleGamePrinter instance;
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="ConsoleGamePrinter"/> class from being created.
+        /// </summary>
         private ConsoleGamePrinter()
         {
         }
 
+        /// <summary>
+        /// Gets the instance from the <see cref="ConsoleGamePrinter"/> class.
+        /// </summary>
         public static ConsoleGamePrinter Instance
         {
             get
@@ -28,13 +47,24 @@
             }
         }
 
+        /// <summary>
+        /// Gets the drawing logic.
+        /// </summary>
+        /// <value>The drawing logic.</value>
         public IGameBoardDrawingLogic DrawingLogic { get; private set; }
 
+        /// <summary>
+        /// Cleans the console.
+        /// </summary>
         public void CleanDisplay()
         {
             Console.Clear();
         }
 
+        /// <summary>
+        /// Prints the game board on the console.
+        /// </summary>
+        /// <param name="field">The game board to be printed on the console.</param>
         public void PrintGameBoard(GameField field)
         {
             this.DrawingLogic = new GameBoardDrawingLogic(field);
@@ -80,11 +110,19 @@
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Prints the message on the console.
+        /// </summary>
+        /// <param name="msg">The string message to be printed on the console.</param>
         public void PrintMessage(string msg)
         {
             Console.WriteLine(msg);
         }
 
+        /// <summary>
+        /// Prints the top scores on the console.
+        /// </summary>
+        /// <param name="topScorePlayers">Collection of top scores players to be printed on the console.</param>
         public void PrintTopScore(IEnumerable topScorePlayers)
         {
             var playerPosition = 1;
@@ -98,6 +136,10 @@
             }
         }
 
+        /// <summary>
+        /// Colors the balloons.
+        /// </summary>
+        /// <param name="color">The color of the balloons.</param>
         private static void ColoringBalloons(ConsoleColor color)
         {
             ConsoleColor originalColor = Console.ForegroundColor;

@@ -10,11 +10,10 @@
     using BalloonsPop.Data.Repositories;
     using BalloonsPop.Engine;
     using BalloonsPop.Engine.Contracts;
-    using BalloonsPop.Factories;
-    using BalloonsPop.Factories.Contracts;
     using BalloonsPop.Models;
     using BalloonsPop.Printer;
     using BalloonsPop.Reader;
+    using BalloonsPop.Reader.Contracts;
     using LogicProviders.Contracts;
 
     internal class GameFacade

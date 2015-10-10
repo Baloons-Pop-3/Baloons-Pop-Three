@@ -16,7 +16,7 @@
     using Models;
     using Models.Contracts;
     using Printer;
-    using Reader;
+    using Reader.Contracts;
 
     internal class GameEngine : IGameEngine
     {

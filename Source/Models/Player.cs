@@ -10,13 +10,16 @@
     /// </summary>
     public class Player : IPlayer
     {
-        private const string componentName = "Player";
+        private const string ComponentName = "Player";
+        private const string ComponentScore = "Score";
 
         /// <summary>
         /// The name of the user.
         /// </summary>
         private string name;
-        
+
+        private int score;
+
         /// <summary>
         /// Gets the user name, and sets it to the correct value via validation.
         /// </summary>
@@ -31,8 +34,9 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException(componentName+GlobalMessages.NullExceptionMsg);
+                    throw new ArgumentException(ComponentName + GlobalMessages.NullExceptionMsg);
                 }
+
                 this.name = value;
             }
         }
@@ -40,7 +44,23 @@
         /// <summary>
         ///  Gets the user score and sets it to the value , used for better data understanding.
         /// </summary>
-        public int Score { get; set; }
+        public int Score
+        {
+            get
+            {
+                return this.score;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException(ComponentScore + GlobalMessages.ScoreNegativeMsg);
+                }
+
+                this.score = value;
+            }
+        }
 
         /// <summary>
         /// gets or sets user Id 

@@ -97,7 +97,7 @@
     <Compile Include="Factories\CommandFactory.cs" />
     <Compile Include="Factories\Contracts\ICommandFactory.cs" />
     <Compile Include="Factories\Contracts\IGameFieldFactory.cs" />
-    <Compile Include="Factories\GameFieldFactory.cs" />
+    <Compile Include="Factories\GameFactory.cs" />
     <Compile Include="LogicProviders\Contracts\IGameLogicProvider.cs" />
     <Compile Include="Mementos\GameStateMemory.cs" />
     <Compile Include="Mementos\GameMemento.cs" />

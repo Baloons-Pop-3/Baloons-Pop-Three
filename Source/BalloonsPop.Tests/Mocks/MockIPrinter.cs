@@ -10,18 +10,16 @@ using System.Threading.Tasks;
 
 namespace BalloonsPop.Tests.Mocks
 {
-    class MockPrinter
+    class MockIPrinter
     {
-        public readonly Mock<IGamePrinter> mockedPrinter;
+        public readonly Mock<IGamePrinter> mockPrinter;
 
-        public MockPrinter()
+        public MockIPrinter()
         {
-            this.mockedPrinter = new Mock<IGamePrinter>();
-            this.mockedPrinter.Setup(p => p.PrintMessage(It.IsAny<string>())).Verifiable();
-            this.mockedPrinter.Setup(p => p.PrintTopScore(It.IsAny<IEnumerable>())).Verifiable();
-            this.mockedPrinter.Setup(p => p.PrintGameBoard(It.IsAny<GameField>())).Verifiable();
-            //this.mockedPrinter.Setup(p=>p.)
-
+            this.mockPrinter = new Mock<IGamePrinter>();
+            this.mockPrinter.Setup(p => p.PrintMessage(It.IsAny<string>())).Verifiable();
+            this.mockPrinter.Setup(p => p.PrintTopScore(It.IsAny<IEnumerable>())).Verifiable();
+            this.mockPrinter.Setup(p => p.PrintGameBoard(It.IsAny<GameField>())).Verifiable();
         }
     }
 }

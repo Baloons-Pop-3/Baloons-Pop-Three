@@ -1,5 +1,8 @@
 ﻿namespace BalloonsPop.Common.Constants
 {
+    /// <summary>
+    /// Stores all constants and paths.
+    /// </summary>
     public class GlobalConstants
     {
         internal const int EasyLevelRows = 5;

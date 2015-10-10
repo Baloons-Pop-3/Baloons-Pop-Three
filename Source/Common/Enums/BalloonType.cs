@@ -1,5 +1,8 @@
 ﻿namespace BalloonsPop.Common.Enums
 {
+    /// <summary>
+    /// Stores all types of balloons.
+    /// </summary>
     internal enum BallonType
     {
         First = '1',

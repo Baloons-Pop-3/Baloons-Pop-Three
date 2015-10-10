@@ -9,7 +9,7 @@ namespace BalloonsPop.Models
     using Contracts;
 
     /// <summary>
-    /// Class that creates new coordinates instances and provides a method for determining whether a passed input value
+    /// Class that creates new coordinates' instances and provides a method for determining whether a passed input value
     /// can be parsed to a new coordinate.
     /// </summary>
     public class Coordinates : ICoordinates

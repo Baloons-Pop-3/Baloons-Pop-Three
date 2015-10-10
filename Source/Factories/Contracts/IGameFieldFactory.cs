@@ -9,6 +9,6 @@
     {
         IContext Context { get; }
 
-        GameField CreateGame(GameDifficulty input);
+        Game CreateGame(GameDifficulty input);
     }
 }

@@ -26,7 +26,7 @@
 
             if (validator.IsValidCommand(input))
             {
-                this.Context.GameLogic.Game.Field = factory.CreateGame(validator.GetType(input));             
+                this.Context.GameLogic.Game = factory.CreateGame(validator.GetType(input));
             }
             else
             {

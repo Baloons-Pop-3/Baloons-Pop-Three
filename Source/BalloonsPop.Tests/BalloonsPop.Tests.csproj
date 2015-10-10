@@ -55,9 +55,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CoordinatesTests.cs" />
+    <Compile Include="GameEngineTests.cs" />
     <Compile Include="GamesControllerTests.cs" />
     <Compile Include="GameTests.cs" />
     <Compile Include="Mocks\MockGenericRepository.cs" />
+    <Compile Include="Mocks\MockPrinter.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="TestBalloonsData.cs" />
     <Compile Include="TopScoreControllerTests.cs" />

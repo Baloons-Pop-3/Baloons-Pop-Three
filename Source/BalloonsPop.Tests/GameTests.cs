@@ -103,5 +103,13 @@
 
             Assert.AreEqual(memento.RemainingBalloons, this.game.RemainingBalloons);
         }
+
+        [TestMethod]
+        public void GetField_ShouldReturnFieldWithSameGameSize()
+        {
+            var field = new GameField(2, 3);
+            Assert.AreEqual(2, field.GetField().GetLength(0));
+            Assert.AreEqual(3, field.GetField().GetLength(1));
+        }
     }
 }

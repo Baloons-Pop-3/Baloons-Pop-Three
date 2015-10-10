@@ -60,8 +60,9 @@
     <Compile Include="GameEngineTests.cs" />
     <Compile Include="GamesControllerTests.cs" />
     <Compile Include="GameTests.cs" />
-    <Compile Include="Mocks\MockGenericRepository.cs" />
-    <Compile Include="Mocks\MockPrinter.cs" />
+    <Compile Include="Mocks\MockIGenericRepository.cs" />
+    <Compile Include="Mocks\MockIPrinter.cs" />
+    <Compile Include="Mocks\MockIReader.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="TestBalloonsData.cs" />
     <Compile Include="TopScoreControllerTests.cs" />

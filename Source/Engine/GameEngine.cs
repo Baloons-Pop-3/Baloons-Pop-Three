@@ -61,7 +61,7 @@
                 var input = this.Reader.ReadInput();
                 this.Printer.CleanDisplay();
                 this.Printer.PrintMessage(GlobalMessages.GreetingMsg);
-
+               
                 this.ProcessInput(input);
                 Console.WriteLine(this.GameLogic.Game.RemainingBalloons);
             }

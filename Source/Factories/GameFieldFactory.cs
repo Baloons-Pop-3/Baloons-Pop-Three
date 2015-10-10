@@ -9,13 +9,6 @@
 
     internal class GameFieldFactory : IGameFieldFactory
     {
-        public GameFieldFactory(IContext context)
-        {
-            this.Context = context;
-        }
-
-        public IContext Context { get; private set; }
-
         public Game CreateGame(GameDifficulty input)
         {
             switch (input)

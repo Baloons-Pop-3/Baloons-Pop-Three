@@ -18,7 +18,7 @@
     using Data;
 
     [TestClass]
-    class GameEngineTests
+    public class GameEngineTests
     {
         private readonly GameField field;
         private readonly Game game;
@@ -72,5 +72,13 @@
 
             return games;
         }
+
+        //[TestMethod]
+        //public void Sa()
+        //{
+        //    this.engine.
+        //}
+
+
     }
 }

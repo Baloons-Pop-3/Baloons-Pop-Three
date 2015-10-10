@@ -12,13 +12,13 @@
     public class TopScoreControllerTests
     {
         private readonly IEnumerable<Player> fakePlayers;
-        private readonly MockGenericRepository<Player> playersRepo;
+        private readonly MockIGenericRepository<Player> playersRepo;
         private TopScoreController topScoreController;
 
         public TopScoreControllerTests()
         {
             this.fakePlayers = this.GenerateFakeCollectionOfPlayers();
-            this.playersRepo = new MockGenericRepository<Player>(this.fakePlayers);
+            this.playersRepo = new MockIGenericRepository<Player>(this.fakePlayers);
             this.topScoreController = new TopScoreController(this.playersRepo.MockedRepo.Object);
         }
 

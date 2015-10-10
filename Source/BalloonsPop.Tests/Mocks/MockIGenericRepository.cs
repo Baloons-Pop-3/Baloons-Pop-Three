@@ -7,11 +7,11 @@
     using Models.Contracts;
     using Moq;
 
-    public class MockGenericRepository<T> where T : IModel
+    public class MockIGenericRepository<T> where T : IModel
     {
         public readonly Mock<IGenericRepository<T>> MockedRepo;
 
-        public MockGenericRepository(IEnumerable<T> collection)
+        public MockIGenericRepository(IEnumerable<T> collection)
         {
             this.MockedRepo = new Mock<IGenericRepository<T>>();
 

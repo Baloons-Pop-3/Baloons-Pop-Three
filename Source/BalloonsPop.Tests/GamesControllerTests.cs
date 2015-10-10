@@ -13,13 +13,13 @@
     {
 
         private readonly IEnumerable<Game> fakeGames;
-        private readonly MockGenericRepository<Game> gamesRepo;
+        private readonly MockIGenericRepository<Game> gamesRepo;
         private GamesController gamesController;
 
         public GamesControllerTests()
         {
             this.fakeGames = this.GenerateFakeCollectionOfGames();
-            this.gamesRepo = new MockGenericRepository<Game>(this.fakeGames);
+            this.gamesRepo = new MockIGenericRepository<Game>(this.fakeGames);
             this.gamesController = new GamesController(this.gamesRepo.MockedRepo.Object);
         }
 

@@ -1,23 +1,48 @@
-﻿namespace BalloonsPop
+﻿//-----------------------------------------------------------------------
+// <copyright file="GameLogicProvider.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the GameLogicProvider class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.LogicProviders
 {
     using System;
     using Common.Constants;
     using Common.Enums;
-    using LogicProviders.Contracts;
+    using Contracts;
     using Models;
     using Models.Contracts;
 
+    /// <summary>
+    /// Class that provides the logic for the game for shooting, swaping, landing and getting the type of the balloons.
+    /// </summary>
     internal class GameLogicProvider : IGameLogicProvider
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameLogicProvider"/> class.
+        /// </summary>
+        /// <param name="game">The game for which a logic will be provided.</param>
         public GameLogicProvider(Game game)
         {
             this.Game = game;
         }
 
+        /// <summary>
+        /// Gets or sets the game.
+        /// </summary>
+        /// <value>The game to be set.</value>
         public IGame Game { get; set; }
 
-        public bool IsGameOver {  set; get; }
+        /// <summary>
+        /// Gets or sets a value indicating whether the game is over.
+        /// </summary> 
+        /// <value>True - if the game is over or otherwise - false.</value>
+        public bool IsGameOver { get; set; }
 
+        /// <summary>
+        /// Shoots a balloon at a position passed as a parameter.
+        /// </summary>
+        /// <param name="positionToShoot">The position of the balloon.</param>
         public void ShootBalloonAtPosition(ICoordinates positionToShoot)
         {
             char balloonToShoot = this.GetBaloonTypeFromPosition(positionToShoot);
@@ -43,6 +68,12 @@
             this.LandFlyingBaloons();
         }
 
+        /// <summary>
+        /// Shoots same balloons in a direction.
+        /// </summary>
+        /// <param name="direction">The direction to shoot - left, right, up or down.</param>
+        /// <param name="startingPoint">The starting coordinates.</param>
+        /// <param name="balloonToShoot">The type of the balloon.</param>
         private void ShootSameBalloonsInDirection(ShootingDirection direction, ICoordinates startingPoint, char balloonToShoot)
         {
             ICoordinates nextCoordinates = new Coordinates();
@@ -110,6 +141,11 @@
             }
         }
 
+        /// <summary>
+        /// Gets the type of the balloon from a particular position.
+        /// </summary>
+        /// <param name="currentPosition">The current coordinates of the balloon.</param>
+        /// <returns>The type of the balloon.</returns>
         private char GetBaloonTypeFromPosition(ICoordinates currentPosition)
         {
             bool isOutOfBoard = currentPosition.X < 0
@@ -125,6 +161,9 @@
             return this.Game.Field[currentPosition.X, currentPosition.Y];
         }
 
+        /// <summary>
+        /// Lands the flying balloons.
+        /// </summary>
         private void LandFlyingBaloons()
         {
             for (int column = 0; column < this.Game.Field.FieldCols; column++)
@@ -146,6 +185,11 @@
             }
         }
 
+        /// <summary>
+        /// Swaps the balloons.
+        /// </summary>
+        /// <param name="currentPosition">The current coordinates of the balloon.</param>
+        /// <param name="newPosition">The new coordinates of the balloon.</param>
         private void SwapBalloons(ICoordinates currentPosition, ICoordinates newPosition)
         {
             char balloonToSwap = this.GetBaloonTypeFromPosition(currentPosition);

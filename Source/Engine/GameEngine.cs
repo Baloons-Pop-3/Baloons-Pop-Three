@@ -59,11 +59,11 @@
             while (this.GameLogic.Game.RemainingBalloons > 0)
             {
                 var input = this.Reader.ReadInput();
-
                 this.Printer.CleanDisplay();
                 this.Printer.PrintMessage(GlobalMessages.GreetingMsg);
 
                 this.ProcessInput(input);
+                Console.WriteLine(this.GameLogic.Game.RemainingBalloons);
             }
 
             ICommand command = this.Factory.CreateCommand(CommandType.Finish);

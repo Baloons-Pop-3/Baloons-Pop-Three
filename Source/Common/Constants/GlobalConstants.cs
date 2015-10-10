@@ -3,7 +3,7 @@
     public class GlobalConstants
     {
         internal const int EasyLevelRows = 5;
-        internal const int EasyLevelCols = 6;
+        internal const int EasyLevelCols = 5;
         internal const int MediumLevelRows = 8;
         internal const int MediumLevelCols = 8;
         internal const int HardLevelRows = 12;

@@ -74,6 +74,7 @@
     <Compile Include="TopScoreControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameLogicProviderTests.cs" />
+    <Compile Include="GameBoardDrawingLogicTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -1,16 +1,32 @@
-﻿namespace BalloonsPop.Factories
+﻿//-----------------------------------------------------------------------
+// <copyright file="CommandFactory.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the CommandFactory class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Factories
 {
     using System.Collections.Generic;
     using BalloonsPop.Commands;
     using BalloonsPop.Commands.Contracts;
     using BalloonsPop.Common.Enums;
-    using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Factories.Contracts;
 
+    /// <summary>
+    /// Class that provides a method for creating a command.
+    /// </summary>
     internal class CommandFactory : ICommandFactory
     {
+        /// <summary>
+        /// Matching the type of the commands with the way they are created.
+        /// </summary>
         private readonly Dictionary<CommandType, ICommand> commands = new Dictionary<CommandType, ICommand>();
 
+        /// <summary>
+        /// Creates a command.
+        /// </summary>
+        /// <param name="input">The type of the command to be created.</param>
+        /// <returns>New command from the input type.</returns>
         public ICommand CreateCommand(CommandType input)
         {
             if (this.commands.ContainsKey(input))

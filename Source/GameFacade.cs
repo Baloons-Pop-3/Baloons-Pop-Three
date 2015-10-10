@@ -1,8 +1,12 @@
-﻿namespace BalloonsPop
+﻿//-----------------------------------------------------------------------
+// <copyright file="GameFacade.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the GameFacade class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop
 {
     using BalloonsPop.Common.Constants;
-    using BalloonsPop.Contexts;
-    using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Controllers;
     using BalloonsPop.Controllers.Contracts;
     using BalloonsPop.Data;
@@ -10,28 +14,77 @@
     using BalloonsPop.Data.Repositories;
     using BalloonsPop.Engine;
     using BalloonsPop.Engine.Contracts;
+    using BalloonsPop.LogicProviders;
+    using BalloonsPop.LogicProviders.Contracts;
     using BalloonsPop.Models;
     using BalloonsPop.Printer;
-    using Printer.Contracts;
+    using BalloonsPop.Printer.Contracts;
     using BalloonsPop.Reader;
     using BalloonsPop.Reader.Contracts;
-    using LogicProviders.Contracts;
 
+    /// <summary>
+    /// Class that hides the complex logic for creating a game.
+    /// </summary>
     internal class GameFacade
     {
-        private IGenericRepository<Player> players = new TxtFileRepository<Player>(GlobalConstants.TopScorePath);
-        private IGenericRepository<Game> games = new TxtFileRepository<Game>(GlobalConstants.GamesPath);
+        /// <summary>
+        /// The players in the text file repository.
+        /// </summary>
+        private readonly IGenericRepository<Player> players = new TxtFileRepository<Player>(GlobalConstants.TopScorePath);
 
-        private GameField field = new GameField(GlobalConstants.DefaultLevelRows, GlobalConstants.DefaultLevelCols);
+        /// <summary>
+        /// The games in the text file repository.
+        /// </summary>
+        private readonly IGenericRepository<Game> games = new TxtFileRepository<Game>(GlobalConstants.GamesPath);
+
+        /// <summary>
+        /// The field of the game.
+        /// </summary>
+        private readonly GameField field = new GameField(GlobalConstants.DefaultLevelRows, GlobalConstants.DefaultLevelCols);
+
+        /// <summary>
+        /// Instance of a console reader.
+        /// </summary>
+        private readonly IReader reader = ConsoleReader.Instance;
+
+        /// <summary>
+        /// Instance of a console printer.
+        /// </summary>
+        private readonly IGamePrinter printer = ConsoleGamePrinter.Instance;
+
+        /// <summary>
+        /// The game that will be started.
+        /// </summary>
         private Game balloonsGame;
-        private IReader reader = ConsoleReader.Instance;
-        private IGamePrinter printer = ConsoleGamePrinter.Instance;
+
+        /// <summary>
+        /// The controller for the top scores.
+        /// </summary>
         private ITopScoreController topScoreController;
+
+        /// <summary>
+        /// The controller for the game.
+        /// </summary>
         private IGamesController gamesController;
+
+        /// <summary>
+        /// The logic for the game.
+        /// </summary>
         private IGameLogicProvider gameLogic;
+
+        /// <summary>
+        /// The database for the game.
+        /// </summary>
         private IBalloonsData data;
+
+        /// <summary>
+        /// The engine for the game.
+        /// </summary>
         private IGameEngine engine;
 
+        /// <summary>
+        /// Starts a new console game.
+        /// </summary>
         public void Start()
         {
             this.balloonsGame = new Game(this.field);

@@ -1,14 +1,32 @@
-﻿namespace BalloonsPop.Models
+﻿//-----------------------------------------------------------------------
+// <copyright file="GameField.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the GameField class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Models
 {
     using System;
     using BalloonsPop.Common.Constants;
     using BalloonsPop.Common.Enums;
     using BalloonsPop.Models.Contracts;
 
+    /// <summary>
+    /// Class that creates a game field and provides methods for getting, updating and cloning the game field and
+    /// filling it with balloons.
+    /// </summary>
     public class GameField : IPrototype<GameField>
     {
+        /// <summary>
+        /// The field of the game.
+        /// </summary>
         private char[,] field;
 
+        /// <summary>
+        ///  Initializes a new instance of the <see cref="GameField"/> class.
+        /// </summary>
+        /// <param name="fieldRows">The rows of the game field.</param>
+        /// <param name="fieldCols">The columns of the game field.</param>
         public GameField(int fieldRows, int fieldCols)
         {
             this.FieldRows = fieldRows;
@@ -18,11 +36,24 @@
             this.FillWithBalloons();
         }
 
-        // TODO: validations for negative values
+        /// <summary>
+        /// Gets the rows of the field.
+        /// </summary>
+        /// <value>The rows of the field.</value>
         public int FieldRows { get; private set; }
 
+        /// <summary>
+        /// Gets the columns of the field.
+        /// </summary>
+        /// <value>The columns of the field.</value>
         public int FieldCols { get; private set; }
 
+        /// <summary>
+        /// Indexer for access to the game field.
+        /// </summary>
+        /// <param name="row">The rows of the field.</param>
+        /// <param name="col">The columns of the field.</param>
+        /// <returns>Particular value from the game field instance.</returns>
         public char this[int row, int col]
         {
             get
@@ -50,16 +81,28 @@
             }
         }
 
+        /// <summary>
+        /// Gets the field of the game.
+        /// </summary>
+        /// <returns>The game field.</returns>
         public char[,] GetField()
         {
             return this.field;
         }
 
+        /// <summary>
+        /// Updates the field of the game.
+        /// </summary>
+        /// <param name="currentPosition">The current coordinates on the abscissa and ordinate.</param>
+        /// <param name="baloonValue">The symbol of the balloon.</param>
         public void UpdateField(ICoordinates currentPosition, char baloonValue)
         {
             this.field[currentPosition.X, currentPosition.Y] = baloonValue;
         }
 
+        /// <summary>
+        /// Fills the game field with balloons.
+        /// </summary>
         public void FillWithBalloons()
         {
             Random random = new Random();
@@ -84,6 +127,10 @@
             }
         }
 
+        /// <summary>
+        /// Clones the game field.
+        /// </summary>
+        /// <returns>The cloned game field.</returns>
         public GameField Clone()
         {
             var clone = new GameField(this.FieldRows, this.FieldCols);

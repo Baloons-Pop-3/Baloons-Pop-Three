@@ -70,7 +70,6 @@
 
                 default:
                     {
-                        this.commands[CommandType.Restore] = null;
                         break;
                     }
             }

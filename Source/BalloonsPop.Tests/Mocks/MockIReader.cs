@@ -1,4 +1,5 @@
 ﻿using BalloonsPop.Reader;
+using BalloonsPop.Reader.Contracts;
 using Moq;
 using System;
 using System.Collections.Generic;

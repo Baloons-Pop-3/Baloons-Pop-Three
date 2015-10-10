@@ -6,16 +6,9 @@
 
     internal class ExitCommand : ICommand
     {
-        public ExitCommand(IContext context)
+        public void Execute(IContext context)
         {
-            this.Context = context;
-        }
-
-        public IContext Context { get; private set; }
-
-        public void Execute()
-        {
-            this.Context.Printer.PrintMessage(GlobalMessages.ExitCommandMessageMsg);
+            context.Printer.PrintMessage(GlobalMessages.ExitCommandMessageMsg);
         }
     }
 }

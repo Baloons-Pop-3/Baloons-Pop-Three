@@ -17,6 +17,7 @@
     using Models.Contracts;
     using Printer;
     using Reader.Contracts;
+    using Printer.Contracts;
 
     internal class GameEngine : IGameEngine
     {
@@ -30,7 +31,7 @@
             this.GamesController = gamesController;
 
             this.Context = new Context(this.DataBase, this.GameLogic, this.Printer, this.Reader, this.TopScoreController, this.GamesController);
-            this.Factory = new CommandFactory(this.Context);
+            this.Factory = new CommandFactory();
             this.CommandValidator = new CommandValidator<CommandType>();
         }
 
@@ -67,7 +68,7 @@
             }
 
             ICommand command = this.Factory.CreateCommand(CommandType.Finish);
-            command.Execute();
+            command.Execute(this.Context);
         }
 
         private void SaveLastStateOfGame()
@@ -82,7 +83,7 @@
             if (this.CommandValidator.IsValidCommand(input))
             {
                 ICommand command = this.Factory.CreateCommand(this.CommandValidator.GetType(input));
-                command.Execute();
+                command.Execute(this.Context);
             }
             else if (coordinates.TryParse(input))
             {

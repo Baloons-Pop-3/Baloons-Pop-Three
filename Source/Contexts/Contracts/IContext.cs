@@ -4,10 +4,11 @@
     using BalloonsPop.Data.Contracts;
     using BalloonsPop.Mementos;
     using BalloonsPop.Printer;
+    using Printer.Contracts;
     using BalloonsPop.Reader.Contracts;
     using LogicProviders.Contracts;
 
-     internal interface IContext
+    internal interface IContext
     {
         IGameLogicProvider GameLogic { get; }
 

@@ -6,17 +6,10 @@
 
     internal class InvalidCommand : ICommand
     {
-        public InvalidCommand(IContext context)
+        public void Execute(IContext context)
         {
-            this.Context = context;
-        }
-
-        public IContext Context { get; private set; }
-
-        public void Execute()
-        {
-            this.Context.Printer.PrintGameBoard(this.Context.GameLogic.Game.Field);
-            this.Context.Printer.PrintMessage(GlobalMessages.InvalidCommandMsg);
+            context.Printer.PrintGameBoard(context.GameLogic.Game.Field);
+            context.Printer.PrintMessage(GlobalMessages.InvalidCommandMsg);
         }
     }
 }

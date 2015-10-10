@@ -16,6 +16,8 @@
     using Controllers.Contracts;
     using Data.Contracts;
     using Data;
+    using Reader.Contracts;
+    using Printer.Contracts;
 
     [TestClass]
     public class GameEngineTests

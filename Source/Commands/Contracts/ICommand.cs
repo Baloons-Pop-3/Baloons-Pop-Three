@@ -4,8 +4,6 @@
 
     internal interface ICommand
     {
-        IContext Context { get; }
-
-        void Execute();
+        void Execute(IContext Context);
     }
 }

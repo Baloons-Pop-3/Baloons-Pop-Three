@@ -6,8 +6,6 @@
 
     internal interface ICommandFactory
     {
-        IContext Context { get; }
-
         ICommand CreateCommand(CommandType input);
     }
 }

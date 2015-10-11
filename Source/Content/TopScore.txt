@@ -1,11 +1,5 @@
-{"Name": "Antoan", "Score": 0} 
-{"Name": "Antoan2",  "Score": 0}
 { "Name": "deyan2", "Score": 4} 
-{"Name":"Ponedelnik","Score":0}
-{"Name":"213213","Score":0}
-{"Name":"Pon","Score":0}
 {"Name":"top","Score":12}
-{"Name":"Antoan40o0o","Score":0}
 {"Name":"Antoooaan","Score":1}
 {"Name":"Vtornik","Score":2}
 {"Name":"Antoan","Score":3}
@@ -13,6 +7,6 @@
 {"Name":"Antoan","Score":2,"Id":null}
 {"Name":"Antoannnnnnn","Score":2,"Id":null}
 {"Name":"aaaaaaaaaaaaaaaaaa","Score":4,"Id":null}
-{"Name":"Antoan","Score":0,"Id":null}
 {"Name":"An","Score":1,"Id":null}
 {"Name":"Bau-Bau","Score":47,"Id":null}
+{"Name":"Test","Score":14,"Id":null}

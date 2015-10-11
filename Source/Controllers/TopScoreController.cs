@@ -56,7 +56,7 @@ namespace BalloonsPop.Controllers
                 throw new IndexOutOfRangeException(CountExceptionMsg);
             }
 
-            return this.Players.All().OrderByDescending(p => p.Score).Take(count);
+            return this.Players.All().OrderBy(p => p.Score).Take(count);
         }
     }
 }

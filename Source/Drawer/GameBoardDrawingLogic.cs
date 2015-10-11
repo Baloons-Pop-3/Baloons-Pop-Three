@@ -16,7 +16,7 @@ namespace BalloonsPop.Drawer
     internal class GameBoardDrawingLogic : IGameBoardDrawingLogic
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GameBoardDrawingLogic" /> class.	
+        /// Initializes a new instance of the <see cref="GameBoardDrawingLogic" /> class.
         /// Uses the game field rows and cols. 
         /// </summary>
         /// <param name="gameField">The field of the game.</param>

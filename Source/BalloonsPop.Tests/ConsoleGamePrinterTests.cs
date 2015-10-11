@@ -1,12 +1,13 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
-using BalloonsPop.Printer;
-using BalloonsPop.Models;
-using System.Collections.Generic;
-
-namespace BalloonsPop.Tests
+﻿namespace BalloonsPop.Tests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Models;
+    using Printer;
+
     [TestClass]
     public class ConsoleGamePrinterTests
     {

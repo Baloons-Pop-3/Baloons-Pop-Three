@@ -1,17 +1,17 @@
 ﻿namespace BalloonsPop.Tests.Mocks
 {
-    using Reader.Contracts;
     using Moq;
+    using Reader.Contracts;
 
     public class MockIReader
     {
-        public  Mock<IReader> MockReader;
-
         public MockIReader(string msgToReturn)
         {
             this.MockReader = new Mock<IReader>();
             this.MockReader.Setup(p => p.ReadInput()).Returns(msgToReturn);
         }
+
+        public Mock<IReader> MockReader { get; set; }
 
         public IReader GetSpecialReader(string msgToReturn)
         {

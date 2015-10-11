@@ -1,11 +1,12 @@
 ﻿namespace BalloonsPop.Tests
 {
     using System;
+
+    using Common.Constants;
+    using Common.Enums;
+    using Factories;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using BalloonsPop.Factories;
-    using BalloonsPop.Common.Enums;
-    using BalloonsPop.Models;
-    using BalloonsPop.Common.Constants;
+    using Models;
 
     [TestClass]
     public class GameFactoryTests

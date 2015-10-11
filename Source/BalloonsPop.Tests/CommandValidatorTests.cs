@@ -1,10 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BalloonsPop.Common.Validators;
-using BalloonsPop.Common.Enums;
-
-namespace BalloonsPop.Tests
+﻿namespace BalloonsPop.Tests
 {
+    using System;
+
+    using Common.Enums;
+    using Common.Validators;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class CommandValidatorTests
     {

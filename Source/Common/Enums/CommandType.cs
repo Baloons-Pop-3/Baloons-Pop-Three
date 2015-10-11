@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Common.Enums
+﻿//-----------------------------------------------------------------------
+// <copyright file="CommandType.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the CommandType class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Common.Enums
 {
     /// <summary>
     /// Stores all type of commands.

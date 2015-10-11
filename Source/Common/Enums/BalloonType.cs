@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Common.Enums
+﻿//-----------------------------------------------------------------------
+// <copyright file="BalloonType.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the BallonType class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Common.Enums
 {
     /// <summary>
     /// Stores all types of balloons.

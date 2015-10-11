@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Common.Constants
+﻿//-----------------------------------------------------------------------
+// <copyright file="GlobalMessages.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the GlobalMessages class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Common.Constants
 {
     /// <summary>
     /// Stores all constant massages

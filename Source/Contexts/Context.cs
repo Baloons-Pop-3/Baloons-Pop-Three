@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Contexts
+﻿//-----------------------------------------------------------------------
+// <copyright file="Context.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the Context class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Contexts
 {
     using BalloonsPop.Contexts.Contracts;
     using BalloonsPop.Controllers.Contracts;
@@ -9,6 +15,9 @@
     using BalloonsPop.Reader.Contracts;
     using LogicProviders.Contracts;
 
+    /// <summary>
+    /// Game commands and logic.
+    /// </summary>
     internal class Context : IContext
     {
         public Context(IBalloonsData data, IGameLogicProvider logic, IGamePrinter printer, IReader reader, ITopScoreController topScore, IGamesController gamesController)

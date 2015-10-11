@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Controllers
+﻿//-----------------------------------------------------------------------
+// <copyright file="TopScoreController.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the TopScoreController class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -9,11 +15,18 @@
     using Common.Constants;
     using Models.Contracts;
 
+    /// <summary>
+    /// Operates the top score for the corresponding player.
+    /// </summary>
     public class TopScoreController : ITopScoreController
     {
         private const string ComponentName = "player";
         private const string CountExceptionMsg = "count cannot be negative";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="players">Generic players.</param>
         public TopScoreController(IGenericRepository<Player> players)
         {
             this.Players = players;

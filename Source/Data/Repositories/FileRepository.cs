@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Data.Repositories
+﻿//-----------------------------------------------------------------------
+// <copyright file="FileRepository.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the FileRepository class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Data.Repositories
 {
     using System.Collections.Generic;
     using System.IO;
@@ -8,14 +14,19 @@
     using BalloonsPop.Models.Contracts;
 
     /// <summary>
-    /// This is a repository which save the data in a txt file(JSON format)
+    /// This is a repository which save the data in a txt file(JSON format).
     /// </summary>
-    /// <typeparam name="T">Type of the model object used to </typeparam>
+    /// <typeparam name="T">Type of the model object used to.</typeparam>
     internal class TxtFileRepository<T> : IGenericRepository<T> where T : class, IModel
     {
         private readonly string pathOfTxtFile;
         private readonly ISerializer serializer;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="{T}" /> class.
+        /// Serializes jason data using file.
+        /// </summary>
+        /// <param name="path">The path to the text file.</param>
         public TxtFileRepository(string path)
         {
             this.pathOfTxtFile = path;
@@ -23,9 +34,9 @@
         }
 
         /// <summary>
-        /// The objects are serialized internally and saved in the file in JSON format
+        /// The objects are serialized internally and saved in the file in JSON format.
         /// </summary>
-        /// <param name="entity">Type of object to save in the repository</param>
+        /// <param name="entity">Type of object to save in the repository.</param>
         public void Add(T entity)
         {
             var jsonEntity = this.serializer.Serialize<T>(entity);
@@ -37,9 +48,9 @@
         }
 
         /// <summary>
-        /// The objects are deserialized internally after fetching
+        /// The objects are deserialized internally after fetching.
         /// </summary>
-        /// <returns>Type of object to get from repository</returns>
+        /// <returns>Type of object to get from repository.</returns>
         public IEnumerable<T> All()
         {
             var fetchedCollection = new List<T>();
@@ -59,6 +70,11 @@
             return fetchedCollection;
         }
 
+        /// <summary>
+        /// Finds the desired object for the required purposes.
+        /// </summary>
+        /// <param name="id">Object's id.</param>
+        /// <returns>The found object.</returns>
         public T Find(object id)
         {
             using (StreamReader reader = new StreamReader(this.pathOfTxtFile))

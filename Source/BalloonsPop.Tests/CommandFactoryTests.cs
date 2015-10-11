@@ -2,16 +2,10 @@
 {
     using BalloonsPop.Commands;
     using BalloonsPop.Commands.Contracts;
-    using Commands;
     using Common.Enums;
     using Factories;
     using Factories.Contracts;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     [TestClass]
     public class CommandFactoryTests
@@ -26,9 +20,9 @@
         [TestMethod]
         public void CreateCommand_WithStart_ShouldCreateStartCommand()
         {
-            ICommand command=this.factory.CreateCommand(CommandType.Start);
+            ICommand command = this.factory.CreateCommand(CommandType.Start);
 
-            Assert.IsTrue(command.GetType()== typeof(StartCommand));
+            Assert.IsTrue(command.GetType() == typeof(StartCommand));
         }
 
         [TestMethod]

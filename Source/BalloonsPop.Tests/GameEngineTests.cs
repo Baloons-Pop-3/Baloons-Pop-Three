@@ -1,25 +1,19 @@
 ﻿namespace BalloonsPop.Tests
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using Controllers;
+
+    using Common.Constants;
+    using Controllers.Contracts;
+    using Data;
+    using Data.Contracts;
+    using Engine;
+    using LogicProviders;
+    using LogicProviders.Contracts;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using BalloonsPop.Engine;
     using Mocks;
     using Models;
-    using Moq;
-    using Printer;
-    using Reader;
-    using Engine.Contracts;
-    using LogicProviders.Contracts;
-    using Controllers.Contracts;
-    using Data.Contracts;
-    using Data;
-    using Reader.Contracts;
     using Printer.Contracts;
-    using LogicProviders;
-    using Common.Constants;
+    using Reader.Contracts;
 
     [TestClass]
     public class GameEngineTests
@@ -35,16 +29,14 @@
         private MockIGenericRepository<Player> playersRepo;
         private IBalloonsData db;
 
-
-
         public GameEngineTests()
         {
             this.field = new GameField(GlobalConstants.DefaultLevelRows, GlobalConstants.DefaultLevelCols);
             this.game = new Game(this.field);
             this.gameLogic = new GameLogicProvider(this.game);
-            this.mockPrinter = new MockIPrinter().mockPrinter.Object;
-            this.topScoreController = new MockITopScoreController().mockTopScoreController.Object;
-            this.gamesController = new MockIGamesController().mockGamesController.Object;
+            this.mockPrinter = new MockIPrinter().MockPrinter.Object;
+            this.topScoreController = new MockITopScoreController().MockTopScoreController.Object;
+            this.gamesController = new MockIGamesController().MockGamesController.Object;
             this.gamesRepo = new MockIGenericRepository<Game>(this.GenerateFakeCollectionOfGames());
             this.playersRepo = new MockIGenericRepository<Player>(this.GenerateFakeCollectionOfPlayers());
             this.db = new BalloonsData(this.playersRepo.MockedRepo.Object, this.gamesRepo.MockedRepo.Object);           
@@ -53,7 +45,7 @@
         [TestMethod]
         public void StartGame_WithExitInput_ShouldEndGame()
         {
-            this.mockReader = new MockIReader("exit").mockReader.Object;
+            this.mockReader = new MockIReader("exit").MockReader.Object;
             var engine = new GameEngine(this.gameLogic, this.mockPrinter, this.mockReader, this.db, this.topScoreController, this.gamesController);
 
             engine.StartGame();
@@ -62,7 +54,7 @@
         [TestMethod]
         public void StartGame_WithFinishInput_ShouldEndGame()
         {
-            this.mockReader = new MockIReader("finish").mockReader.Object;
+            this.mockReader = new MockIReader("finish").MockReader.Object;
             var engine = new GameEngine(this.gameLogic, this.mockPrinter, this.mockReader, this.db, this.topScoreController, this.gamesController);
 
             engine.StartGame();
@@ -90,13 +82,5 @@
 
             return games;
         }
-
-        //[TestMethod]
-        //public void Sa()
-        //{
-        //    this.engine.
-        //}
-
-
     }
 }

@@ -1,25 +1,22 @@
-﻿using BalloonsPop.Controllers.Contracts;
-using BalloonsPop.Models;
-using BalloonsPop.Models.Contracts;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BalloonsPop.Tests.Mocks
+﻿namespace BalloonsPop.Tests.Mocks
 {
+    using System.Collections.Generic;
+
+    using Controllers.Contracts;
+    using Models;
+    using Models.Contracts;
+    using Moq;
+
     public class MockITopScoreController
     {
-        public readonly Mock<ITopScoreController> mockTopScoreController;
+        public readonly Mock<ITopScoreController> MockTopScoreController;
 
         public MockITopScoreController()
         {
-            this.mockTopScoreController = new Mock<ITopScoreController>();
-            this.mockTopScoreController.Setup(x => x.All()).Returns(new List<IPlayer>());
-            this.mockTopScoreController.Setup(x => x.AddPlayer(It.IsAny<IPlayer>())).Verifiable();
-            this.mockTopScoreController.Setup(x => x.GetTop(It.IsAny<int>())).Returns(new List<Player>());
+            this.MockTopScoreController = new Mock<ITopScoreController>();
+            this.MockTopScoreController.Setup(x => x.All()).Returns(new List<IPlayer>());
+            this.MockTopScoreController.Setup(x => x.AddPlayer(It.IsAny<IPlayer>())).Verifiable();
+            this.MockTopScoreController.Setup(x => x.GetTop(It.IsAny<int>())).Returns(new List<Player>());
         }
     }
 }

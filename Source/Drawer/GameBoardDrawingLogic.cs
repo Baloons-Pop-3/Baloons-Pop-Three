@@ -6,9 +6,8 @@
 //-----------------------------------------------------------------------
 namespace BalloonsPop.Drawer
 {
-    using BalloonsPop.Drawer.Contracts;
-    using BalloonsPop.Models;
-    using Drawer;
+    using Contracts;
+    using Models;
 
     /// <summary>
     ///  Contains the logic, which is behind the game board's drawing . 

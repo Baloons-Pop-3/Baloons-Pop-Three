@@ -28,9 +28,18 @@ namespace BalloonsPop.Commands
 
             context.Printer.PrintMessage(GlobalMessages.FinishCommandGreetingMsg + context.GameLogic.Game.ShootCounter);
             context.Printer.PrintMessage(GlobalMessages.AddToTopscoreMsg);
-            player.Name = context.Reader.ReadInput();
+            var playerName = context.Reader.ReadInput();
 
-            context.TopScoreController.AddPlayer(player);
+            if (string.IsNullOrWhiteSpace(playerName))
+            {
+                context.Printer.PrintMessage(GlobalMessages.NullOrEmptyInput);
+            }
+            else
+            {
+                player.Name = playerName;
+                context.TopScoreController.AddPlayer(player);
+            }
+
             context.GameLogic.IsGameOver = true;
         }
     }

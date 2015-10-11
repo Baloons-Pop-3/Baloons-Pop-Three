@@ -23,7 +23,6 @@ namespace BalloonsPop.Commands
         /// <param name="context">It is used for different kinds of commands to communicate with the game engine.</param>
         public void Execute(IContext context)
         {
-            IGame game;
             var savedGames = context.GamesController.All();
 
             context.Printer.PrintMessage(GlobalMessages.AllGamesMsg);
@@ -36,15 +35,13 @@ namespace BalloonsPop.Commands
 
             var nameOfTheGame = context.Reader.ReadInput();
 
-            game = context.GamesController.SearchById(nameOfTheGame);
-
-            if (game == null)
+            if (context.GamesController.SearchById(nameOfTheGame) == null)
             {
                 context.Printer.PrintMessage(GlobalMessages.RestoreCommandInvalidGameMsg);
                 return;
             }
 
-            context.GameLogic.Game = game;
+            context.GameLogic.Game = context.GamesController.SearchById(nameOfTheGame);
             context.Printer.PrintGameBoard(context.GameLogic.Game.Field);
         }
     }

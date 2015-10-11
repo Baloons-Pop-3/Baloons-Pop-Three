@@ -18,11 +18,6 @@ namespace BalloonsPop.Models
     public class GameField : IPrototype<GameField>
     {
         /// <summary>
-        /// The field of the game.
-        /// </summary>
-        private char[,] field;
-
-        /// <summary>
         ///  Initializes a new instance of the <see cref="GameField"/> class.
         /// </summary>
         /// <param name="fieldRows">The rows of the game field.</param>
@@ -31,10 +26,15 @@ namespace BalloonsPop.Models
         {
             this.FieldRows = fieldRows;
             this.FieldCols = fieldCols;
-            this.field = new char[this.FieldRows, this.FieldCols];
+            this.Field = new char[this.FieldRows, this.FieldCols];
 
             this.FillWithBalloons();
         }
+
+        /// <summary>
+        /// The field of the game.
+        /// </summary>
+        public char[,] Field { get; set; }
 
         /// <summary>
         /// Gets the rows of the field.
@@ -64,7 +64,7 @@ namespace BalloonsPop.Models
                 }
                 else
                 {
-                    return this.field[row, col];
+                    return this.Field[row, col];
                 }
             }
 
@@ -76,7 +76,7 @@ namespace BalloonsPop.Models
                 }
                 else
                 {
-                    this.field[row, col] = value;
+                    this.Field[row, col] = value;
                 }
             }
         }
@@ -87,7 +87,7 @@ namespace BalloonsPop.Models
         /// <returns>The game field.</returns>
         public char[,] GetField()
         {
-            return this.field;
+            return this.Field;
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace BalloonsPop.Models
         /// <param name="baloonValue">The symbol of the balloon.</param>
         public void UpdateField(ICoordinates currentPosition, char baloonValue)
         {
-            this.field[currentPosition.X, currentPosition.Y] = baloonValue;
+            this.Field[currentPosition.X, currentPosition.Y] = baloonValue;
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace BalloonsPop.Models
             {
                 for (int j = 0; j < clone.FieldCols; j++)
                 {
-                    clone[i, j] = this.field[i, j];
+                    clone[i, j] = this.Field[i, j];
                 }
             }
 

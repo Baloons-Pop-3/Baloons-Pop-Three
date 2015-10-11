@@ -26,6 +26,7 @@ namespace BalloonsPop.Common.Constants
         internal const string StartCommandMsg = "How difficult do you want it: Your options are:\neasy\nmedium\nhard\ntorture";
         internal const string StartCommandInvalidDifficultyMsg = "Invalid difficulty chosen. Default one is generated.";
         internal const string RestoreCommandInvalidGameMsg = "Sorry, game with this name is not found.";
+        internal const string NullOrEmptyInput = "Sorry, you hadn't write anything. Press [enter] to continue...";
 
         internal const string InvalidCoordinatesExceptionMsg = "Invalid coordinates! Please try again";
         internal const string InvalidIndexOfFieldExceptionMsg = "There is no such index!";

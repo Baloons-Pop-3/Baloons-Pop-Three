@@ -26,6 +26,12 @@ namespace BalloonsPop.Commands
             context.Printer.PrintMessage(GlobalMessages.SaveGameMsg);
             var gameId = context.Reader.ReadInput();
 
+            if (string.IsNullOrWhiteSpace(gameId))
+            {
+                context.Printer.PrintMessage(GlobalMessages.NullOrEmptyInput);
+                return;
+            }
+
             IGame savedGame = context.GameLogic.Game.Clone();
             savedGame.Id = gameId;
 

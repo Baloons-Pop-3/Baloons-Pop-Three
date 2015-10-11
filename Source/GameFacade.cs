@@ -39,7 +39,7 @@ namespace BalloonsPop
         private IBalloonsData data;
         private IGameEngine engine;
 
-        public GameFacade()
+        internal GameFacade()
         {
             this.players = new TxtFileRepository<Player>(GlobalConstants.TopScorePath);
             this.games = new TxtFileRepository<Game>(GlobalConstants.GamesPath);
@@ -51,7 +51,7 @@ namespace BalloonsPop
         /// <summary>
         /// Starts a new console game.
         /// </summary>
-        public void Start()
+        internal void Start()
         {
             this.balloonsGame = new Game(this.field);
             this.gameLogic = new GameLogicProvider(this.balloonsGame);

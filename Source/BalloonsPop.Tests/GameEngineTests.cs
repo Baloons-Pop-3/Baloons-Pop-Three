@@ -60,6 +60,53 @@
             engine.StartGame();
         }
 
+        [TestMethod]
+        public void StartGame_WithSaveInput_ShouldSaveGame()
+        {
+            this.mockReader = new MockIReader("save").GetSpecialReader("save");
+            var engine = new GameEngine(this.gameLogic, this.mockPrinter, this.mockReader, this.db, this.topScoreController, this.gamesController);
+
+            engine.StartGame();
+
+            Assert.IsNotNull(engine.GamesController.SearchById("save"));
+        }
+
+        [TestMethod]
+        public void StartGame_WithValidCoordinates_ShouldPopBalloon()
+        {
+            this.mockReader = new MockIReader("3 8").GetSpecialReader("3 8");
+            var engine = new GameEngine(this.gameLogic, this.mockPrinter, this.mockReader, this.db, this.topScoreController, this.gamesController);
+            var balloonsBefore = engine.GameLogic.Game.RemainingBalloons;
+
+            engine.StartGame();
+
+            var balloonsAfter = engine.GameLogic.Game.RemainingBalloons;
+
+            Assert.AreNotEqual(balloonsBefore, balloonsAfter);
+        }
+
+        public void StartGame_WithInValidCoordinates_ShouldNotPopBalloon()
+        {
+            this.mockReader = new MockIReader("-1 8").GetSpecialReader("-1 8");
+            var engine = new GameEngine(this.gameLogic, this.mockPrinter, this.mockReader, this.db, this.topScoreController, this.gamesController);
+            var balloonsBefore = engine.GameLogic.Game.RemainingBalloons;
+
+            engine.StartGame();
+
+            var balloonsAfter = engine.GameLogic.Game.RemainingBalloons;
+
+            Assert.AreEqual(balloonsBefore, balloonsAfter);
+        }
+
+        [TestMethod]
+        public void StartGame_WithInInvalidCommand_ShouldNotThrow()
+        {
+            this.mockReader = new MockIReader("invalid").GetSpecialReader("invalid");
+            var engine = new GameEngine(this.gameLogic, this.mockPrinter, this.mockReader, this.db, this.topScoreController, this.gamesController);
+
+            engine.StartGame();
+        }
+
         private IEnumerable<Player> GenerateFakeCollectionOfPlayers()
         {
             var players = new List<Player>();

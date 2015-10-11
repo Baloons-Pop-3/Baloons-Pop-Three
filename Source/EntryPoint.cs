@@ -14,7 +14,7 @@ namespace BalloonsPop
         /// <summary>
         /// Starts the game.
         /// </summary>
-        private static void Main()
+        public static void Main()
         {         
             GameFacade game = new GameFacade();
 

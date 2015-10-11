@@ -11,16 +11,18 @@
     public class MockIGamesController
     {
         public readonly Mock<IGamesController> MockGamesController;
+        private readonly IList<IGame> fakeGameCollection;
 
         public MockIGamesController()
         {
-            this.MockGamesController = new Mock<IGamesController>();
-            this.MockGamesController.Setup(x => x.All()).Returns(this.GenerateFakeCollectionOfGames());
-            this.MockGamesController.Setup(x => x.AddGame(It.IsAny<IGame>())).Verifiable();
-            this.MockGamesController.Setup(x => x.SearchById(It.IsAny<string>())).Returns((string id) => this.GenerateFakeCollectionOfGames().FirstOrDefault(c => c.Id == id));
+            this.fakeGameCollection = this.GenerateFakeCollectionOfGames().ToList();
+            this.MockGamesController = new Mock<IGamesController>();    
+            this.MockGamesController.Setup(x => x.All()).Returns(this.fakeGameCollection);
+            this.MockGamesController.Setup(x => x.AddGame(It.IsAny<IGame>())).Callback<IGame>(x => this.fakeGameCollection.Add(x));
+            this.MockGamesController.Setup(x => x.SearchById(It.IsAny<string>())).Returns((string id) => this.fakeGameCollection.FirstOrDefault(c => c.Id == id));
         }
 
-        private IEnumerable<Game> GenerateFakeCollectionOfGames()
+        private IEnumerable<IGame> GenerateFakeCollectionOfGames()
         {
             var games = new List<Game>();
             var fakeGame = new Game(new GameField(5, 5));

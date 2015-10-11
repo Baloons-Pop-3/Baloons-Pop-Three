@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Common.Serializer.Contracts
+﻿//-----------------------------------------------------------------------
+// <copyright file="ISerializer.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the ISerializer interface.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Common.Serializer.Contracts
 {
     /// <summary>
     /// Serializer interface.

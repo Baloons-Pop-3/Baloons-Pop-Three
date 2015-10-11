@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Commands
+﻿//-----------------------------------------------------------------------
+// <copyright file="FinishCommand.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the FinishCommand class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Commands
 {
     using BalloonsPop.Commands.Contracts;
     using BalloonsPop.Common.Constants;
@@ -7,10 +13,14 @@
     using Models.Contracts;
 
     /// <summary>
-    /// This is class for testing purposes. Must be deattached from 'BalloonsPop.Common.Enums.CommandType.cs' in production
+    /// Class that provides the Execute method for the Finish/End game command.
     /// </summary>
     internal class FinishCommand : ICommand
     {
+        /// <summary>
+        ///  Executes the context command .
+        /// </summary>
+        /// <param name="context">It is used for different kinds of commands to communicate with the game engine.</param>
         public void Execute(IContext context)
         {
             IPlayer player = new Player();

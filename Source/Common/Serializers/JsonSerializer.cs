@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Common.Serializer
+﻿//-----------------------------------------------------------------------
+// <copyright file="JsonSerializer.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the JsonSerializer class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Common.Serializer
 {
     using BalloonsPop.Common.Serializer.Contracts;
     using Newtonsoft.Json;

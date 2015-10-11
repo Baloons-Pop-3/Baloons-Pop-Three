@@ -1,11 +1,25 @@
-﻿namespace BalloonsPop.Drawer
+﻿//-----------------------------------------------------------------------
+// <copyright file="GameBoardDrawingLogic.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the GameBoardDrawingLogic class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Drawer
 {
     using BalloonsPop.Drawer.Contracts;
     using BalloonsPop.Models;
     using Drawer;
 
+    /// <summary>
+    ///  Contains the logic, which is behind the game board's drawing . 
+    /// </summary>
     internal class GameBoardDrawingLogic : IGameBoardDrawingLogic
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameBoardDrawingLogic" /> class.	
+        /// Uses the game field rows and cols. 
+        /// </summary>
+        /// <param name="gameField">The field of the game.</param>
         public GameBoardDrawingLogic(GameField gameField)
         {
             this.Board = new string[(gameField.FieldRows + 3), (gameField.FieldCols + 4)];
@@ -14,7 +28,9 @@
             this.DrawGameBoard();
         }
 
-        // TODO: validations for negative values
+        /// <summary>
+        /// Gets the field , updates it and sets it, not allowing outside changes.
+        /// </summary>
         public string[,] Board { get; private set; }
 
         private char[,] Field { get; set; }

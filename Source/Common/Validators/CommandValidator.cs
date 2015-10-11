@@ -1,4 +1,10 @@
-﻿namespace BalloonsPop.Common.Validators
+﻿//-----------------------------------------------------------------------
+// <copyright file="CommandValidator.cs" company="Baloons-Pop-Three">
+//    Copyright Baloons-Pop-Three. All rights reserved
+// </copyright>
+// <summary>This is the CommandValidator class.</summary>
+//-----------------------------------------------------------------------
+namespace BalloonsPop.Common.Validators
 {
     using System;
     using System.Linq;
@@ -7,7 +13,7 @@
     /// <summary>
     /// Class for all command validations.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Type to validate.</typeparam>
     internal class CommandValidator<T>
     {
         /// <summary>

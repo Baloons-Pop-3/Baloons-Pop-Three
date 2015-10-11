@@ -64,8 +64,11 @@
     <Compile Include="Commands.Tests\StartCommandTests.cs" />
     <Compile Include="Commands.Tests\TopScoreCommandTests.cs" />
     <Compile Include="Commands.Tests\UndoCommandTests.cs" />
+    <Compile Include="CommandValidatorTests.cs" />
+    <Compile Include="ConsoleGamePrinterTests.cs" />
     <Compile Include="CoordinatesTests.cs" />
     <Compile Include="GameEngineTests.cs" />
+    <Compile Include="GameFactoryTests.cs" />
     <Compile Include="GamesControllerTests.cs" />
     <Compile Include="GameTests.cs" />
     <Compile Include="JsonSerializerTests.cs" />

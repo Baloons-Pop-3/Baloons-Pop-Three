@@ -111,5 +111,21 @@
             Assert.AreEqual(2, field.GetField().GetLength(0));
             Assert.AreEqual(3, field.GetField().GetLength(1));
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void GetField_ShouldThrowExceptionWhenRequeatedCoordinatesAreIncorrect()
+        {
+            var field = new GameField(2, 3);
+            var result = field[10, 10];
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void GetField_ShouldThrowExceptionWhenSettedCoordinatesAreIncorrect()
+        {
+            var field = new GameField(2, 3);
+            field[10, 10] = '?';
+        }
     }
 }

@@ -32,10 +32,8 @@ namespace BalloonsPop.Factories
                     return new Game(new GameField(GlobalConstants.MediumLevelRows, GlobalConstants.MediumLevelCols));
                 case GameDifficulty.Hard:
                     return new Game(new GameField(GlobalConstants.HardLevelRows, GlobalConstants.HardLevelCols));
-                case GameDifficulty.Torture:
-                    return new Game(new GameField(GlobalConstants.TortureLevelRows, GlobalConstants.TortureLevelCols));
                 default:
-                    return null;
+                    return new Game(new GameField(GlobalConstants.TortureLevelRows, GlobalConstants.TortureLevelCols));
             }
         }
     }

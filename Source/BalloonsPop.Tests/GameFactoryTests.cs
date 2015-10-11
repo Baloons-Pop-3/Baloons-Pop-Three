@@ -10,12 +10,12 @@
     [TestClass]
     public class GameFactoryTests
     {
+        private readonly GameFactory gameFactory = new GameFactory();
         [TestMethod]
         public void CreateGame_ShouldReturnCorrectResultWhenDifficultyIsEasy()
         {
-            var gameFactory = new GameFactory();
             var expectedResult = new Game(new GameField(GlobalConstants.EasyLevelRows, GlobalConstants.EasyLevelCols));
-            var result = gameFactory.CreateGame(GameDifficulty.Easy);
+            var result = this.gameFactory.CreateGame(GameDifficulty.Easy);
 
             Assert.AreEqual(expectedResult.Field.FieldRows, result.Field.FieldRows);
             Assert.AreEqual(expectedResult.Field.FieldCols, result.Field.FieldCols);
@@ -26,9 +26,8 @@
         [TestMethod]
         public void CreateGame_ShouldReturnCorrectResultWhenDifficultyIsMedium()
         {
-            var gameFactory = new GameFactory();
             var expectedResult = new Game(new GameField(GlobalConstants.MediumLevelRows, GlobalConstants.MediumLevelCols));
-            var result = gameFactory.CreateGame(GameDifficulty.Medium);
+            var result = this.gameFactory.CreateGame(GameDifficulty.Medium);
 
             Assert.AreEqual(expectedResult.Field.FieldRows, result.Field.FieldRows);
             Assert.AreEqual(expectedResult.Field.FieldCols, result.Field.FieldCols);
@@ -39,9 +38,8 @@
         [TestMethod]
         public void CreateGame_ShouldReturnCorrectResultWhenDifficultyIsHard()
         {
-            var gameFactory = new GameFactory();
             var expectedResult = new Game(new GameField(GlobalConstants.HardLevelRows, GlobalConstants.HardLevelCols));
-            var result = gameFactory.CreateGame(GameDifficulty.Hard);
+            var result = this.gameFactory.CreateGame(GameDifficulty.Hard);
 
             Assert.AreEqual(expectedResult.Field.FieldRows, result.Field.FieldRows);
             Assert.AreEqual(expectedResult.Field.FieldCols, result.Field.FieldCols);
@@ -52,9 +50,8 @@
         [TestMethod]
         public void CreateGame_ShouldReturnCorrectResultWhenDifficultyIsTorture()
         {
-            var gameFactory = new GameFactory();
             var expectedResult = new Game(new GameField(GlobalConstants.TortureLevelRows, GlobalConstants.TortureLevelCols));
-            var result = gameFactory.CreateGame(GameDifficulty.Torture);
+            var result = this.gameFactory.CreateGame(GameDifficulty.Torture);
 
             Assert.AreEqual(expectedResult.Field.FieldRows, result.Field.FieldRows);
             Assert.AreEqual(expectedResult.Field.FieldCols, result.Field.FieldCols);

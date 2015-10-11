@@ -83,11 +83,6 @@ namespace BalloonsPop.Factories
                         this.commands[CommandType.Restore] = new RestoreCommand();
                         break;
                     }
-
-                default:
-                    {
-                        break;
-                    }
             }
 
             return this.commands[input];
